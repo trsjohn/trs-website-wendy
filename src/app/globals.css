@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* Map Tailwind's sans to our body font */
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-geist-mono);
+  /* Brand + grayscale */
+  --color-brand: #E02424;
+  --color-ink-50: #fafafa;
+  --color-ink-100: #f4f4f5;
+  --color-ink-200: #e4e4e7;
+  --color-ink-300: #d4d4d8;
+  --color-ink-400: #a1a1aa;
+  --color-ink-500: #71717a;
+  --color-ink-600: #52525b;
+  --color-ink-700: #3f3f46;
+  --color-ink-800: #27272a;
+  --color-ink-900: #18181b;
+
+  /* Typography scale */
+  --font-size-hero: clamp(2rem, 4vw, 3.25rem);
+  --line-height-hero: 1.1;
+  --font-size-subhero: clamp(1.125rem, 1.5vw, 1.375rem);
+  --line-height-subhero: 1.5;
+
+  /* Spacing rhythm */
+  --spacing-section-y: 6rem;
+  --spacing-section-y-sm: 3.5rem;
+
+  /* Effects */
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  /* Default body text on light backgrounds: ink-700 for AA contrast */
+  color: var(--color-ink-700);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    /* In dark mode, keep high-contrast foreground */
+    color: var(--foreground);
+  }
+}
+
+/* Use Sora for all headings, Plus Jakarta Sans for body by default */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), ui-sans-serif, system-ui, -apple-system, Segoe UI,
+    Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Smooth scroll for in-page anchors */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Auto-scrolling marquee animation */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Utility class: expects content duplicated twice to loop seamlessly */
+.animate-marquee {
+  width: max-content;
+  animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
+}
+
+/* Token-based utilities (Phase 1) */
+.text-hero {
+  font-size: var(--font-size-hero);
+  line-height: var(--line-height-hero);
+}
+
+.text-subhero {
+  font-size: var(--font-size-subhero);
+  line-height: var(--line-height-subhero);
+}
+
+.py-section-y {
+  padding-top: var(--spacing-section-y);
+  padding-bottom: var(--spacing-section-y);
+}
+
+.py-section-y-sm {
+  padding-top: var(--spacing-section-y-sm);
+  padding-bottom: var(--spacing-section-y-sm);
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+.text-brand { color: var(--color-brand); }
+.bg-brand { background-color: var(--color-brand); }
+.border-brand { border-color: var(--color-brand); }
