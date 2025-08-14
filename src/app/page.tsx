@@ -95,21 +95,21 @@ export default function HomePage() {
             
             <div className="mt-5 text-neutral-100 max-w-2xl md:max-w-xl mx-auto md:mx-0 space-y-1">
               <StaggeredReveal delay={500}>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 justify-center md:justify-start">
                   <Check className="h-4 w-4 text-red-500" aria-hidden />
                   <span>50,000+ Network</span>
                 </div>
               </StaggeredReveal>
               
               <StaggeredReveal delay={600}>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 justify-center md:justify-start">
                   <Check className="h-4 w-4 text-red-500" aria-hidden />
                   <span>30+ Years Experience</span>
                 </div>
               </StaggeredReveal>
               
               <StaggeredReveal delay={700}>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 justify-center md:justify-start">
                   <Check className="h-4 w-4 text-red-500" aria-hidden />
                   <span>AI + Human Recruiting System</span>
                 </div>
