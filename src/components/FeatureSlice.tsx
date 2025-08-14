@@ -13,7 +13,7 @@ type Props = {
   title: string;
   description: string;
   bullets?: string[];
-  image: { src: string; alt: string; width?: number; height?: number };
+  image: { src: string; alt: string; width?: number; height?: number; background?: boolean };
   ctas?: Cta[];
   className?: string;
 };
@@ -36,7 +36,7 @@ export default function FeatureSlice({
 
   const ImageEl = (
     <Reveal>
-      <div className="w-full">
+      <div className={`w-full ${image.background ? 'bg-white rounded-2xl p-6 shadow-lg' : ''}`}>
         <Image
           src={image.src}
           alt={image.alt}

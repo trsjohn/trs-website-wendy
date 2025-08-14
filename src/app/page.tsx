@@ -266,7 +266,7 @@ export default function HomePage() {
           title="Briefs that make decisions faster"
           description="Every candidate arrives with a structured brief—scores, transcripts, and context—so you spend time only where it matters."
           bullets={["10-point rubric tailored to your role", "Outcome-driven learning each week"]}
-          image={{ src: "/recruitment-flowchart.png", alt: "Recruitment Process Flowchart", width: 1024, height: 1024 }}
+          image={{ src: "/recruitment-flowchart.png", alt: "Recruitment Process Flowchart", width: 1024, height: 1024, background: true }}
           ctas={[{ href: "/services", label: "See how it works" }, { href: "/contact", label: "Talk to sales", variant: "ghost" }]}
         />
         <FeatureSlice
