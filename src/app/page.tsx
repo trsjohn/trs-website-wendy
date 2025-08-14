@@ -301,7 +301,7 @@ export default function HomePage() {
         <h2 className="text-xl font-semibold mb-4">Trusted by:</h2>
         <LogoMarquee
           className="rounded-2xl p-2"
-          durationSeconds={35}
+          durationSeconds={25}
           logos={[
             { src: "/clients/1749691145498.jpg", alt: "Client Logo" },
             { src: "/clients/American_Express_logo_(2018).svg", alt: "American Express" },

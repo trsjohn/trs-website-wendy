@@ -82,11 +82,11 @@ html:focus-within {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-33.33%);
   }
 }
 
-/* Utility class: expects content duplicated twice to loop seamlessly */
+/* Utility class: expects content tripled for seamless looping */
 .animate-marquee {
   width: max-content;
   animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
