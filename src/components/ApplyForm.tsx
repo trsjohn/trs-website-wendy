@@ -59,7 +59,7 @@ export default function ApplyForm() {
       await submitApplication({
         role_id: role.id,
         role_title: role.title,
-        client_name: role.client,
+        client_name: "",
         name: values.name,
         email: values.email,
         linkedin: values.linkedin || undefined,

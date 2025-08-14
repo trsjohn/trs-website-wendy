@@ -10,7 +10,7 @@ export default function RolesPage() {
   useEffect(() => { getRoles().then(setRoles).catch(() => setRoles([])); }, []);
 
   const filtered = roles.filter(r => {
-    const s = (r.title + " " + (r.location || "")).toLowerCase();
+    const s = (r.title + " ").toLowerCase();
     return s.includes(q.toLowerCase());
   });
 
@@ -33,8 +33,7 @@ export default function RolesPage() {
         {filtered.map(r => (
           <div key={r.id} className="rounded-2xl border border-neutral-800 p-5">
             <h3 className="font-semibold mb-1">{r.title.split("—")[0].split(" - ")[0].trim()}</h3>
-            {r.location && <p className="text-sm text-neutral-300 mb-2">📍 {r.location}</p>}
-            {r.comp && <p className="text-sm text-neutral-300 mb-3">💰 {r.comp}</p>}
+            {/* location/comp removed from Role type; omit display */}
             <Link href={`/apply?role=${r.id}`} className="rounded bg-white/10 px-3 py-2 hover:bg-white/20 inline-block">
               View & Apply
             </Link>
