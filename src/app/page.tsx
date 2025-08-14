@@ -269,16 +269,6 @@ export default function HomePage() {
           image={{ src: "/recruitment-flowchart.png", alt: "Recruitment Process Flowchart", width: 1024, height: 1024, background: true }}
           ctas={[{ href: "/services", label: "See how it works" }, { href: "/contact", label: "Talk to sales", variant: "ghost" }]}
         />
-        <FeatureSlice
-          variant="dark"
-          imagePosition="left"
-          eyebrow="Speed"
-          title="From intake to offer—without the drag"
-          description="We run a tight weekly cadence: sourcing, screening, and delivery—so pipelines move and hires land."
-          bullets={["Hands-on preferences guide the search", "Decision-ready candidates only"]}
-          image={{ src: "/file.svg", alt: "Pipeline view" }}
-          ctas={[{ href: "/roles", label: "View roles" }, { href: "/apply", label: "Apply", variant: "ghost" }]}
-        />
       </section>
 
       {/* Speed / Value */}
