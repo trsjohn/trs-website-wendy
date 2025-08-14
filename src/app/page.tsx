@@ -3,7 +3,6 @@ import Image from "next/image";
 import Script from "next/script";
 import StaggeredReveal from "@/components/StaggeredReveal";
 import LogoMarquee from "@/components/LogoMarquee";
-import LogoStrip from "@/components/LogoStrip";
 
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
@@ -300,38 +299,21 @@ export default function HomePage() {
       {/* Logos */}
       <section aria-label="Trusted by" className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm scroll-mt-24">
         <h2 className="text-xl font-semibold mb-4">Trusted by:</h2>
-        <div className="hidden sm:block">
-          <LogoMarquee
-            className="rounded-2xl p-2"
-            durationSeconds={35}
-            logos={[
-              { src: "/clients/1749691145498.jpg", alt: "Client Logo" },
-              { src: "/clients/American_Express_logo_(2018).svg", alt: "American Express" },
-              { src: "/clients/buzzsolutionsinc_logo.jpg", alt: "Buzz Solutions" },
-              { src: "/clients/channels4_profile.jpg", alt: "Channels 4" },
-              { src: "/clients/consilium_labs_logo.jpg", alt: "Consilium Labs" },
-              { src: "/clients/download.jpg", alt: "Client Logo" },
-              { src: "/clients/grsee_consulting_logo.jpg", alt: "GRSee Consulting" },
-              { src: "/clients/insight_assurance_logo.jpg", alt: "Insight Assurance" },
-              { src: "/clients/LbclC98S_400x400.jpg", alt: "Client Logo" },
-            ]}
-          />
-        </div>
-        <div className="sm:hidden">
-          <LogoStrip
-            logos={[
-              { src: "/clients/1749691145498.jpg", alt: "Client Logo" },
-              { src: "/clients/American_Express_logo_(2018).svg", alt: "American Express" },
-              { src: "/clients/buzzsolutionsinc_logo.jpg", alt: "Buzz Solutions" },
-              { src: "/clients/channels4_profile.jpg", alt: "Channels 4" },
-              { src: "/clients/consilium_labs_logo.jpg", alt: "Consilium Labs" },
-              { src: "/clients/download.jpg", alt: "Client Logo" },
-              { src: "/clients/grsee_consulting_logo.jpg", alt: "GRSee Consulting" },
-              { src: "/clients/insight_assurance_logo.jpg", alt: "Insight Assurance" },
-              { src: "/clients/LbclC98S_400x400.jpg", alt: "Client Logo" },
-            ]}
-          />
-        </div>
+        <LogoMarquee
+          className="rounded-2xl p-2"
+          durationSeconds={35}
+          logos={[
+            { src: "/clients/1749691145498.jpg", alt: "Client Logo" },
+            { src: "/clients/American_Express_logo_(2018).svg", alt: "American Express" },
+            { src: "/clients/buzzsolutionsinc_logo.jpg", alt: "Buzz Solutions" },
+            { src: "/clients/channels4_profile.jpg", alt: "Channels 4" },
+            { src: "/clients/consilium_labs_logo.jpg", alt: "Consilium Labs" },
+            { src: "/clients/download.jpg", alt: "Client Logo" },
+            { src: "/clients/grsee_consulting_logo.jpg", alt: "GRSee Consulting" },
+            { src: "/clients/insight_assurance_logo.jpg", alt: "Insight Assurance" },
+            { src: "/clients/LbclC98S_400x400.jpg", alt: "Client Logo" },
+          ]}
+        />
       </section>
 
       {/* Values & Focus */}
