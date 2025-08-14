@@ -132,9 +132,9 @@ export default function HomePage() {
               </div>
             </StaggeredReveal>
 
-            {/* Logos - Mobile only */}
-            <div className="sm:hidden mt-12">
-              <StaggeredReveal delay={1000}>
+            {/* Mobile-only Logo Slider */}
+            <StaggeredReveal delay={950}>
+              <div className="mt-12 sm:hidden">
                 <h3 className="text-lg font-semibold text-white mb-4 text-center">Trusted by:</h3>
                 <LogoMarquee
                   className="rounded-2xl p-2"
@@ -151,8 +151,8 @@ export default function HomePage() {
                     { src: "/clients/LbclC98S_400x400.jpg", alt: "Client Logo" },
                   ]}
                 />
-              </StaggeredReveal>
-            </div>
+              </div>
+            </StaggeredReveal>
 
             {/* TRS Workflow */}
             <StaggeredReveal delay={1100}>
@@ -318,8 +318,8 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* Logos - Desktop only */}
-      <section aria-label="Trusted by" className="hidden sm:block max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm scroll-mt-24">
+      {/* Logos */}
+      <section aria-label="Trusted by" className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm scroll-mt-24">
         <h2 className="text-xl font-semibold mb-4">Trusted by:</h2>
         <LogoMarquee
           className="rounded-2xl p-2"
