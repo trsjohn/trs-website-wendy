@@ -132,25 +132,31 @@ export default function HomePage() {
               </div>
             </StaggeredReveal>
 
-            {/* Mobile-only Logo Slider */}
+            {/* Mobile-only Logo Display */}
             <StaggeredReveal delay={950}>
               <div className="mt-12 sm:hidden">
                 <h3 className="text-lg font-semibold text-white mb-4 text-center">Trusted by:</h3>
-                <LogoMarquee
-                  className="rounded-2xl p-2"
-                  durationSeconds={25}
-                  logos={[
-                    { src: "/clients/1749691145498.jpg", alt: "Client Logo" },
-                    { src: "/clients/American_Express_logo_(2018).svg", alt: "American Express" },
-                    { src: "/clients/buzzsolutionsinc_logo.jpg", alt: "Buzz Solutions" },
-                    { src: "/clients/channels4_profile.jpg", alt: "Channels 4" },
-                    { src: "/clients/consilium_labs_logo.jpg", alt: "Consilium Labs" },
-                    { src: "/clients/download.jpg", alt: "Client Logo" },
-                    { src: "/clients/grsee_consulting_logo.jpg", alt: "GRSee Consulting" },
-                    { src: "/clients/insight_assurance_logo.jpg", alt: "Insight Assurance" },
-                    { src: "/clients/LbclC98S_400x400.jpg", alt: "Client Logo" },
-                  ]}
-                />
+                <div className="overflow-hidden rounded-2xl p-2">
+                  <div className="flex flex-wrap items-center justify-center gap-4">
+                    {[
+                      { src: "/clients/American_Express_logo_(2018).svg", alt: "American Express" },
+                      { src: "/clients/buzzsolutionsinc_logo.jpg", alt: "Buzz Solutions" },
+                      { src: "/clients/consilium_labs_logo.jpg", alt: "Consilium Labs" },
+                      { src: "/clients/grsee_consulting_logo.jpg", alt: "GRSee Consulting" },
+                    ].map((logo) => (
+                      <div key={logo.src} className="flex-none">
+                        <Image
+                          src={logo.src}
+                          alt={logo.alt}
+                          width={120}
+                          height={48}
+                          className="h-8 w-auto object-contain grayscale opacity-70"
+                          aria-hidden
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </StaggeredReveal>
 
