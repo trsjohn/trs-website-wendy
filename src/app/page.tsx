@@ -75,7 +75,7 @@ export default function HomePage() {
     },
   ];
   return (
-    <div className="space-y-24">
+    <div className="space-y-12 sm:space-y-16 lg:space-y-24">
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
         <div className="grid md:grid-cols-2 items-start gap-10">

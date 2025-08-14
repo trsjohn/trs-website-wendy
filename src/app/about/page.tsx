@@ -27,7 +27,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-8 sm:space-y-12 lg:space-y-16">
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm space-y-3">
         <h1 className="text-3xl font-bold text-center">About TRS</h1>
         <p className="text-neutral-300 text-center">

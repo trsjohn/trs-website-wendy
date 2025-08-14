@@ -31,8 +31,8 @@
   --line-height-subhero: 1.5;
 
   /* Spacing rhythm */
-  --spacing-section-y: 6rem;
-  --spacing-section-y-sm: 3.5rem;
+  --spacing-section-y: 4rem;
+  --spacing-section-y-sm: 2.5rem;
 
   /* Effects */
   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
