@@ -30,11 +30,11 @@ export default function AboutPage() {
     <div className="space-y-8 sm:space-y-12 lg:space-y-16">
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm space-y-3">
         <h1 className="text-3xl font-bold text-center">About TRS</h1>
-        <p className="text-neutral-300 text-center">
+        <p className="text-neutral-300 text-center mx-4 sm:mx-12 lg:mx-36">
           We help startups hire with speed and clarity. TRS blends structured recruiting
           with modern automation and AI, while keeping people at the center.
         </p>
-        <p className="text-neutral-300 text-center">
+        <p className="text-neutral-300 text-center mx-4 sm:mx-12 lg:mx-36">
           In an era where AI-generated resumes are flooding the market, having a human in the loop has never been more important. You need an expert — someone who knows recruiting inside out, leverages modern technology, and has built a system to optimize every step of the process.
         </p>
       </section>
