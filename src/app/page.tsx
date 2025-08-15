@@ -123,11 +123,8 @@ export default function HomePage() {
             
             <StaggeredReveal delay={900}>
               <div className="mt-8 flex flex-col sm:flex-row md:justify-start justify-center gap-3">
-                <Link href="/roles" aria-label="Find Your Next Role">
-                  <Button className="px-6 h-11">Find Your Next Role</Button>
-                </Link>
                 <Link href="/services" aria-label="Hire the Right Talent">
-                  <Button variant="ghost" className="px-6 h-11">Hire the Right Talent</Button>
+                  <Button className="px-6 h-11">Hire the Right Talent</Button>
                 </Link>
               </div>
             </StaggeredReveal>
