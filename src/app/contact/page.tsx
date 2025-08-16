@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 const ContactSchema = z.object({
   name: z.string().min(2, "Please enter your full name"),
   email: z.string().email("Enter a valid email"),
+  type: z.string().min(1, "Please select a type"),
   message: z.string().min(10, "Tell us a bit more (10+ chars)"),
 });
 
@@ -25,7 +26,7 @@ export default function ContactPage() {
 
   const onSubmit = async (values: ContactValues) => {
     const subject = encodeURIComponent("Website Contact");
-    const body = encodeURIComponent(`Name: ${values.name}\nEmail: ${values.email}\n\n${values.message}`);
+    const body = encodeURIComponent(`Name: ${values.name}\nEmail: ${values.email}\nType: ${values.type}\n\n${values.message}`);
     window.location.href = `mailto:sales@trsolutions.ai?subject=${subject}&body=${body}`;
     toast.success("Opening your email client…");
     reset();
@@ -45,6 +46,15 @@ export default function ContactPage() {
             <label className="block text-sm mb-1">Email</label>
             <input type="email" {...register("email")} className="w-full rounded border border-neutral-800 bg-transparent px-3 py-2" />
             {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>}
+          </div>
+          <div>
+            <label className="block text-sm mb-1">Type</label>
+            <select {...register("type")} className="w-full rounded border border-neutral-800 bg-black text-white px-3 py-2">
+              <option value="">Select type...</option>
+              <option value="Client">Client</option>
+              <option value="Candidate">Candidate</option>
+            </select>
+            {errors.type && <p className="text-red-400 text-sm mt-1">{errors.type.message}</p>}
           </div>
           <div>
             <label className="block text-sm mb-1">How Can We Help You...</label>
