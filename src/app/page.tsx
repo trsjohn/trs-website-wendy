@@ -375,121 +375,114 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Values & Focus */}
+      {/* Use Cases */}
       <section
-        id="mission"
-        className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm relative scroll-mt-24 rounded-2xl border border-white/10 bg-gradient-to-b from-neutral-900/50 to-neutral-900/0"
+        id="use-cases"
+        className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm relative scroll-mt-24"
       >
-        <div className="grid md:grid-cols-2 gap-10 items-start">
-          {/* For Startups */}
-          <div id="for-startups" className="space-y-6">
-            <h2 className="text-2xl font-semibold">For Startups</h2>
-            
-            {/* Section intro */}
-            <div className="space-y-3">
-            <p className="text-neutral-100 text-lg md:text-xl font-semibold leading-snug">
-                You are busy. You still need judgment.
-              </p>
-              <ul className="space-y-2 text-neutral-200">
-                <li className="flex items-start gap-3">
-                  <SafeIcon Icon={Handshake} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
-                  <span>We act like a teammate.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <SafeIcon Icon={ShieldCheck} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
-                  <span>We protect your bar.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <SafeIcon Icon={Zap} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
-                  <span>We move fast without breaking the candidate experience.</span>
-                </li>
-              </ul>
-            </div>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-white mb-4">Who TRS is built for</h2>
+          <p className="text-xl text-neutral-300 max-w-3xl mx-auto">
+            From recruiting agencies to high-growth startups — we adapt to your unique hiring challenges.
+          </p>
+        </div>
 
-            {/* Where we shine */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-white">Where we shine</h3>
-              <ul className="space-y-2 text-neutral-200">
-                <li className="flex items-start gap-3">
-                  <SafeIcon Icon={TrendingUp} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
-                  <span>Seed to Series B, 11–50 people</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <SafeIcon Icon={Target} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
-                  <span>AI, security, infra, GTM</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <SafeIcon Icon={BarChart3} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
-                  <span>High bar, low internal bandwidth</span>
-                </li>
-              </ul>
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+          {[
+            {
+              title: "Agencies that need to level up",
+              description: "Recruiting agencies that want to modernize with AI + automation, but don't have the tech or playbooks.",
+              icon: TrendingUp,
+              gradient: "from-blue-500/20 to-purple-500/20",
+              border: "border-blue-500/30"
+            },
+            {
+              title: "In-house recruiters who want the full stack in one place",
+              description: "Corporate recruiters who want sourcing, pre-screening, candidate communication, and reporting streamlined.",
+              icon: ListChecks,
+              gradient: "from-green-500/20 to-emerald-500/20",
+              border: "border-green-500/30"
+            },
+            {
+              title: "Companies without recruiters",
+              description: "Founders, execs, or small teams that can't justify a full-time HR/recruiting hire but still need hires made quickly.",
+              icon: Zap,
+              gradient: "from-yellow-500/20 to-orange-500/20",
+              border: "border-yellow-500/30"
+            },
+            {
+              title: "Large enterprises with urgent staffing needs",
+              description: "Big orgs that need dozens of people staffed fast, but want the process to stay structured, data-driven, and candidate-friendly.",
+              icon: BarChart3,
+              gradient: "from-purple-500/20 to-pink-500/20",
+              border: "border-purple-500/30"
+            },
+            {
+              title: "Founders / execs hiring their first key roles",
+              description: "No existing recruiting process or infrastructure, high stakes, and no margin for error.",
+              icon: Target,
+              gradient: "from-red-500/20 to-rose-500/20",
+              border: "border-red-500/30"
+            },
+            {
+              title: "High-growth companies scaling multiple roles at once",
+              description: "Series A–C companies where hiring is a bottleneck—sales, engineering, or security teams that all need headcount yesterday.",
+              icon: TrendingUp,
+              gradient: "from-cyan-500/20 to-blue-500/20",
+              border: "border-cyan-500/30"
+            },
+            {
+              title: "Teams under pressure after a departure or new contract",
+              description: "Unexpected attrition or new client work that requires fast backfill or project-based staffing.",
+              icon: Timer,
+              gradient: "from-amber-500/20 to-yellow-500/20",
+              border: "border-amber-500/30"
+            },
+            {
+              title: "Companies drowning in inbound applicants",
+              description: "Anyone posting jobs on LinkedIn or Indeed who gets hundreds of resumes but has no way to separate signal from noise.",
+              icon: Search,
+              gradient: "from-indigo-500/20 to-purple-500/20",
+              border: "border-indigo-500/30"
+            }
+          ].map((useCase, index) => (
+            <div
+              key={index}
+              className={`group relative rounded-2xl border ${useCase.border} bg-gradient-to-br ${useCase.gradient} p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-red-500/10`}
+            >
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 rounded-lg bg-white/10 p-3 transition-colors group-hover:bg-white/20">
+                  <SafeIcon Icon={useCase.icon} className="h-6 w-6 text-red-400" />
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold text-white leading-tight">
+                    {useCase.title}
+                  </h3>
+                  <p className="text-neutral-300 leading-relaxed">
+                    {useCase.description}
+                  </p>
+                </div>
+              </div>
+              
+              {/* Subtle hover effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </div>
+          ))}
+        </div>
 
-            {/* CTA */}
-            <div className="pt-2">
+        {/* CTA */}
+        <div className="mt-12 text-center">
+          <div className="space-y-4">
+            <p className="text-lg text-neutral-300">
+              Sound like your situation? Let's talk about how TRS can help.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link href="/contact" aria-label="Get your first slate">
                 <Button className="px-6 h-11">Get your first slate</Button>
               </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* For Agencies */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold">For Agencies</h2>
-            
-            {/* Section intro */}
-            <div className="space-y-3">
-              <p className="text-neutral-100 text-lg md:text-xl font-semibold leading-snug">
-                Make your shop modern overnight
-              </p>
-              <ul className="space-y-2 text-neutral-200">
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Use our OS under your brand.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Keep your client. Increase your win rate.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Human + AI without a platform team.</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* CTA */}
-            <div className="pt-2">
-              <Link href="/contact" aria-label="Partner with TRS">
-                <Button className="px-6 h-11">Partner with TRS</Button>
+              <Link href="/services" aria-label="See how it works">
+                <Button variant="ghost" className="px-6 h-11">See how it works</Button>
               </Link>
-            </div>
-          </div>
-
-          {/* What you get */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Drop-in tools for your workflow</h3>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white/5 rounded-lg p-4 border border-white/10 flex items-start gap-3">
-                <SafeIcon Icon={ListChecks} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
-                <div className="text-neutral-200 font-medium">Scoring templates</div>
-              </div>
-              <div className="bg-white/5 rounded-lg p-4 border border-white/10 flex items-start gap-3">
-                <SafeIcon Icon={FileText} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
-                <div className="text-neutral-200 font-medium">Candidate reports</div>
-              </div>
-              <div className="bg-white/5 rounded-lg p-4 border border-white/10 flex items-start gap-3">
-                <SafeIcon Icon={Search} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
-                <div className="text-neutral-200 font-medium">Sourcing playbooks</div>
-              </div>
-              <div className="bg-white/5 rounded-lg p-4 border border-white/10 flex items-start gap-3">
-                <SafeIcon Icon={Eye} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
-                <div className="text-neutral-200 font-medium">Light portal</div>
-              </div>
             </div>
           </div>
         </div>
