@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "TRS — AI-enabled recruiting, human-first",
+    title: "TRS Recruiting Engine",
     description:
       "TRS blends AI, automation, and high-touch recruiting to help startups hire faster and better.",
     url: "https://trs.example", // TODO: update on deploy
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "TRS — AI-enabled recruiting, human-first",
+        alt: "TRS Recruiting Engine",
       },
     ],
   },
