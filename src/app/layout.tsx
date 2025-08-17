@@ -26,14 +26,6 @@ export const metadata: Metadata = {
     url: "https://trs.example", // TODO: update on deploy
     siteName: "TRS",
     type: "website",
-    images: [
-      {
-        url: "/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "TRS Recruiting Engine",
-      },
-    ],
   },
 };
 
