@@ -6,7 +6,7 @@ import { Sora, Plus_Jakarta_Sans } from "next/font/google";
 import { Toasts } from "@/components/Toasts";
 
 export const metadata: Metadata = {
-  title: "TRS — AI-enabled recruiting, human-first",
+  title: "TRS Recruiting Engine",
   description:
     "TRS blends AI, automation, and high-touch recruiting to help startups hire faster and better.",
   metadataBase: new URL("https://trs.example"), // TODO: update on deploy
