@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/logo.png",
         width: 1200,
         height: 630,
-        alt: "TRS — AI-enabled recruiting, human-first",
+        alt: "TRS Logo",
       },
     ],
   },
