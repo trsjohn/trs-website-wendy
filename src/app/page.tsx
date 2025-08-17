@@ -142,8 +142,7 @@ export default function HomePage() {
             </StaggeredReveal>
 
             {/* How It Works */}
-            <StaggeredReveal delay={200}>
-              <div className="mt-12">
+            <div className="mt-12">
               <div>
                 {[
                   { 
@@ -260,7 +259,7 @@ export default function HomePage() {
               
 
               </div>
-            </StaggeredReveal>
+            </div>
           </div>
           <div className="hidden md:block md:mt-0">
             <div className="relative ml-auto w-full max-w-md">
