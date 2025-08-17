@@ -142,7 +142,7 @@ export default function HomePage() {
             </StaggeredReveal>
 
             {/* How It Works */}
-            <StaggeredReveal delay={1100}>
+            <StaggeredReveal delay={200}>
               <div className="mt-12">
               <div>
                 {[
