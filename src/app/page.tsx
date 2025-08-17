@@ -9,7 +9,7 @@ import LogoMarquee from "@/components/LogoMarquee";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
 import ValueSplit from "@/components/ValueSplit";
-import { Target, Handshake, ShieldCheck, Zap, Search, ListChecks, FileText, Hand, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown, Check } from "lucide-react";
+import { Target, ShieldCheck, Zap, Search, ListChecks, FileText, Hand, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown, Check } from "lucide-react";
 import TilesGrid from "@/components/TilesGrid";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { getRecentIssues } from "@/lib/newsletter";
@@ -474,7 +474,7 @@ export default function HomePage() {
         <div className="mt-12 text-center">
           <div className="space-y-4">
             <p className="text-lg text-neutral-300">
-              Sound like your situation? Let's talk about how TRS can help.
+              Sound like your situation? Let&apos;s talk about how TRS can help.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link href="/contact" aria-label="Get your first slate">
