@@ -1,82 +1,140 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Linkedin, Mail } from "lucide-react";
+import Button from "@/components/ui/Button";
 
 export default function AboutPage() {
   const team = [
     { 
       name: "Alex Ricciardelli", 
-      role: "CEO, Co-Founder", 
+      role: "CEO & Co-Founder", 
       image: "/team/alex-ricciardelli.jpg",
       email: "alex@trsolutions.io",
-      linkedin: "https://www.linkedin.com/in/alexricciardelli/"
+      linkedin: "https://www.linkedin.com/in/alexricciardelli/",
+      bio: "Led recruiting for hyper-growth startups before founding TRS."
     },
     { 
       name: "John Frank", 
-      role: "COO, Co-Founder", 
+      role: "COO & Co-Founder", 
       image: "/team/john-frank.jpg",
       email: "john@trsolutions.io",
-      linkedin: "https://www.linkedin.com/in/johnfranktrs/"
+      linkedin: "https://www.linkedin.com/in/johnfranktrs/",
+      bio: "Operations leader who built systems for scaling teams."
     },
     { 
       name: "Nicholas Ricciardelli", 
-      role: "Director of Recruiting", 
+      role: "Head of Recruiting", 
       image: "/team/nicholas-ricciardelli.jpg",
       email: "nick@trsolutions.io",
-      linkedin: "https://www.linkedin.com/in/nicholas-ricciardelli-3623b118/"
+      linkedin: "https://www.linkedin.com/in/nicholas-ricciardelli-3623b118/",
+      bio: "20+ years of recruiting leadership across industries."
+    }
+  ];
+
+  const values = [
+    {
+      title: "Outcome Over Output",
+      description: "We measure success by hires that stick, not activity."
     },
+    {
+      title: "AI + Human Harmony", 
+      description: "Tech accelerates, people decide."
+    },
+    {
+      title: "Extreme Ownership",
+      description: "We own results end-to-end."
+    },
+    {
+      title: "Speed with Substance",
+      description: "Fast, but never sloppy."
+    },
+    {
+      title: "Builder's Mindset",
+      description: "Always learning, always improving."
+    }
   ];
 
   return (
-    <div className="space-y-8 sm:space-y-12 lg:space-y-16">
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm space-y-3">
-        <h1 className="text-3xl font-bold text-center">About TRS</h1>
-        <p className="text-neutral-300 text-center mx-4 sm:mx-12 lg:mx-36">
-          We help startups hire with speed and clarity. TRS blends structured recruiting
-          with modern automation and AI, while keeping people at the center.
-        </p>
-        <p className="text-neutral-300 text-center mx-4 sm:mx-12 lg:mx-36">
-          In an era where AI-generated resumes are flooding the market, having a human in the loop has never been more important. You need an expert — someone who knows recruiting inside out, leverages modern technology, and has built a system to optimize every step of the process.
-        </p>
+    <div className="max-w-6xl mx-auto px-6 sm:px-8 py-section-y space-y-20">
+      {/* Hero Section - Mission */}
+      <section className="text-center max-w-4xl mx-auto">
+        <h1 className="text-4xl lg:text-5xl font-bold mb-6">Our Mission</h1>
+        <div className="space-y-4 text-xl lg:text-2xl text-neutral-200 leading-relaxed">
+          <p>Hiring is broken. Too much noise, too little judgment.</p>
+          <p>TRS exists to deliver better hires, faster — combining AI precision with human expertise.</p>
+        </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 pt-6 pb-section-y sm:pb-section-y-sm rounded-2xl border border-neutral-800">
-        <h2 className="text-2xl font-semibold mb-6 text-center">Meet the Team</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {team.map((m, i) => (
-            <div key={m.name} className="text-center space-y-4">
-              <div className="mx-auto h-40 w-40 overflow-hidden rounded-full border border-neutral-800 bg-white/5">
+      {/* Values Section - Simplified */}
+      <section className="text-center">
+        <h2 className="text-3xl font-bold mb-12">Our Values</h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
+          {values.map((value, index) => (
+            <div key={index} className="group">
+              <h3 className="font-bold text-white mb-2 group-hover:text-brand transition-colors">
+                {value.title}
+              </h3>
+              <p className="text-neutral-400 text-sm leading-relaxed">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Team Section - Cleaner */}
+      <section className="text-center">
+        <h2 className="text-3xl font-bold mb-12">Meet the Team</h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-5xl mx-auto">
+          {team.map((member, index) => (
+            <div key={member.name} className="group">
+              <div className="mx-auto h-32 w-32 overflow-hidden rounded-full mb-4 ring-2 ring-neutral-800 group-hover:ring-brand/50 transition-all">
                 <Image
-                  src={m.image}
-                  alt={`${m.name} headshot`}
-                  width={160}
-                  height={160}
-                  className="h-40 w-40 object-cover"
-                  priority={i === 0}
+                  src={member.image}
+                  alt={`${member.name} headshot`}
+                  width={128}
+                  height={128}
+                  className="h-32 w-32 object-cover"
+                  priority={index === 0}
                 />
               </div>
-              <div className="font-semibold text-white text-lg">{m.name}</div>
-              <div className="text-neutral-300">{m.role}</div>
-              <div className="flex items-center justify-center gap-4 mt-3">
+              <h3 className="font-bold text-white text-lg mb-1">{member.name}</h3>
+              <p className="text-brand font-medium mb-3">{member.role}</p>
+              <p className="text-neutral-400 text-sm leading-relaxed mb-4">{member.bio}</p>
+              <div className="flex items-center justify-center gap-4">
                 <a
-                  href={`mailto:${m.email}`}
-                  className="text-neutral-400 hover:text-white transition-colors"
-                  aria-label={`Email ${m.name}`}
+                  href={`mailto:${member.email}`}
+                  className="text-neutral-500 hover:text-white transition-colors"
+                  aria-label={`Email ${member.name}`}
                 >
-                  <Mail className="h-5 w-5" />
+                  <Mail className="h-4 w-4" />
                 </a>
-                <a
-                  href={m.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-neutral-400 hover:text-white transition-colors"
-                  aria-label={`${m.name}'s LinkedIn profile`}
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
+                {member.linkedin !== "#" && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:text-white transition-colors"
+                    aria-label={`${member.name}'s LinkedIn profile`}
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </a>
+                )}
               </div>
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Call to Action - Simplified */}
+      <section className="text-center bg-gradient-to-r from-neutral-900/50 to-neutral-800/30 rounded-2xl p-12">
+        <h2 className="text-3xl font-bold mb-4">Ready to Build Your Team?</h2>
+        <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto">
+          Whether you need one key hire or a full recruiting system, TRS delivers outcomes that stick.
+        </p>
+        <Link href="/contact">
+          <Button className="px-8 py-3 text-lg font-semibold bg-brand hover:bg-red-600 text-white">
+            Get Started
+          </Button>
+        </Link>
       </section>
     </div>
   );

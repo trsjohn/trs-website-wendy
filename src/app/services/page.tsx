@@ -3,27 +3,35 @@ import Link from "next/link";
 export default function ServicesPage() {
   const sections = [
     {
-      title: "Pre-Screening-as-a-Service (PSaaS)",
+      title: "Executive Search",
       bullets: [
-        "AI-enhanced phone screens run by experienced recruiters.",
-        "Custom rubrics, transcripts, and recordings delivered instantly.",
-        "Pass/fail clarity so hiring managers only spend time on top-tier candidates.",
+        "Founder, VP, Director",
+        "Tight briefs. Crisp updates.",
+        "Targeted outreach. Decision-ready finals.",
       ],
     },
     {
       title: "Contract Recruiting",
       bullets: [
-        "Your dedicated recruiter + our tech stack, on demand.",
-        "We run sprint-based hiring aligned to your goals, combining high-touch outreach with automation.",
-        "Weekly operating cadence, outcomes over output, and visibility through our client portal.",
+        "On-demand recruiter in your system",
+        "Weekly sprints aligned to active reqs",
+        "Pipeline, interviews, offers end-to-end",
       ],
     },
     {
-      title: "Executive Search",
+      title: "Pre-Screening as a Service (PSaaS)",
       bullets: [
-        "Founder, VP, and Director-level hiring — powered by TRS's human expertise + proprietary recruiting OS.",
-        "Structured pipelines, AI-optimized sourcing, and decision-ready scorecards.",
-        "Crisp updates, transparent dashboards, and candidate briefs that make hiring fast and clear.",
+        "You bring applicants. We screen.",
+        "AI score + human verdict + transcript pulls",
+        "You only meet the ones worth your time",
+      ],
+    },
+    {
+      title: "Add-ons",
+      bullets: [
+        "Interview design and rubrics",
+        "Candidate messaging refresh",
+        "Employer brand quick pass",
       ],
     },
   ];
@@ -42,7 +50,7 @@ export default function ServicesPage() {
                 ))}
               </ul>
               <div className="pt-4">
-                <Link href="/contact" className="rounded bg-white/10 px-3 py-2 hover:bg-white/20">Contact us</Link>
+                <Link href="/contact" className="rounded bg-white/10 px-3 py-2 hover:bg-white/20">Tell us your top priority role</Link>
               </div>
             </div>
           ))}

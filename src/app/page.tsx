@@ -1,6 +1,8 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
+import { useState, useEffect } from "react";
 import StaggeredReveal from "@/components/StaggeredReveal";
 import LogoMarquee from "@/components/LogoMarquee";
 
@@ -14,6 +16,29 @@ import FeatureSlice from "@/components/FeatureSlice";
 export default function HomePage() {
   const SafeIcon = ({ Icon, className = "" }: { Icon: React.ElementType; className?: string }) =>
     Icon ? <Icon className={className} aria-hidden /> : <span className={className} aria-hidden>•</span>;
+  
+  // A/B test headlines based on query parameter
+  const [headline, setHeadline] = useState('We ship hires.<br />Not spreadsheets.');
+  const [altText, setAltText] = useState('We ship hires. Not spreadsheets.');
+  
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const variant = params.get('variant');
+    
+    switch (variant) {
+      case 'b':
+        setHeadline('We ship hires.<br />Not headaches.');
+        setAltText('We ship hires. Not headaches.');
+        break;
+      case 'c':
+        setHeadline('Real hires, fast.<br />No BS.');
+        setAltText('Real hires, fast. No BS.');
+        break;
+      default:
+        setHeadline('We ship hires.<br />Not spreadsheets.');
+        setAltText('We ship hires. Not spreadsheets.');
+    }
+  }, []);
   const testimonials = [
     {
       pull: (
@@ -81,64 +106,38 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2 items-start gap-10">
           <div className="text-center md:text-left md:mt-8">
             <StaggeredReveal delay={100}>
-              <h1 className="text-hero font-bold tracking-tight text-white">
-                Full-Stack<br />Recruiting Engine
+              <h1 className="text-hero font-bold tracking-tight text-white" dangerouslySetInnerHTML={{ __html: headline }}>
               </h1>
             </StaggeredReveal>
             
             <StaggeredReveal delay={300}>
               <p className="mt-3 text-subhero text-neutral-100 max-w-2xl md:max-w-none mx-auto md:mx-0 font-semibold">
-                Faster hires, better fits, zero wasted interviews.
+                TRS is a Recruiting OS — AI + humans in the loop. Fast loops. Clean signals. Better hires.
               </p>
             </StaggeredReveal>
             
-            <div className="mt-5 text-neutral-100 max-w-2xl md:max-w-xl mx-auto md:mx-0 space-y-1">
-              <StaggeredReveal delay={500}>
-                <div className="flex items-center gap-2 justify-center md:justify-start">
-                  <Check className="h-4 w-4 text-red-500" aria-hidden />
-                  <span>50,000+ Network</span>
-                </div>
-              </StaggeredReveal>
-              
-              <StaggeredReveal delay={600}>
-                <div className="flex items-center gap-2 justify-center md:justify-start">
-                  <Check className="h-4 w-4 text-red-500" aria-hidden />
-                  <span>30+ Years Experience</span>
-                </div>
-              </StaggeredReveal>
-              
-              <StaggeredReveal delay={700}>
-                <div className="flex items-center gap-2 justify-center md:justify-start">
-                  <Check className="h-4 w-4 text-red-500" aria-hidden />
-                  <span>AI + Human Recruiting System</span>
-                </div>
-              </StaggeredReveal>
-              
-              <StaggeredReveal delay={800}>
-                <p className="mt-2 font-semibold text-lg text-white underline decoration-white decoration-2">
-                  Built and Operated by Experts Who&apos;ve Done the Work
-                </p>
-              </StaggeredReveal>
-            </div>
+
             
-            <StaggeredReveal delay={900}>
+            <StaggeredReveal delay={500}>
               <div className="mt-8 flex flex-col sm:flex-row md:justify-start justify-center gap-3">
-                <Link href="/services" aria-label="Hire the Right Talent">
-                  <Button className="px-6 h-11">Hire the Right Talent</Button>
+                <Link href="/contact" aria-label="See candidates in your inbox">
+                  <Button className="px-6 h-11">See candidates in your inbox</Button>
+                </Link>
+                <Link href="/services" aria-label="See how it works">
+                  <Button variant="ghost" className="px-6 h-11">See how it works</Button>
                 </Link>
               </div>
             </StaggeredReveal>
 
-            {/* TRS Workflow */}
+            {/* How It Works */}
             <StaggeredReveal delay={1100}>
               <div className="mt-12">
-              <h3 className="text-xl font-semibold text-white mb-6">TRS Workflow</h3>
               <div>
                 {[
                   { 
                     step: "1", 
-                    title: "Outreach", 
-                    description: "AI-powered sourcing and targeted candidate identification",
+                    title: "Kickoff", 
+                    description: "We extract the real job. Must-haves. Soft signals. Red flags.",
                     details: [
                       "Boolean search optimization across 50+ platforms",
                       "LinkedIn automation with personalized messaging",
@@ -148,8 +147,19 @@ export default function HomePage() {
                   },
                   { 
                     step: "2", 
-                    title: "Intake", 
-                    description: "Initial screening and requirements alignment",
+                    title: "Sourcing", 
+                    description: "Boolean. Sales Navigator. X-ray. Warm intros.",
+                    details: [
+                      "Boolean search optimization across 50+ platforms",
+                      "LinkedIn automation with personalized messaging",
+                      "Passive candidate identification and engagement",
+                      "Competitive intelligence and market mapping"
+                    ]
+                  },
+                  { 
+                    step: "3", 
+                    title: "Parsing + Enrichment", 
+                    description: "Resumes, LinkedIn, transcripts. Structured. Searchable.",
                     details: [
                       "30-minute discovery call to understand role requirements",
                       "Technical skills assessment and cultural fit criteria",
@@ -158,9 +168,9 @@ export default function HomePage() {
                     ]
                   },
                   { 
-                    step: "3", 
-                    title: "Score", 
-                    description: "Comprehensive evaluation using custom rubrics",
+                    step: "4", 
+                    title: "AI Scoring", 
+                    description: "Role rubrics. 100-point score. Evidence from source text.",
                     details: [
                       "10-point custom rubric tailored to your specific role",
                       "Technical competency assessment",
@@ -169,9 +179,9 @@ export default function HomePage() {
                     ]
                   },
                   { 
-                    step: "4", 
-                    title: "Submit", 
-                    description: "Decision-ready candidates with detailed briefs",
+                    step: "5", 
+                    title: "Human Review", 
+                    description: "We read. We listen. We adjust. We add judgment.",
                     details: [
                       "Comprehensive candidate brief with scores and insights",
                       "Interview transcripts and key conversation highlights",
@@ -180,9 +190,9 @@ export default function HomePage() {
                     ]
                   },
                   { 
-                    step: "5", 
-                    title: "Feedback", 
-                    description: "Client input and outcome tracking",
+                    step: "6", 
+                    title: "Client Delivery", 
+                    description: "Portal or clean report. Inbound/outbound tags. Notes and next steps.",
                     details: [
                       "Real-time feedback collection after each submission",
                       "Interview outcome tracking and analysis",
@@ -191,9 +201,9 @@ export default function HomePage() {
                     ]
                   },
                   { 
-                    step: "6", 
-                    title: "Iterate", 
-                    description: "Process refinement and continuous improvement",
+                    step: "7", 
+                    title: "Feedback Loop", 
+                    description: "Your feedback tunes the model. Each slate gets sharper.",
                     details: [
                       "Weekly search strategy optimization",
                       "AI model training based on successful placements",
@@ -235,6 +245,8 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+              
+
               </div>
             </StaggeredReveal>
           </div>
@@ -243,7 +255,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/8 via-purple-500/10 via-red-600/8 to-transparent rounded-2xl animate-pulse -z-10"></div>
               <Image
                 src="/churn.png"
-                alt="Full-stack recruiting engine illustration"
+                alt={altText}
                 width={640}
                 height={800}
                 className="w-full h-auto opacity-90 relative z-10"
@@ -254,26 +266,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Feature slices */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm space-y-8">
-        <FeatureSlice
-          variant="light"
-          imagePosition="right"
-          eyebrow="Workflow"
-          title="Briefs that make decisions faster"
-          description="Every candidate arrives with a structured brief—scores, transcripts, and context—so you spend time only where it matters."
-          bullets={["10-point rubric tailored to your role", "Outcome-driven learning each week"]}
-          image={{ src: "/recruitment-flowchart.png", alt: "Recruitment Process Flowchart", width: 1024, height: 1024, background: true }}
-          ctas={[{ href: "/services", label: "See how it works" }, { href: "/contact", label: "Talk to sales", variant: "ghost" }]}
-        />
-      </section>
+
 
       {/* Speed / Value */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
         <Reveal>
           <ValueSplit
-            claim="4× faster"
-            title="than typing — decision-ready candidates without wasted interviews"
+            claim="< 7 days"
+            title="from intake to first slate — decision-ready candidates without wasted interviews"
             bullets={[
               { title: "Signal over noise", body: "Custom rubrics and brief summaries get you to 'yes/no' quickly." },
               { title: "Tight feedback loop", body: "We learn from outcomes and adapt every week." },
@@ -283,24 +283,84 @@ export default function HomePage() {
         </Reveal>
       </section>
 
+      {/* The TRS Difference - What you see vs don't see */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
+        <div className="bg-gradient-to-r from-red-500/5 via-red-500/10 to-red-500/5 border border-red-500/20 rounded-2xl p-6">
+          <div className="text-center mb-6">
+            <h3 className="text-xl font-semibold text-white mb-2">The TRS Difference</h3>
+            <p className="text-neutral-300 text-sm">What you experience vs. what stays behind the scenes</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-green-500/5 border border-green-500/20 rounded-xl p-4">
+              <h4 className="text-lg font-semibold text-green-400 mb-3 flex items-center gap-2">
+                <Check className="h-5 w-5" />
+                What you actually get:
+              </h4>
+              <ul className="space-y-2 text-neutral-200">
+                <li className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-green-400 mt-1 flex-shrink-0" />
+                  <span>Scorecards with receipts</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-green-400 mt-1 flex-shrink-0" />
+                  <span>Transcript highlights</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-green-400 mt-1 flex-shrink-0" />
+                  <span>Clear next steps</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-4">
+              <h4 className="text-lg font-semibold text-red-400 mb-3 flex items-center gap-2">
+                <ShieldCheck className="h-5 w-5" />
+                What you never deal with:
+              </h4>
+              <ul className="space-y-2 text-neutral-200">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-400 mt-1 text-lg leading-none">✗</span>
+                  <span>Busywork</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-400 mt-1 text-lg leading-none">✗</span>
+                  <span>Chaos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-400 mt-1 text-lg leading-none">✗</span>
+                  <span>Vendor hopscotch</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Logos */}
       <section aria-label="Trusted by" className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm scroll-mt-24">
         <h2 className="text-xl font-semibold mb-4">Trusted by:</h2>
-        <LogoMarquee
-          className="rounded-2xl p-2"
+          <LogoMarquee
+            className="rounded-2xl p-2"
           durationSeconds={25}
-          logos={[
-            { src: "/clients/1749691145498.jpg", alt: "Client Logo" },
-            { src: "/clients/American_Express_logo_(2018).svg", alt: "American Express" },
-            { src: "/clients/buzzsolutionsinc_logo.jpg", alt: "Buzz Solutions" },
-            { src: "/clients/channels4_profile.jpg", alt: "Channels 4" },
-            { src: "/clients/consilium_labs_logo.jpg", alt: "Consilium Labs" },
-            { src: "/clients/download.jpg", alt: "Client Logo" },
-            { src: "/clients/grsee_consulting_logo.jpg", alt: "GRSee Consulting" },
-            { src: "/clients/insight_assurance_logo.jpg", alt: "Insight Assurance" },
-            { src: "/clients/LbclC98S_400x400.jpg", alt: "Client Logo" },
-          ]}
-        />
+            logos={[
+              { src: "/clients/1749691145498.jpg", alt: "Client Logo" },
+              { src: "/clients/American_Express_logo_(2018).svg", alt: "American Express" },
+              { src: "/clients/buzzsolutionsinc_logo.jpg", alt: "Buzz Solutions" },
+              { src: "/clients/channels4_profile.jpg", alt: "Channels 4" },
+              { src: "/clients/consilium_labs_logo.jpg", alt: "Consilium Labs" },
+              { src: "/clients/download.jpg", alt: "Client Logo" },
+              { src: "/clients/grsee_consulting_logo.jpg", alt: "GRSee Consulting" },
+              { src: "/clients/insight_assurance_logo.jpg", alt: "Insight Assurance" },
+              { src: "/clients/LbclC98S_400x400.jpg", alt: "Client Logo" },
+            ]}
+          />
+        
+        {/* Client Microquote */}
+        <div className="mt-6 max-w-2xl mx-auto text-center">
+          <blockquote className="text-neutral-300 italic">
+            "TRS gave us finalists in 5 days. Faster than our internal team. Filtered down from 250 candidates."
+          </blockquote>
+          <cite className="text-neutral-400 text-sm mt-2 block">— Abby W. HR Executive</cite>
+        </div>
       </section>
 
       {/* Values & Focus */}
@@ -309,67 +369,298 @@ export default function HomePage() {
         className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm relative scroll-mt-24 rounded-2xl border border-white/10 bg-gradient-to-b from-neutral-900/50 to-neutral-900/0"
       >
         <div className="grid md:grid-cols-2 gap-10 items-start">
-          {/* Core Values */}
+          {/* For Startups */}
+          <div id="for-startups" className="space-y-6">
+            <h2 className="text-2xl font-semibold">For Startups</h2>
+            
+            {/* Section intro */}
+            <div className="space-y-3">
+            <p className="text-neutral-100 text-lg md:text-xl font-semibold leading-snug">
+                You are busy. You still need judgment.
+              </p>
+              <ul className="space-y-2 text-neutral-200">
+                <li className="flex items-start gap-3">
+                  <SafeIcon Icon={Handshake} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
+                  <span>We act like a teammate.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <SafeIcon Icon={ShieldCheck} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
+                  <span>We protect your bar.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <SafeIcon Icon={Zap} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
+                  <span>We move fast without breaking the candidate experience.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Where we shine */}
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-white">Where we shine</h3>
+              <ul className="space-y-2 text-neutral-200">
+                <li className="flex items-start gap-3">
+                  <SafeIcon Icon={TrendingUp} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
+                  <span>Seed to Series B, 11–50 people</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <SafeIcon Icon={Target} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
+                  <span>AI, security, infra, GTM</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <SafeIcon Icon={BarChart3} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
+                  <span>High bar, low internal bandwidth</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* CTA */}
+            <div className="pt-2">
+              <Link href="/contact" aria-label="Get your first slate">
+                <Button className="px-6 h-11">Get your first slate</Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* For Agencies */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold">Core Values</h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <li className="flex items-start gap-3">
-                <SafeIcon Icon={Target} className="h-5 w-5 text-red-500 mt-1 shrink-0" />
-                <p className="text-neutral-300 leading-snug">
-                  <strong>Outcome Over Output</strong> — We don’t chase activity; we chase hires that stick.
-                </p>
+            <h2 className="text-2xl font-semibold">For Agencies</h2>
+            
+            {/* Section intro */}
+            <div className="space-y-3">
+              <p className="text-neutral-100 text-lg md:text-xl font-semibold leading-snug">
+                Make your shop modern overnight
+              </p>
+              <ul className="space-y-2 text-neutral-200">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Use our OS under your brand.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Keep your client. Increase your win rate.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Human + AI without a platform team.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* CTA */}
+            <div className="pt-2">
+              <Link href="/contact" aria-label="Partner with TRS">
+                <Button className="px-6 h-11">Partner with TRS</Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* What you get */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-white">Drop-in tools for your workflow</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-white/5 rounded-lg p-4 border border-white/10 flex items-start gap-3">
+                <SafeIcon Icon={ListChecks} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
+                <div className="text-neutral-200 font-medium">Scoring templates</div>
+              </div>
+              <div className="bg-white/5 rounded-lg p-4 border border-white/10 flex items-start gap-3">
+                <SafeIcon Icon={FileText} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
+                <div className="text-neutral-200 font-medium">Candidate reports</div>
+              </div>
+              <div className="bg-white/5 rounded-lg p-4 border border-white/10 flex items-start gap-3">
+                <SafeIcon Icon={Search} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
+                <div className="text-neutral-200 font-medium">Sourcing playbooks</div>
+              </div>
+              <div className="bg-white/5 rounded-lg p-4 border border-white/10 flex items-start gap-3">
+                <SafeIcon Icon={Eye} className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
+                <div className="text-neutral-200 font-medium">Light portal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
+        <div className="space-y-8">
+          <h2 className="text-2xl font-semibold text-center">Simple, aligned pricing</h2>
+          
+          {/* Simple Rules - MOVED ABOVE AS CREDIBILITY ANCHOR */}
+          <div className="bg-red-500/5 border border-red-500/20 rounded-2xl p-6">
+            <h3 className="text-lg font-semibold text-white mb-3 text-center">Simple rules</h3>
+            <div className="flex flex-wrap justify-center gap-6 text-neutral-200">
+              <span className="flex items-center gap-2">
+                <span className="text-red-500">•</span>
+                <span>No setup fees.</span>
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="text-red-500">•</span>
+                <span>Clear exit.</span>
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="text-red-500">•</span>
+                <span>We pause if we cannot add value.</span>
+              </span>
+            </div>
+          </div>
+          
+          {/* Pricing Cards */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* PSaaS - HIGHLIGHTED AS PREFERRED OPTION */}
+            <div className="relative rounded-2xl border-2 border-red-500 p-6 bg-red-500/5 shadow-lg shadow-red-500/20">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <span className="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full">Most Popular</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-red-400">PSaaS</h3>
+              <div className="text-2xl font-bold text-red-500 mb-4">From $4,000 / month</div>
+              <ul className="space-y-2 text-neutral-200">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Parsing</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>AI scoring</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Human review</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Shortlists</span>
               </li>
-              <li className="flex items-start gap-3">
-                <SafeIcon Icon={Handshake} className="h-5 w-5 text-red-500 mt-1 shrink-0" />
-                <p className="text-neutral-300 leading-snug">
-                  <strong>Human–AI Harmony</strong> — We blend tech and intuition; AI assists, humans decide.
-                </p>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Weekly recalibration</span>
               </li>
-              <li className="flex items-start gap-3">
-                <SafeIcon Icon={ShieldCheck} className="h-5 w-5 text-red-500 mt-1 shrink-0" />
-                <p className="text-neutral-300 leading-snug">
-                  <strong>Extreme Ownership</strong> — We own results end-to-end and improve continuously.
-                </p>
+              </ul>
+            </div>
+
+            {/* Contract Recruiting */}
+            <div className="rounded-2xl border border-neutral-800 p-6 bg-white/5">
+              <h3 className="text-xl font-semibold mb-2">Contract Recruiting</h3>
+              <div className="text-2xl font-bold text-red-500 mb-4">From $12,000 / month</div>
+              <ul className="space-y-2 text-neutral-200">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Dedicated recruiter</span>
               </li>
-              <li className="flex items-start gap-3">
-                <SafeIcon Icon={Zap} className="h-5 w-5 text-red-500 mt-1 shrink-0" />
-                <p className="text-neutral-300 leading-snug">
-                  <strong>Speed with Substance</strong> — We move fast and do it right.
-                </p>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Weekly sprint plans</span>
               </li>
-              <li className="flex items-start gap-3 md:col-span-2">
-                <SafeIcon Icon={Wrench} className="h-5 w-5 text-red-500 mt-1 shrink-0" />
-                <p className="text-neutral-300 leading-snug">
-                  <strong>Builder’s Mindset</strong> — We test, learn, and evolve so today is better than yesterday.
-                </p>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Slate commitments</span>
               </li>
             </ul>
           </div>
 
-          {/* Core Focus */}
-          <div id="core-focus" className="space-y-4">
-            <h2 className="text-2xl font-semibold">Core Focus</h2>
-            <p className="text-neutral-100 text-lg md:text-xl font-semibold leading-snug">
-              We fix broken hiring by blending AI, automation, and human expertise into recruiting systems that actually work.
-            </p>
-            <p className="text-neutral-300">
-              Specializing in early-stage tech startups with a human-in-the-loop approach.
-            </p>
+            {/* Executive Search */}
+            <div className="rounded-2xl border border-neutral-800 p-6 bg-white/5">
+              <h3 className="text-xl font-semibold mb-2">Executive Search</h3>
+              <div className="text-2xl font-bold text-red-500 mb-4">Flat + success, or % of first year</div>
+              <ul className="space-y-2 text-neutral-200">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Aligned incentives</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Market mapping</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>Finals management</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <Link href="/contact" aria-label="Start with the plan that fits">
+              <Button className="px-6 h-11">Start with the plan that fits</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <h2 className="text-2xl font-semibold text-center">FAQ</h2>
+          
+          <div className="space-y-4">
+            {[
+              {
+                q: "Why not just use another recruiter?",
+                a: "Because most recruiters spam LinkedIn. We built a system that actually closes hires."
+              },
+              {
+                q: "Why not just use an AI tool?",
+                a: "Tools don't close hires. We use AI where it helps, but humans make the calls."
+              },
+              {
+                q: "Are you a recruiting service or a product?",
+                a: "We are both. Or one or the other. Whatever you need. Some clients use us as their recruiter. Others plug us in like software. The OS works either way."
+              },
+              {
+                q: "How fast is \"fast\"?",
+                a: "First slate in under a week once we have a real intake."
+              },
+              {
+                q: "Can we start small with just PSaaS?",
+                a: "Yes. Many do. It's the cleanest way to cut noise before we scale into full recruiting."
+              },
+              {
+                q: "What if our hiring bar is super specific?",
+                a: "Good. Specific beats vague. Give us the signals and we'll find them."
+              },
+              {
+                q: "Do you replace our ATS?",
+                a: "No. We plug into it or run parallel. Your data stays intact."
+              },
+              {
+                q: "Will candidates feel like they talked to a bot?",
+                a: "No. We use AI to prep, not to hide. People talk to people."
+              },
+              {
+                q: "What if this doesn't work?",
+                a: "We pivot or pause. No drama. No long contracts. No excuses."
+              }
+            ].map((faq, index) => (
+              <details key={index} className="group rounded-2xl border border-neutral-800 bg-white/5">
+                <summary className="flex cursor-pointer items-center justify-between p-6 font-semibold text-white hover:bg-white/10 transition-colors">
+                  <span>{faq.q}</span>
+                  <span className="ml-4 transition-transform group-open:rotate-180">
+                    <ArrowDown className="h-5 w-5" />
+                  </span>
+                </summary>
+                <div className="px-6 pb-6 text-neutral-200">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
 
       {/* TRS is for … tiles */}
       <section id="how" className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm space-y-8 scroll-mt-24">
-        <h2 className="text-2xl font-semibold">TRS is for…</h2>
+        <h2 className="text-2xl font-semibold">Who we work best with</h2>
         <TilesGrid
           items={[
-            { Icon: Search, title: "Source Smarter", description: "AI-boosted Boolean + targeted outreach to find top talent others miss." },
+            { Icon: Search, title: "Find people others miss", description: "AI-boosted Boolean + targeted outreach to find top talent others miss." },
             { Icon: ListChecks, title: "Score What Matters", description: "10-point custom rubric tailored to your role, not generic checklists." },
-            { Icon: FileText, title: "Decision Clarity", description: "Candidate briefs with scores, transcripts, and context for quick yes/no." },
+            { Icon: FileText, title: "See the tradeoffs fast", description: "Candidate briefs with scores, transcripts, and context for quick yes/no." },
             { Icon: Hand, title: "Stay Hands-On", description: "Your preferences guide the search; we adapt in real time." },
             { Icon: BarChart3, title: "Built for Growth", description: "Systems that scale with your team — from one hire to a full department." },
-            { Icon: Zap, title: "Faster Cycles", description: "From intake to offer quicker with fewer wasted interviews." },
+            { Icon: Zap, title: "From intake to offer in days", description: "From intake to offer quicker with fewer wasted interviews." },
           ]}
         />
       </section>
@@ -383,20 +674,16 @@ export default function HomePage() {
             <p className="font-semibold text-neutral-100">Why companies choose TRS over traditional recruiters and AI sourcing tools:</p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-neutral-300">
-                <SafeIcon Icon={Timer} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span><strong>2–3x faster</strong> hiring cycle than the industry average.</span>
-              </li>
-              <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={BadgeCheck} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span><strong>90%+ retention</strong> rate for placed candidates.</span>
+                <span>35+ roles closed across AI, security, and GTM</span>
               </li>
               <li className="flex items-start gap-3 text-neutral-300">
-                <SafeIcon Icon={DollarSign} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span><strong>50% lower cost</strong> compared to agencies.</span>
+                <SafeIcon Icon={Timer} className="h-5 w-5 text-red-500 mt-0.5" />
+                <span>Avg time to first slate: &lt; 7 days</span>
               </li>
               <li className="flex items-start gap-3 text-neutral-300">
-                <SafeIcon Icon={Eye} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span><strong>100% AI + human review</strong> of candidates before you see them.</span>
+                <SafeIcon Icon={TrendingUp} className="h-5 w-5 text-red-500 mt-0.5" />
+                <span>Backed by repeat clients and referrals</span>
               </li>
             </ul>
 
@@ -528,6 +815,8 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
+
       </section>
 
       
