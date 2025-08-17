@@ -5,7 +5,7 @@ export function SEO() {
   return (
     <DefaultSeo
       titleTemplate="%s | TRS"
-      defaultTitle="TRS — AI-enabled recruiting, human-first"
+      defaultTitle="TRS Recruiting Engine"
       description="High-signal recruiting for startups: AI + human judgment."
       openGraph={{ type: "website", url: "https://trs.example", siteName: "TRS" }}
     />
