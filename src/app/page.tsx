@@ -9,7 +9,7 @@ import LogoMarquee from "@/components/LogoMarquee";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
 import ValueSplit from "@/components/ValueSplit";
-import { Target, Zap, Search, ListChecks, FileText, Hand, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown, Check } from "lucide-react";
+import { Target, Zap, Search, ListChecks, FileText, Hand, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown } from "lucide-react";
 import TilesGrid from "@/components/TilesGrid";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { getRecentIssues } from "@/lib/newsletter";
@@ -255,9 +255,6 @@ export default function HomePage() {
                     )}
                   </div>
                 ))}
-              </div>
-              
-
               </div>
             </div>
           </div>
