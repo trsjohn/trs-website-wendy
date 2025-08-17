@@ -527,7 +527,7 @@ export default function HomePage() {
                 <span className="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full">Most Popular</span>
               </div>
               <h3 className="text-xl font-semibold mb-2 text-red-400">PSaaS</h3>
-              <div className="text-2xl font-bold text-red-500 mb-4">From $4,000 / month</div>
+
               <ul className="space-y-2 text-neutral-200">
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
@@ -555,7 +555,7 @@ export default function HomePage() {
             {/* Contract Recruiting */}
             <div className="rounded-2xl border border-neutral-800 p-6 bg-white/5">
               <h3 className="text-xl font-semibold mb-2">Contract Recruiting</h3>
-              <div className="text-2xl font-bold text-red-500 mb-4">From $12,000 / month</div>
+
               <ul className="space-y-2 text-neutral-200">
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
@@ -575,7 +575,7 @@ export default function HomePage() {
             {/* Executive Search */}
             <div className="rounded-2xl border border-neutral-800 p-6 bg-white/5">
               <h3 className="text-xl font-semibold mb-2">Executive Search</h3>
-              <div className="text-2xl font-bold text-red-500 mb-4">Flat + success, or % of first year</div>
+
               <ul className="space-y-2 text-neutral-200">
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
