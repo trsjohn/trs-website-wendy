@@ -9,7 +9,7 @@ import LogoMarquee from "@/components/LogoMarquee";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
 import ValueSplit from "@/components/ValueSplit";
-import { Target, ShieldCheck, Zap, Search, ListChecks, FileText, Hand, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown, Check } from "lucide-react";
+import { Target, Zap, Search, ListChecks, FileText, Hand, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown, Check } from "lucide-react";
 import TilesGrid from "@/components/TilesGrid";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { getRecentIssues } from "@/lib/newsletter";
@@ -295,57 +295,6 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* The TRS Difference - What you see vs don't see */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
-        <div className="bg-gradient-to-r from-red-500/5 via-red-500/10 to-red-500/5 border border-red-500/20 rounded-2xl p-6">
-          <div className="text-center mb-6">
-            <h3 className="text-xl font-semibold text-white mb-2">The TRS Difference</h3>
-            <p className="text-neutral-300 text-sm">What you experience vs. what stays behind the scenes</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-green-500/5 border border-green-500/20 rounded-xl p-4">
-              <h4 className="text-lg font-semibold text-green-400 mb-3 flex items-center gap-2">
-                <Check className="h-5 w-5" />
-                What you actually get:
-              </h4>
-              <ul className="space-y-2 text-neutral-200">
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-green-400 mt-1 flex-shrink-0" />
-                  <span>Scorecards with receipts</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-green-400 mt-1 flex-shrink-0" />
-                  <span>Transcript highlights</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-green-400 mt-1 flex-shrink-0" />
-                  <span>Clear next steps</span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-4">
-              <h4 className="text-lg font-semibold text-red-400 mb-3 flex items-center gap-2">
-                <ShieldCheck className="h-5 w-5" />
-                What you never deal with:
-              </h4>
-              <ul className="space-y-2 text-neutral-200">
-                <li className="flex items-start gap-2">
-                  <span className="text-red-400 mt-1 text-lg leading-none">✗</span>
-                  <span>Busywork</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-400 mt-1 text-lg leading-none">✗</span>
-                  <span>Chaos</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-400 mt-1 text-lg leading-none">✗</span>
-                  <span>Vendor hopscotch</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Logos */}
       <section aria-label="Trusted by" className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm scroll-mt-24">
