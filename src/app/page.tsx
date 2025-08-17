@@ -9,9 +9,8 @@ import LogoMarquee from "@/components/LogoMarquee";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
 import ValueSplit from "@/components/ValueSplit";
-import { Target, Handshake, ShieldCheck, Zap, Wrench, Search, ListChecks, FileText, Hand, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown, Check } from "lucide-react";
+import { Target, Handshake, ShieldCheck, Zap, Search, ListChecks, FileText, Hand, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown, Check } from "lucide-react";
 import TilesGrid from "@/components/TilesGrid";
-import FeatureSlice from "@/components/FeatureSlice";
 
 export default function HomePage() {
   const SafeIcon = ({ Icon, className = "" }: { Icon: React.ElementType; className?: string }) =>
@@ -357,7 +356,7 @@ export default function HomePage() {
         {/* Client Microquote */}
         <div className="mt-6 max-w-2xl mx-auto text-center">
           <blockquote className="text-neutral-300 italic">
-            "TRS gave us finalists in 5 days. Faster than our internal team. Filtered down from 250 candidates."
+            &quot;TRS gave us finalists in 5 days. Faster than our internal team. Filtered down from 250 candidates.&quot;
           </blockquote>
           <cite className="text-neutral-400 text-sm mt-2 block">— Abby W. HR Executive</cite>
         </div>

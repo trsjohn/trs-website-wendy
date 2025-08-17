@@ -6,25 +6,6 @@ export type Role = {
   sourceJdJson?: unknown | null;
 };
 
-function formatComp(
-  min?: number | string | null,
-  max?: number | string | null,
-  type?: string | null
-): string | null {
-  const parts: string[] = [];
-  const parseNum = (v: number | string | null | undefined) =>
-    v == null ? undefined : Math.round(Number(v));
-  const lo = parseNum(min);
-  const hi = parseNum(max);
-  if (lo != null || hi != null) {
-    if (lo != null && hi != null)
-      parts.push(`$${lo.toLocaleString()}–$${hi.toLocaleString()}`);
-    else if (lo != null) parts.push(`from $${lo.toLocaleString()}`);
-    else if (hi != null) parts.push(`up to $${hi.toLocaleString()}`);
-  }
-  if (type) parts.push(type);
-  return parts.length ? parts.join(" ") : null;
-}
 
 export async function getRoles(): Promise<Role[]> {
   const { data, error } = await supabase
