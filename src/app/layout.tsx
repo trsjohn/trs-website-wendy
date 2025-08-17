@@ -27,6 +27,12 @@ export const metadata: Metadata = {
     siteName: "TRS",
     type: "website",
   },
+  twitter: {
+    card: "summary",
+    title: "TRS Recruiting Engine",
+    description:
+      "TRS blends AI, automation, and high-touch recruiting to help startups hire faster and better.",
+  },
 };
 
 // Body: Plus Jakarta Sans (modern, clean). Headings: Sora (bold, futuristic)
