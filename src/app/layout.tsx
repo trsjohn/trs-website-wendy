@@ -9,17 +9,17 @@ export const metadata: Metadata = {
   title: "TRS — AI-enabled recruiting, human-first",
   description:
     "TRS blends AI, automation, and high-touch recruiting to help startups hire faster and better.",
-  metadataBase: new URL("https://trs.example"), // TODO: update on deploy
+  metadataBase: new URL("https://trsolutions.io"), // Updated for production
   openGraph: {
     title: "TRS — AI-enabled recruiting, human-first",
     description:
       "TRS blends AI, automation, and high-touch recruiting to help startups hire faster and better.",
-    url: "https://trs.example", // TODO: update on deploy
+    url: "https://trsolutions.io",
     siteName: "TRS",
     type: "website",
     images: [
       {
-        url: "/logo.png",
+        url: "/logo.png?v=2",
         width: 1200,
         height: 630,
         alt: "TRS Logo",
