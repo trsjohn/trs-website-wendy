@@ -11,6 +11,8 @@ import Reveal from "@/components/Reveal";
 import ValueSplit from "@/components/ValueSplit";
 import { Target, Handshake, ShieldCheck, Zap, Search, ListChecks, FileText, Hand, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown, Check } from "lucide-react";
 import TilesGrid from "@/components/TilesGrid";
+import NewsletterSignup from "@/components/NewsletterSignup";
+import { getRecentIssues } from "@/lib/newsletter";
 
 export default function HomePage() {
   const SafeIcon = ({ Icon, className = "" }: { Icon: React.ElementType; className?: string }) =>
@@ -98,6 +100,17 @@ export default function HomePage() {
       avatar: "/clients/consilium_labs_logo.jpg",
     },
   ];
+
+  const recentIssues = getRecentIssues(3);
+
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
+
   return (
     <div className="space-y-12 sm:space-y-16 lg:space-y-24">
       {/* Hero */}
@@ -851,6 +864,61 @@ export default function HomePage() {
               </blockquote>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
+        <div className="bg-neutral-900/50 rounded-2xl p-8 md:p-12">
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-white mb-4">Newsletter</h2>
+              <p className="text-lg text-neutral-300 mb-8">
+                Hiring systems, AI, and real recruiting—practical, no fluff.
+              </p>
+              <NewsletterSignup className="max-w-md mx-auto" />
+            </div>
+
+            {/* Recent Issues */}
+            <div className="mt-12">
+              <h3 className="text-xl font-semibold text-white mb-6 text-center">Recent Issues</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {recentIssues.map((issue) => (
+                  <article
+                    key={issue.slug}
+                    className="bg-white/5 rounded-lg p-6 border border-white/10 hover:bg-white/10 transition-colors"
+                  >
+                    <h4 className="font-bold text-white mb-2">{issue.title}</h4>
+                    <p className="text-neutral-300 text-sm mb-3 leading-relaxed">
+                      {issue.summary}
+                    </p>
+                    <div className="flex items-center justify-between text-sm">
+                      <time className="text-neutral-400" dateTime={issue.date}>
+                        {formatDate(issue.date)}
+                      </time>
+                      <Link
+                        href={`/newsletter/${issue.slug}`}
+                        className="text-red-400 hover:text-red-300 font-medium transition-colors"
+                      >
+                        Read issue
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              {/* View All Link */}
+              <div className="text-center mt-8">
+                <Link
+                  href="/newsletter"
+                  className="text-red-400 hover:text-red-300 font-medium transition-colors"
+                >
+                  View all issues →
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
