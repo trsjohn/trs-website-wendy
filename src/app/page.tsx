@@ -316,6 +316,8 @@ export default function HomePage() {
             className="rounded-2xl p-2"
           durationSeconds={25}
             logos={[
+              { src: "/clients/0_0.jpg", alt: "Client Logo" },
+              { src: "/clients/0_3.jpg", alt: "Client Logo" },
               { src: "/clients/1749691145498.jpg", alt: "Client Logo" },
               { src: "/clients/American_Express_logo_(2018).svg", alt: "American Express" },
               { src: "/clients/buzzsolutionsinc_logo.jpg", alt: "Buzz Solutions" },
