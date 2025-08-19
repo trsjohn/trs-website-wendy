@@ -170,9 +170,9 @@ export default function HomePage() {
                   { 
                     step: "3", 
                     title: "Data Enrichment", 
-                    description: "Resumes, LinkedIn, transcripts. Structured. Searchable.",
+                    description: "Resumes, LinkedIn, Transcripts. Structured. Searchable.",
                     details: [
-                      "Resumes, LinkedIn, transcripts, parsed into structured data",
+                      "Resumes, LinkedIn, Transcripts, parsed into structured data",
                       "Translate messy resumes into consistent, side-by-side profiles",
                       "Compensation benchmarking and market analysis",
                       "Data stored and searchable for future roles"
@@ -279,15 +279,32 @@ export default function HomePage() {
       {/* Speed / Value */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
         <Reveal>
-          <ValueSplit
-            claim="< 7 days"
-            title="from intake to first slate — decision-ready candidates without wasted interviews"
-            bullets={[
-              { title: "Signal over noise", body: "Custom rubrics and brief summaries get you to 'yes/no' quickly." },
-              { title: "Tight feedback loop", body: "We learn from outcomes and adapt every week." },
-            ]}
-            caption="Based on historical client cycles and internal benchmarks"
-          />
+          <div className="grid md:grid-cols-2 items-start gap-10">
+            <div>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3 text-neutral-200">
+                  <span className="text-red-500 mt-1">✓</span>
+                  <span className="text-3xl font-semibold">50,000+ Candidate Network</span>
+                </li>
+                <li className="flex items-start gap-3 text-neutral-200">
+                  <span className="text-red-500 mt-1">✓</span>
+                  <span className="text-3xl font-semibold">30+ Years of Experience</span>
+                </li>
+                <li className="flex items-start gap-3 text-neutral-200">
+                  <span className="text-red-500 mt-1">✓</span>
+                  <span className="text-3xl font-semibold">1 Process that Works</span>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-4">
+              <div className="bg-red-500/30 border border-red-500/50 rounded-2xl p-4">
+                <div className="text-lg font-medium text-white">Recruiting tools are broken. Siloed. Not intuitive.</div>
+              </div>
+              <div className="bg-green-500/30 border border-green-500/50 rounded-2xl p-4">
+                <div className="text-lg font-medium text-white">Our process works. Smart tools + selective AI = better hires.</div>
+              </div>
+            </div>
+          </div>
         </Reveal>
       </section>
 
@@ -422,8 +439,8 @@ export default function HomePage() {
               Sound like your situation? Let&apos;s talk about how TRS can help.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link href="/contact" aria-label="Get your first slate">
-                <Button className="px-6 h-11">Get your first slate</Button>
+              <Link href="/contact" aria-label="Let's Talk">
+                <Button className="px-6 h-11">Let's Talk</Button>
               </Link>
               <Link href="/services" aria-label="See how it works">
                 <Button variant="ghost" className="px-6 h-11">See how it works</Button>
@@ -464,29 +481,29 @@ export default function HomePage() {
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <span className="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full">Most Popular</span>
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-red-400">PSaaS</h3>
+              <h3 className="text-xl font-semibold mb-2 text-red-400">Pre-Screening as a Service (PSaaS)</h3>
 
               <ul className="space-y-2 text-neutral-200">
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
-                  <span>Parsing</span>
+                  <span>Parse resumes and profiles automatically</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
-                  <span>AI scoring</span>
+                  <span>Score candidates with AI against your job requirements</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
-                  <span>Human review</span>
+                  <span>Human recruiters validate every score and add context</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
-                  <span>Shortlists</span>
-              </li>
+                  <span>Deliver shortlists of qualified, decision-ready candidates</span>
+                </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
-                  <span>Weekly recalibration</span>
-              </li>
+                  <span>Recalibrate weekly based on your feedback</span>
+                </li>
               </ul>
             </div>
 
@@ -497,17 +514,17 @@ export default function HomePage() {
               <ul className="space-y-2 text-neutral-200">
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
-                  <span>Dedicated recruiter</span>
-              </li>
+                  <span>A dedicated recruiter embedded with your team</span>
+                </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
-                  <span>Weekly sprint plans</span>
-              </li>
+                  <span>Weekly sprint plans with clear priorities</span>
+                </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
-                  <span>Slate commitments</span>
-              </li>
-            </ul>
+                  <span>Candidate shortlist delivered on schedule</span>
+                </li>
+              </ul>
           </div>
 
             {/* Executive Search */}
@@ -517,15 +534,15 @@ export default function HomePage() {
               <ul className="space-y-2 text-neutral-200">
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
-                  <span>Aligned incentives</span>
+                  <span>Incentives aligned to successful long-term hires</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
-                  <span>Market mapping</span>
+                  <span>Deep market mapping to surface the right talent</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">•</span>
-                  <span>Finals management</span>
+                  <span>Hands-on management of finalists through the offer stage</span>
                 </li>
               </ul>
             </div>
@@ -561,7 +578,7 @@ export default function HomePage() {
               },
               {
                 q: "How fast is \"fast\"?",
-                a: "First slate in under a week once we have a real intake."
+                a: "Shortlist delivered in under one week with detailed candidate reports."
               },
               {
                 q: "Can we start small with just PSaaS?",
@@ -629,7 +646,7 @@ export default function HomePage() {
               </li>
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={Timer} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span>Avg time to first slate: &lt; 7 days</span>
+                <span>Avg time to shortlist: &lt;7 days</span>
               </li>
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={TrendingUp} className="h-5 w-5 text-red-500 mt-0.5" />
