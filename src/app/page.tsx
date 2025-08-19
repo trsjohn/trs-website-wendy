@@ -321,8 +321,10 @@ export default function HomePage() {
               { src: "/clients/buzzsolutionsinc_logo.jpg", alt: "Buzz Solutions" },
               { src: "/clients/channels4_profile.jpg", alt: "Channels 4" },
               { src: "/clients/consilium_labs_logo.jpg", alt: "Consilium Labs" },
-              { src: "/clients/download.jpg", alt: "Client Logo" },
+              { src: "/clients/exa_ai_logo.jpg", alt: "Exa AI" },
               { src: "/clients/grsee_consulting_logo.jpg", alt: "GRSee Consulting" },
+              { src: "/clients/hightouchio_logo.jpg", alt: "Hightouch" },
+              { src: "/clients/images.jpg", alt: "Client Logo" },
               { src: "/clients/insight_assurance_logo.jpg", alt: "Insight Assurance" },
               { src: "/clients/LbclC98S_400x400.jpg", alt: "Client Logo" },
             ]}
