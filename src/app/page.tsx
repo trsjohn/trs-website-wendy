@@ -8,7 +8,7 @@ import LogoMarquee from "@/components/LogoMarquee";
 
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
-import ValueSplit from "@/components/ValueSplit";
+
 import { Target, Zap, Search, ListChecks, FileText, Hand, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown } from "lucide-react";
 import TilesGrid from "@/components/TilesGrid";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -440,7 +440,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link href="/contact" aria-label="Let's Talk">
-                <Button className="px-6 h-11">Let's Talk</Button>
+                <Button className="px-6 h-11">Let&apos;s Talk</Button>
               </Link>
               <Link href="/services" aria-label="See how it works">
                 <Button variant="ghost" className="px-6 h-11">See how it works</Button>
