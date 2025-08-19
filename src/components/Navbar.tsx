@@ -60,7 +60,7 @@ export default function Navbar() {
             href="/#cta"
             className="ml-2 inline-flex items-center rounded-md px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-black to-red-600 transition-all duration-200 ease-out hover:scale-[1.03] hover:shadow-lg hover:shadow-red-500/20 focus:outline-none focus:ring-2 focus:ring-red-400/40"
           >
-            Web Portal
+            Client Portal
           </Link>
         </nav>
         <button
@@ -86,7 +86,7 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-black to-red-600 transition-all duration-200 ease-out hover:scale-[1.02] hover:shadow-lg hover:shadow-red-500/20"
             >
-              Web Portal
+              Client Portal
             </Link>
           </div>
         </div>
