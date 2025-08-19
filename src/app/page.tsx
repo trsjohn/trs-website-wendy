@@ -148,45 +148,45 @@ export default function HomePage() {
                   { 
                     step: "1", 
                     title: "Kickoff", 
-                    description: "We extract the real job. Must-haves. Soft signals. Red flags.",
+                    description: "We extract the real job. Must-haves. Soft signals. Red flags. Nothing gets lost in translation.",
                     details: [
-                      "Boolean search optimization across 50+ platforms",
-                      "LinkedIn automation with personalized messaging",
-                      "Passive candidate identification and engagement",
+                      "30-minute discovery call to understand your role requirements",
+                      "Extract and clarify must-haves and soft signals from your input",
+                      "Immediate broadcast to our candidate network for quick fits",
                       "Competitive intelligence and market mapping"
                     ]
                   },
                   { 
                     step: "2", 
                     title: "Sourcing", 
-                    description: "Boolean. Sales Navigator. X-ray. Warm intros.",
+                    description: "Booleans. Sales Navigator. X-ray. Warm intros.",
                     details: [
-                      "Boolean search optimization across 50+ platforms",
+                      "Boolean search optimization across LinkedIn, GitHub, 30+ sources",
                       "LinkedIn automation with personalized messaging",
                       "Passive candidate identification and engagement",
-                      "Competitive intelligence and market mapping"
+                      "Warm introductions through trusted networks"
                     ]
                   },
                   { 
                     step: "3", 
-                    title: "Parsing + Enrichment", 
+                    title: "Data Enrichment", 
                     description: "Resumes, LinkedIn, transcripts. Structured. Searchable.",
                     details: [
-                      "30-minute discovery call to understand role requirements",
-                      "Technical skills assessment and cultural fit criteria",
+                      "Resumes, LinkedIn, transcripts, parsed into structured data",
+                      "Translate messy resumes into consistent, side-by-side profiles",
                       "Compensation benchmarking and market analysis",
-                      "Timeline and expectations alignment"
+                      "Data stored and searchable for future roles"
                     ]
                   },
                   { 
                     step: "4", 
                     title: "AI Scoring", 
-                    description: "Role rubrics. 100-point score. Evidence from source text.",
+                    description: "Role rubrics. Evidence-backed scores. Human-driven. AI-supported.",
                     details: [
                       "10-point custom rubric tailored to your specific role",
-                      "Technical competency assessment",
-                      "Cultural alignment and soft skills evaluation",
-                      "Reference checks and background verification"
+                      "100-point candidate score tied to source text evidence",
+                      "Technical competency and cultural alignment evaluation",
+                      "Early reference and background checks surfaced for review"
                     ]
                   },
                   { 
@@ -203,23 +203,23 @@ export default function HomePage() {
                   { 
                     step: "6", 
                     title: "Client Delivery", 
-                    description: "Portal or clean report. Inbound/outbound tags. Notes and next steps.",
+                    description: "Clean candidate reports. Relevant tags. Notes and next steps.",
                     details: [
-                      "Real-time feedback collection after each submission",
+                      "Candidate reports with context that feels like you interviewed them yourself",
                       "Interview outcome tracking and analysis",
                       "Candidate experience monitoring",
-                      "Continuous calibration of search criteria"
+                      "Salary context and negotiation levers in every report"
                     ]
                   },
                   { 
                     step: "7", 
                     title: "Feedback Loop", 
-                    description: "Your feedback tunes the model. Each slate gets sharper.",
+                    description: "Your feedback sharpens the process. AI learns, humans refine. Each shortlist gets stronger.",
                     details: [
-                      "Weekly search strategy optimization",
+                      "Weekly search strategy optimization and continuous calibration",
+                      "Real-time feedback collection after each submission",
                       "AI model training based on successful placements",
-                      "Market insights and competitive intelligence updates",
-                      "Process refinement for faster time-to-hire"
+                      "Market insights and competitive intelligence updates"
                     ]
                   },
                 ].map(({ step, title, description, details }, index, array) => (
