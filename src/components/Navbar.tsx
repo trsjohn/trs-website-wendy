@@ -57,7 +57,7 @@ export default function Navbar() {
             Apply
           </Link>
           <Link
-            href="/#cta"
+            href="https://app.trsolutions.io/auth"
             className="ml-2 inline-flex items-center rounded-md px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-black to-red-600 transition-all duration-200 ease-out hover:scale-[1.03] hover:shadow-lg hover:shadow-red-500/20 focus:outline-none focus:ring-2 focus:ring-red-400/40"
           >
             Client Portal
@@ -82,7 +82,7 @@ export default function Navbar() {
             ))}
             <Link href="/apply" onClick={() => setOpen(false)} className="rounded px-3 py-2 mt-2 hover:text-red-500">Apply</Link>
             <Link
-              href="/#cta"
+              href="https://app.trsolutions.io/auth"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-black to-red-600 transition-all duration-200 ease-out hover:scale-[1.02] hover:shadow-lg hover:shadow-red-500/20"
             >
