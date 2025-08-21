@@ -42,6 +42,15 @@ export default function ServicesPage() {
         "Documented playbooks and benchmarks tailored to your hiring goals",
       ],
     },
+    {
+      title: "Add-ons",
+      bullets: [
+        "Reference calls",
+        "Background checks",
+        "Market Mapping",
+        "Interview Process Optimization",
+      ],
+    },
   ];
 
   return (
