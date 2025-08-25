@@ -19,7 +19,7 @@ export default function HomePage() {
     Icon ? <Icon className={className} aria-hidden /> : <span className={className} aria-hidden>•</span>;
   
   // A/B test headlines based on query parameter
-  const [headline, setHeadline] = useState('End-to-End Recruiting System');
+  const [headline, setHeadline] = useState('End-to-End<br />Recruiting System');
   const [altText, setAltText] = useState('End-to-End Recruiting System');
   
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function HomePage() {
         setAltText('Real hires, fast. No BS.');
         break;
       default:
-        setHeadline('End-to-End Recruiting System');
+        setHeadline('End-to-End<br />Recruiting System');
         setAltText('End-to-End Recruiting System');
     }
   }, []);
@@ -124,7 +124,7 @@ export default function HomePage() {
             
             <StaggeredReveal delay={300}>
               <p className="mt-3 text-subhero text-neutral-100 max-w-2xl md:max-w-none mx-auto md:mx-0 font-semibold">
-                TRS is a Recruiting OS — AI + humans in the loop. Fast loops. Clean signals. Better hires.
+                TRS is a Recruiting OS that blends AI with human expertise to deliver faster cycles, clearer signals, and better hires.
               </p>
             </StaggeredReveal>
             
