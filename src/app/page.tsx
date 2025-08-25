@@ -19,8 +19,8 @@ export default function HomePage() {
     Icon ? <Icon className={className} aria-hidden /> : <span className={className} aria-hidden>•</span>;
   
   // A/B test headlines based on query parameter
-  const [headline, setHeadline] = useState('We ship hires.<br />Not spreadsheets.');
-  const [altText, setAltText] = useState('We ship hires. Not spreadsheets.');
+  const [headline, setHeadline] = useState('End-to-End Recruiting System');
+  const [altText, setAltText] = useState('End-to-End Recruiting System');
   
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -36,8 +36,8 @@ export default function HomePage() {
         setAltText('Real hires, fast. No BS.');
         break;
       default:
-        setHeadline('We ship hires.<br />Not spreadsheets.');
-        setAltText('We ship hires. Not spreadsheets.');
+        setHeadline('End-to-End Recruiting System');
+        setAltText('End-to-End Recruiting System');
     }
   }, []);
   const testimonials = [
