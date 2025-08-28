@@ -34,10 +34,16 @@ function formatText(text: string | undefined): string {
 }
 
 export default function JDPanel({ role }: JDPanelProps) {
+  // Debug: Log the data to understand what we're working with
+  console.log('JDPanel - role data:', role);
+  console.log('JDPanel - sourceJdJson:', role.sourceJdJson);
+  
   // Parse the JSON data if available
   const jobData = role.sourceJdJson && typeof role.sourceJdJson === 'object' && role.sourceJdJson !== null
     ? role.sourceJdJson as JobData
     : null;
+    
+  console.log('JDPanel - parsed jobData:', jobData);
 
   return (
     <div className="rounded-2xl border border-neutral-800 p-6 bg-black/60 text-white shadow-sm space-y-6">
@@ -141,6 +147,27 @@ export default function JDPanel({ role }: JDPanelProps) {
           <p className="text-neutral-400">No detailed job description available.</p>
         </div>
       )}
+
+      {/* Debug section - remove after fixing */}
+      <div className="bg-red-900/20 border border-red-500/30 p-4 rounded mt-6">
+        <h3 className="text-red-400 font-semibold mb-2">Debug Info:</h3>
+        <div className="text-xs text-gray-300 space-y-2">
+          <div><strong>Has sourceJdJson:</strong> {role.sourceJdJson ? 'Yes' : 'No'}</div>
+          <div><strong>Has jd_text:</strong> {role.jd_text ? 'Yes' : 'No'}</div>
+          <div><strong>Parsed jobData:</strong> {jobData ? 'Yes' : 'No'}</div>
+          {jobData && (
+            <div>
+              <strong>Available fields:</strong> {Object.keys(jobData).join(', ')}
+            </div>
+          )}
+          <div className="mt-2">
+            <strong>Raw sourceJdJson:</strong>
+            <pre className="text-xs mt-1 max-h-40 overflow-y-auto">
+              {JSON.stringify(role.sourceJdJson, null, 2)}
+            </pre>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
