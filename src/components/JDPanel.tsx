@@ -28,7 +28,7 @@ interface JobData {
   responsibilities?: string[];
   requirements?: string[];
   tech_stack?: string[];
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 function formatList(items: string[] | undefined): string[] {
