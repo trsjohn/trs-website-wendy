@@ -156,7 +156,7 @@ export default function ApplyForm() {
       </Button>
       
       <p className="text-red-500 italic text-sm mt-3">
-        *Don't worry, we won't ghost you. You'll hear back from us one way or another.
+        *Don&apos;t worry, we won&apos;t ghost you. You&apos;ll hear back from us one way or another.
       </p>
     </form>
   );
