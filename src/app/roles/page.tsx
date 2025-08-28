@@ -5,6 +5,50 @@ import Link from "next/link";
 import { getRoles, type Role } from "@/lib/api";
 import { Button } from "@/components/ui/Button";
 
+interface JobData {
+  client?: string;
+  location?: string;
+  compensation?: string;
+  contract_type?: string;
+}
+
+function JobDetails({ sourceJdJson }: { sourceJdJson: unknown }) {
+  if (!sourceJdJson || typeof sourceJdJson !== 'object' || sourceJdJson === null) {
+    return null;
+  }
+  
+  const jobData = sourceJdJson as Record<string, unknown>;
+  const details: JobData = {
+    client: typeof jobData.client === 'string' ? jobData.client : undefined,
+    location: typeof jobData.location === 'string' ? jobData.location : undefined,
+    compensation: typeof jobData.compensation === 'string' ? jobData.compensation : undefined,
+    contract_type: typeof jobData.contract_type === 'string' ? jobData.contract_type : undefined,
+  };
+  
+  const hasAnyDetails = Object.values(details).some(value => value !== undefined);
+  
+  if (!hasAnyDetails) {
+    return null;
+  }
+  
+  return (
+    <div className="space-y-2 text-sm text-neutral-300">
+      {details.client && (
+        <p><span className="text-neutral-400">Client:</span> {details.client}</p>
+      )}
+      {details.location && (
+        <p><span className="text-neutral-400">Location:</span> {details.location}</p>
+      )}
+      {details.compensation && (
+        <p><span className="text-neutral-400">Compensation:</span> {details.compensation}</p>
+      )}
+      {details.contract_type && (
+        <p><span className="text-neutral-400">Type:</span> {details.contract_type}</p>
+      )}
+    </div>
+  );
+}
+
 export default function RolesPage() {
   const [roles, setRoles] = useState<Role[]>([]);
   const [loading, setLoading] = useState(true);
@@ -84,31 +128,7 @@ export default function RolesPage() {
                     {displayTitle}
                   </h2>
                   
-                  {/* Show additional details if available in sourceJdJson */}
-                  {role.sourceJdJson && typeof role.sourceJdJson === 'object' && role.sourceJdJson !== null && (
-                    <div className="space-y-2 text-sm text-neutral-300">
-                      {/* Type assertion to access properties */}
-                      {(() => {
-                        const jobData = role.sourceJdJson as any;
-                        return (
-                          <>
-                            {jobData.client && (
-                              <p><span className="text-neutral-400">Client:</span> {jobData.client}</p>
-                            )}
-                            {jobData.location && (
-                              <p><span className="text-neutral-400">Location:</span> {jobData.location}</p>
-                            )}
-                            {jobData.compensation && (
-                              <p><span className="text-neutral-400">Compensation:</span> {jobData.compensation}</p>
-                            )}
-                            {jobData.contract_type && (
-                              <p><span className="text-neutral-400">Type:</span> {jobData.contract_type}</p>
-                            )}
-                          </>
-                        );
-                      })()}
-                    </div>
-                  )}
+                  <JobDetails sourceJdJson={role.sourceJdJson} />
                 </div>
 
                 <div className="mt-auto">

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ApplyForm from "@/components/ApplyForm";
 
 export default function ApplyPage() {
@@ -6,7 +7,9 @@ export default function ApplyPage() {
       <div className="max-w-3xl mx-auto text-center">
         <h1 className="text-3xl font-bold text-white mb-8">Apply for a Role</h1>
         <div className="text-left">
-          <ApplyForm />
+          <Suspense fallback={<div className="text-neutral-300">Loading application form...</div>}>
+            <ApplyForm />
+          </Suspense>
         </div>
       </div>
     </div>
