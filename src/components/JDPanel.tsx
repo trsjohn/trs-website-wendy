@@ -22,7 +22,7 @@ interface ParsedJobData {
   requirements?: string[];
   tech_stack?: string[];
   compensation?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export default function JDPanel({ role }: JDPanelProps) {
