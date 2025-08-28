@@ -51,9 +51,25 @@ export default function JDPanel({ role }: JDPanelProps) {
   }
 
   const jobData = role.sourceJdJson as JobData;
+  
+  // Debug: Log the actual data structure
+  console.log('JDPanel - role.sourceJdJson:', role.sourceJdJson);
+  console.log('JDPanel - jobData keys:', Object.keys(jobData || {}));
 
   return (
     <div className="rounded-2xl border border-neutral-800 p-6 bg-black/60 text-white shadow-sm space-y-4">
+      {/* Debug section - remove after fixing */}
+      <div className="bg-red-900/20 border border-red-500/30 p-4 rounded">
+        <h3 className="text-red-400 font-semibold mb-2">Debug - Available Data Keys:</h3>
+        <pre className="text-xs text-gray-300 whitespace-pre-wrap">
+          {JSON.stringify(Object.keys(jobData || {}), null, 2)}
+        </pre>
+        <h3 className="text-red-400 font-semibold mb-2 mt-4">Raw Data:</h3>
+        <pre className="text-xs text-gray-300 whitespace-pre-wrap max-h-40 overflow-y-auto">
+          {JSON.stringify(jobData, null, 2)}
+        </pre>
+      </div>
+      
       {/* Req Details */}
       <div>
         <h2 className="font-bold text-lg mb-3 text-red-400">Req Details</h2>
