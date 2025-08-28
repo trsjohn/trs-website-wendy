@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -25,6 +26,7 @@ const ApplicationSchema = z.object({
 type ApplicationValues = z.infer<typeof ApplicationSchema>;
 
 export default function ApplyForm() {
+  const searchParams = useSearchParams();
   const [roles, setRoles] = useState<Role[]>([]);
   const [selectedRole, setSelectedRole] = useState<Role | null>(null);
 
@@ -76,6 +78,18 @@ export default function ApplyForm() {
   };
 
   const roleId = watch("roleId");
+  
+  // Handle URL parameter for pre-selecting role
+  useEffect(() => {
+    const preselectedRoleId = searchParams.get("role");
+    if (preselectedRoleId && roles.length > 0) {
+      const role = roles.find((r) => r.id === preselectedRoleId);
+      if (role) {
+        setValue("roleId", preselectedRoleId, { shouldValidate: true });
+      }
+    }
+  }, [roles, searchParams, setValue]);
+  
   useEffect(() => {
     const role = roles.find((r) => r.id === roleId) || null;
     setSelectedRole(role);
