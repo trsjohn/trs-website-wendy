@@ -154,6 +154,10 @@ export default function ApplyForm() {
       <Button type="submit" disabled={isSubmitting}>
         {isSubmitting ? "Submitting…" : "Submit Application"}
       </Button>
+      
+      <p className="text-red-500 italic text-sm mt-3">
+        *Don't worry, we won't ghost you. You'll hear back from us one way or another.
+      </p>
     </form>
   );
 }
