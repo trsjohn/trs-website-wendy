@@ -1,6 +1,7 @@
 "use client";
 
-import JdPdfViewer from "./JdPdfViewer";
+import { Suspense } from "react";
+import { RolePdf } from "./pdf/RolePdf";
 
 interface JDPanelProps {
   role: {
@@ -34,7 +35,9 @@ export default function JDPanel({ role }: JDPanelProps) {
       {role.sourceJdJson ? (
         <section className="mt-4">
           <h3 className="font-semibold mb-3 text-white">Job Description</h3>
-          <JdPdfViewer jd={role.sourceJdJson as Record<string, unknown>} />
+          <Suspense fallback={<div className="text-neutral-300">Loading PDF...</div>}>
+            <RolePdf rawJD={role.sourceJdJson} inline />
+          </Suspense>
         </section>
       ) : null}
     </div>
