@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     marginTop: 14, 
     marginBottom: 6, 
     fontWeight: "bold",
-    color: "#ffffff"
+    color: "#ffffff",
+    textDecoration: "underline"
   },
   meta: { 
     color: "#aaaaaa", 
@@ -50,13 +51,15 @@ const styles = StyleSheet.create({
     color: "#ffffff"
   },
   ul: { 
-    marginLeft: 10, 
+    marginLeft: 0, 
     marginBottom: 6 
   },
   li: { 
     marginBottom: 6, // Slightly more space between list items
     lineHeight: 1.5, // 1.5x spacing for list items
-    color: "#ffffff"
+    color: "#ffffff",
+    paddingLeft: 15, // Space for bullet and proper text alignment
+    textIndent: -10 // Pull bullet back to the left
   },
   tagWrap: { 
     flexDirection: "row", 
