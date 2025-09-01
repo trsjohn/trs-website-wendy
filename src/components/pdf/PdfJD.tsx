@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   p: { 
     marginBottom: 8, 
-    lineHeight: 1.35,
+    lineHeight: 1.0, // Single spacing for paragraphs
     color: "#ffffff"
   },
   ul: { 
@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
     marginBottom: 6 
   },
   li: { 
-    marginBottom: 4,
+    marginBottom: 6, // Slightly more space between list items
+    lineHeight: 1.5, // 1.5x spacing for list items
     color: "#ffffff"
   },
   tagWrap: { 
