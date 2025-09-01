@@ -10,6 +10,13 @@ export async function POST(request: NextRequest) {
     // Create a new PDF document
     const doc = new jsPDF();
     
+    // Set black background for the entire page
+    doc.setFillColor(0, 0, 0); // Black background
+    doc.rect(0, 0, 210, 297, 'F'); // Fill entire A4 page (210x297mm)
+    
+    // Set default text color to white
+    doc.setTextColor(255, 255, 255);
+    
     // Try to add TRS logo
     try {
       const logoPath = path.join(process.cwd(), 'public', 'logo.png');
@@ -43,6 +50,7 @@ export async function POST(request: NextRequest) {
     }
     
     // Add a line separator
+    doc.setDrawColor(255, 255, 255); // White line
     doc.line(20, 35, 190, 35);
     
     let yPosition = 50;
@@ -134,6 +142,11 @@ export async function POST(request: NextRequest) {
             // Check if we need a new page
             if (yPosition > 270) {
               doc.addPage();
+              // Set black background for new page
+              doc.setFillColor(0, 0, 0);
+              doc.rect(0, 0, 210, 297, 'F');
+              // Reset text color to white
+              doc.setTextColor(255, 255, 255);
               yPosition = 20;
             }
             
@@ -163,6 +176,11 @@ export async function POST(request: NextRequest) {
       for (const line of lines) {
         if (yPosition > 270) {
           doc.addPage();
+          // Set black background for new page
+          doc.setFillColor(0, 0, 0);
+          doc.rect(0, 0, 210, 297, 'F');
+          // Reset text color to white
+          doc.setTextColor(255, 255, 255);
           yPosition = 20;
         }
         
