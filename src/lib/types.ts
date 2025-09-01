@@ -24,7 +24,14 @@ export function normalizeJD(raw: unknown): JD {
   // Safe string extraction
   const getString = (obj: Record<string, unknown>, key: string): string | null => {
     const value = obj[key];
-    return typeof value === 'string' && value.trim() ? value.trim() : null;
+    if (typeof value === 'string') {
+      const trimmed = value.trim();
+      // Filter out empty strings and literal "null" strings
+      if (trimmed && trimmed.toLowerCase() !== 'null') {
+        return trimmed;
+      }
+    }
+    return null;
   };
 
   // Safe array extraction

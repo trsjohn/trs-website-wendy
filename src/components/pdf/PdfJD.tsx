@@ -105,12 +105,34 @@ export default function PdfJD({ jd }: { jd: JD }) {
   const tags = jd.tags || [];
 
   const meta: string[] = [];
-  if (level) meta.push(level);
-  if (jd.employment_type) meta.push(jd.employment_type);
-  if (jd.location_type) meta.push(jd.location_type);
-  if (jd.remote_policy) meta.push(jd.remote_policy);
-  if (locations) meta.push(locations);
-  if (jd.salary) meta.push(`Comp: ${jd.salary}`);
+  
+  // Add employment type (Full-time, Part-time, Contract, etc.)
+  if (jd.employment_type) {
+    meta.push(jd.employment_type);
+  }
+  
+  // Add location type (Remote, Onsite, Hybrid, etc.)
+  if (jd.location_type) {
+    meta.push(jd.location_type);
+  }
+  
+  // Add locations (city/state)
+  if (locations) {
+    meta.push(locations);
+  }
+  
+  // Add other relevant info
+  if (level) {
+    meta.push(level);
+  }
+  
+  if (jd.remote_policy && jd.remote_policy !== jd.location_type) {
+    meta.push(jd.remote_policy);
+  }
+  
+  if (jd.salary) {
+    meta.push(`Comp: ${jd.salary}`);
+  }
 
   return (
     <Document>
