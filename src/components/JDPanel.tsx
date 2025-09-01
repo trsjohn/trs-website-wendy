@@ -1,5 +1,7 @@
 "use client";
 
+import JdPdfViewer from "./JdPdfViewer";
+
 interface JDPanelProps {
   role: {
     id: string;
@@ -30,11 +32,9 @@ export default function JDPanel({ role }: JDPanelProps) {
       ) : null}
 
       {role.sourceJdJson ? (
-        <section className="text-sm mt-3">
-          <h3 className="font-semibold mb-1">Source Job Description (JSON)</h3>
-          <pre className="whitespace-pre-wrap opacity-90 text-neutral-300">
-            {JSON.stringify(role.sourceJdJson, null, 2)}
-          </pre>
+        <section className="mt-4">
+          <h3 className="font-semibold mb-3 text-white">Job Description</h3>
+          <JdPdfViewer jd={role.sourceJdJson as Record<string, unknown>} />
         </section>
       ) : null}
     </div>
