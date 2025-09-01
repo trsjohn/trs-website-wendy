@@ -3,14 +3,14 @@ import { supabase } from "./supabase";
 export type Role = {
   id: string;
   title: string;
-  sourceJdJson?: unknown | null;
+  sourceJdJson?: unknown | null; // Now contains TRS formatted JD data
 };
 
 
 export async function getRoles(): Promise<Role[]> {
   const { data, error } = await supabase
     .from("reqs")
-    .select(["id", "job_title", "status", "source_jd_json"].join(","))
+    .select(["id", "job_title", "status", "trs_jd_json"].join(","))
     .eq("status", "Open")
     .order("job_title", { ascending: true });
 
@@ -21,11 +21,11 @@ export async function getRoles(): Promise<Role[]> {
 
   const rows = (data ?? []) as unknown[];
   return rows.map((row) => {
-    const r = row as { id: string; job_title?: string | null; source_jd_json?: unknown | null };
+    const r = row as { id: string; job_title?: string | null; trs_jd_json?: unknown | null };
     return {
       id: r.id,
       title: r.job_title ?? "Untitled Role",
-      sourceJdJson: r.source_jd_json ?? null,
+      sourceJdJson: r.trs_jd_json ?? null,
     };
   });
 }
