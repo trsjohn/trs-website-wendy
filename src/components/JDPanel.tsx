@@ -36,7 +36,7 @@ export default function JDPanel({ role }: JDPanelProps) {
         <section className="mt-4">
           <h3 className="font-semibold mb-3 text-white">Job Description</h3>
           <Suspense fallback={<div className="text-neutral-300">Loading PDF...</div>}>
-            <RolePdf rawJD={role.sourceJdJson} inline />
+            <RolePdf key={role.id} rawJD={role.sourceJdJson} inline />
           </Suspense>
         </section>
       ) : null}

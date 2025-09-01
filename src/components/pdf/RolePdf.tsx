@@ -1,17 +1,19 @@
 "use client";
 
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, useCallback } from "react";
 import { normalizeJD, type JD } from "@/lib/types";
 
-// We'll load these dynamically
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let PDFViewer: React.ComponentType<any> | null = null;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let PDFDownloadLink: React.ComponentType<any> | null = null;
-let PdfJD: React.ComponentType<{ jd: JD }> | null = null;
+interface PDFComponents {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  PDFViewer: React.ComponentType<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  PDFDownloadLink: React.ComponentType<any>;
+  PdfJD: React.ComponentType<{ jd: JD }>;
+}
 
 export function RolePdf({ rawJD, inline = true }: { rawJD: unknown; inline?: boolean }) {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [components, setComponents] = useState<PDFComponents | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
   const jd = useMemo(() => {
@@ -39,30 +41,41 @@ export function RolePdf({ rawJD, inline = true }: { rawJD: unknown; inline?: boo
     }
   }, [rawJD]);
 
-  useEffect(() => {
-    const loadPDFComponents = async () => {
-      try {
-        const [pdfRenderer, pdfComponent] = await Promise.all([
-          import("@react-pdf/renderer"),
-          import("./PdfJD")
-        ]);
-        
-        PDFViewer = pdfRenderer.PDFViewer;
-        PDFDownloadLink = pdfRenderer.PDFDownloadLink;
-        PdfJD = pdfComponent.default;
-        
-        setIsLoaded(true);
-      } catch (error) {
-        console.error("Failed to load PDF components:", error);
-        setError("Failed to load PDF components");
-        setIsLoaded(false);
-      }
-    };
+  const loadPDFComponents = useCallback(async () => {
+    if (components || isLoading) return; // Already loaded or loading
+    
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      const [pdfRenderer, pdfComponent] = await Promise.all([
+        import("@react-pdf/renderer"),
+        import("./PdfJD")
+      ]);
+      
+      setComponents({
+        PDFViewer: pdfRenderer.PDFViewer,
+        PDFDownloadLink: pdfRenderer.PDFDownloadLink,
+        PdfJD: pdfComponent.default,
+      });
+    } catch (error) {
+      console.error("Failed to load PDF components:", error);
+      setError("Failed to load PDF components");
+    } finally {
+      setIsLoading(false);
+    }
+  }, [components, isLoading]);
 
-    // Only load if we have valid data
-    if (rawJD) {
+  useEffect(() => {
+    // Only load if we have valid data and components aren't loaded yet
+    if (rawJD && !components && !isLoading) {
       loadPDFComponents();
     }
+  }, [rawJD, components, isLoading, loadPDFComponents]);
+
+  // Reset error state when rawJD changes
+  useEffect(() => {
+    setError(null);
   }, [rawJD]);
 
   if (error) {
@@ -80,7 +93,7 @@ export function RolePdf({ rawJD, inline = true }: { rawJD: unknown; inline?: boo
     );
   }
 
-  if (!isLoaded) {
+  if (isLoading || !components) {
     return (
       <div className="flex items-center justify-center h-96 text-neutral-400">
         Loading PDF components...
@@ -90,7 +103,8 @@ export function RolePdf({ rawJD, inline = true }: { rawJD: unknown; inline?: boo
 
   const renderPDFViewer = () => {
     try {
-      if (!PDFViewer || !PdfJD) return null;
+      if (!components) return null;
+      const { PDFViewer, PdfJD } = components;
       return (
         <PDFViewer width="100%" height="100%">
           <PdfJD jd={jd} />
@@ -108,7 +122,8 @@ export function RolePdf({ rawJD, inline = true }: { rawJD: unknown; inline?: boo
 
   const renderDownloadLink = () => {
     try {
-      if (!PDFDownloadLink || !PdfJD) return null;
+      if (!components) return null;
+      const { PDFDownloadLink, PdfJD } = components;
       return (
         <PDFDownloadLink 
           document={<PdfJD jd={jd} />} 
