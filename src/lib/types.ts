@@ -21,6 +21,21 @@ export function normalizeJD(raw: unknown): JD {
     return typeof value === 'object' && value !== null;
   };
 
+  // Safe string extraction
+  const getString = (obj: Record<string, unknown>, key: string): string | null => {
+    const value = obj[key];
+    return typeof value === 'string' && value.trim() ? value.trim() : null;
+  };
+
+  // Safe array extraction
+  const getStringArray = (obj: Record<string, unknown>, key: string): string[] => {
+    const value = obj[key];
+    if (Array.isArray(value)) {
+      return value.filter((item): item is string => typeof item === 'string' && item.trim().length > 0);
+    }
+    return [];
+  };
+
   let j: Record<string, unknown> = {};
   
   if (isObject(raw)) {
@@ -34,20 +49,43 @@ export function normalizeJD(raw: unknown): JD {
     }
   }
 
+  // Handle TRS template format (trs_jd_* fields)
+  const isTrsFormat = j.trs_jd_about_company || j.trs_jd_about_role;
+  
+  if (isTrsFormat) {
+    return {
+      title: getString(j, 'title') || "Job Description",
+      level: getString(j, 'level'),
+      locations: getStringArray(j, 'locations'),
+      location_type: getString(j, 'location_type'),
+      remote_policy: getString(j, 'remote_policy'),
+      employment_type: getString(j, 'employment_type'),
+      salary: getString(j, 'trs_jd_job_compensation') || getString(j, 'salary'),
+      tags: getStringArray(j, 'tags'),
+      about_company: getString(j, 'trs_jd_about_company'),
+      about_role: getString(j, 'trs_jd_about_role'),
+      responsibilities: getStringArray(j, 'trs_jd_job_duties'),
+      requirements: getStringArray(j, 'trs_jd_job_skills'),
+      nice_to_haves: getStringArray(j, 'nice_to_haves'),
+      benefits: getStringArray(j, 'benefits'),
+    };
+  }
+
+  // Handle standard format
   return {
-    title: typeof j.title === 'string' ? j.title : "Untitled Role",
-    level: typeof j.level === 'string' ? j.level : null,
-    locations: Array.isArray(j.locations) ? j.locations.filter((loc): loc is string => typeof loc === 'string') : [],
-    location_type: typeof j.location_type === 'string' ? j.location_type : null,
-    remote_policy: typeof j.remote_policy === 'string' ? j.remote_policy : null,
-    employment_type: typeof j.employment_type === 'string' ? j.employment_type : null,
-    salary: typeof j.salary === 'string' ? j.salary : null,
-    tags: Array.isArray(j.tags) ? j.tags.filter((tag): tag is string => typeof tag === 'string') : [],
-    about_company: typeof j.about_company === 'string' ? j.about_company : null,
-    about_role: typeof j.about_role === 'string' ? j.about_role : null,
-    responsibilities: Array.isArray(j.responsibilities) ? j.responsibilities.filter((resp): resp is string => typeof resp === 'string') : [],
-    requirements: Array.isArray(j.requirements) ? j.requirements.filter((req): req is string => typeof req === 'string') : [],
-    nice_to_haves: Array.isArray(j.nice_to_haves) ? j.nice_to_haves.filter((nth): nth is string => typeof nth === 'string') : [],
-    benefits: Array.isArray(j.benefits) ? j.benefits.filter((ben): ben is string => typeof ben === 'string') : [],
+    title: getString(j, 'title') || "Untitled Role",
+    level: getString(j, 'level'),
+    locations: getStringArray(j, 'locations'),
+    location_type: getString(j, 'location_type'),
+    remote_policy: getString(j, 'remote_policy'),
+    employment_type: getString(j, 'employment_type'),
+    salary: getString(j, 'salary') || getString(j, 'compensation'),
+    tags: getStringArray(j, 'tags'),
+    about_company: getString(j, 'about_company'),
+    about_role: getString(j, 'about_role'),
+    responsibilities: getStringArray(j, 'responsibilities') || getStringArray(j, 'duties'),
+    requirements: getStringArray(j, 'requirements') || getStringArray(j, 'skills'),
+    nice_to_haves: getStringArray(j, 'nice_to_haves'),
+    benefits: getStringArray(j, 'benefits'),
   };
 }
