@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
+import { Page, Text, View, Document, StyleSheet, Image } from "@react-pdf/renderer";
 import type { JD } from "@/lib/types";
 import { cleanText, cleanList } from "@/lib/clean";
 
@@ -11,24 +11,22 @@ const styles = StyleSheet.create({
     fontSize: 11, 
     fontFamily: "Helvetica",
     backgroundColor: "#000000",
-    color: "#ffffff"
+    color: "#ffffff",
+    position: "relative"
   },
-  header: {
-    marginBottom: 20,
-    paddingBottom: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ffffff"
+  logoContainer: {
+    position: "absolute",
+    top: 20,
+    right: 20,
+    width: 60,
+    height: 30
   },
   logo: {
-    fontSize: 16,
-    fontWeight: "bold",
-    marginBottom: 5,
-    color: "#ffffff"
+    width: "100%",
+    height: "100%"
   },
-  company: {
-    fontSize: 12,
-    color: "#cccccc",
-    marginBottom: 15
+  content: {
+    paddingTop: 20
   },
   h1: { 
     fontSize: 20, 
@@ -119,25 +117,32 @@ export default function PdfJD({ jd }: { jd: JD }) {
   return (
     <Document>
       <Page size="LETTER" style={styles.page}>
-        <View style={styles.header}>
-          <Text style={styles.logo}>TRS</Text>
-          <Text style={styles.company}>Talent Recruitment Solutions</Text>
+        {/* Logo in top right corner */}
+        <View style={styles.logoContainer}>
+          {/* eslint-disable-next-line jsx-a11y/alt-text */}
+          <Image 
+            style={styles.logo}
+            src="/logo.png"
+          />
         </View>
         
-        <Text style={styles.h1}>{title}</Text>
-        {meta.length ? <Text style={styles.meta}>{meta.join("  •  ")}</Text> : null}
-        {tags.length ? (
-          <View style={styles.tagWrap}>
-            {tags.map((t, i) => <Text key={i} style={styles.tag}>{t}</Text>)}
-          </View>
-        ) : null}
+        {/* Main content */}
+        <View style={styles.content}>
+          <Text style={styles.h1}>{title}</Text>
+          {meta.length ? <Text style={styles.meta}>{meta.join("  •  ")}</Text> : null}
+          {tags.length ? (
+            <View style={styles.tagWrap}>
+              {tags.map((t, i) => <Text key={i} style={styles.tag}>{t}</Text>)}
+            </View>
+          ) : null}
 
-        <Section title="About the Company" text={aboutCompany} />
-        <Section title="About the Role" text={aboutRole} />
-        <Section title="Responsibilities" list={responsibilities} />
-        <Section title="Requirements" list={requirements} />
-        <Section title="Nice to Haves" list={niceToHaves} />
-        <Section title="Benefits" list={benefits} />
+          <Section title="About the Company" text={aboutCompany} />
+          <Section title="About the Role" text={aboutRole} />
+          <Section title="Responsibilities" list={responsibilities} />
+          <Section title="Requirements" list={requirements} />
+          <Section title="Nice to Haves" list={niceToHaves} />
+          <Section title="Benefits" list={benefits} />
+        </View>
       </Page>
     </Document>
   );
