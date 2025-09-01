@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   h2: { 
     fontSize: 13, 
     marginTop: 14, 
-    marginBottom: 6, 
+    marginBottom: 12, // Increased from 6 to 12 for more space after titles
     fontWeight: "bold",
     color: "#ffffff",
     textDecoration: "underline"
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     marginBottom: 6 
   },
   li: { 
-    marginBottom: 6, // Slightly more space between list items
+    marginBottom: 3, // Reduced from 6 to 3 for tighter bullet spacing
     lineHeight: 1.5, // 1.5x spacing for list items
     color: "#ffffff",
     paddingLeft: 15, // Space for bullet and proper text alignment
