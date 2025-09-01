@@ -18,12 +18,10 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 20,
     right: 20,
-    width: 60,
-    height: 30
+    width: 100
   },
   logo: {
-    width: "100%",
-    height: "100%"
+    width: "100%"
   },
   content: {
     paddingTop: 20
