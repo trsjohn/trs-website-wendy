@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getRoles, type Role } from "@/lib/api";
 import { Button } from "@/components/ui/Button";
+import { normalizeJD } from "@/lib/types";
+import TagBubbles from "@/components/TagBubbles";
 
 interface JobData {
   client?: string;
@@ -118,6 +120,17 @@ export default function RolesPage() {
             // Extract the main title (before the dash if present)
             const displayTitle = role.title.split("—")[0]?.trim() || role.title;
             
+            // Extract tags from the job data
+            let tags: string[] = [];
+            if (role.sourceJdJson) {
+              try {
+                const normalizedJD = normalizeJD(role.sourceJdJson);
+                tags = normalizedJD.tags || [];
+              } catch (error) {
+                console.error("Error normalizing JD for tags:", error);
+              }
+            }
+            
             return (
               <div
                 key={role.id}
@@ -127,6 +140,8 @@ export default function RolesPage() {
                   <h2 className="text-xl font-semibold text-white mb-2">
                     {displayTitle}
                   </h2>
+                  
+                  <TagBubbles tags={tags} className="mb-3" />
                   
                   <JobDetails sourceJdJson={role.sourceJdJson} />
                 </div>
