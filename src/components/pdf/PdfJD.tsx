@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
     marginBottom: 6 
   },
   li: {
-    marginBottom: 0, // No spacing between bullets
-    lineHeight: 1.5, // 1.5x spacing for list items
+    marginBottom: -2, // Negative margin for tighter spacing
+    lineHeight: 1.2, // Reduced line height for compact bullets
     color: "#ffffff",
     paddingLeft: 15, // Space for bullet and proper text alignment
     textIndent: -10 // Pull bullet back to the left
