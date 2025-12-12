@@ -3,6 +3,15 @@ import Link from "next/link";
 export default function ServicesPage() {
   const sections = [
     {
+      title: "Targeting Headhunting",
+      bullets: [
+        "We zero in on hard-to-reach talent: passive candidates, niche skill sets, and industry insiders who aren't applying to job boards.",
+        "Our process starts with market mapping to identify exactly where the right people live — by company, role, and background.",
+        "Every message is personalized and persistent, cutting through the noise of generic recruiter outreach.",
+        "We build shortlists of pre-qualified candidates who aren't just available, but highly relevant to your role and context.",
+      ],
+    },
+    {
       title: "Executive Search",
       bullets: [
         "We specialize in leadership hiring: Founders, VPs, and Directors who shape the trajectory of your company.",

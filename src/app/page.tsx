@@ -258,19 +258,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="hidden md:block md:mt-0">
-            <div className="relative ml-auto w-full max-w-md">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/8 via-purple-500/10 via-red-600/8 to-transparent rounded-2xl animate-pulse -z-10"></div>
-              <Image
-                src="/churn.png"
-                alt={altText}
-                width={640}
-                height={800}
-                className="w-full h-auto opacity-90 relative z-10"
-                priority
-              />
-            </div>
-          </div>
         </div>
       </section>
 
