@@ -111,7 +111,7 @@ export default function HomePage() {
     <div className="space-y-12 sm:space-y-16 lg:space-y-24">
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
-        <div className="grid md:grid-cols-2 items-start gap-10">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center md:text-left md:mt-8">
             <StaggeredReveal delay={100}>
               <h1 className="text-hero font-bold tracking-tight text-white" dangerouslySetInnerHTML={{ __html: headline }}>
