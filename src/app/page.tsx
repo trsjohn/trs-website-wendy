@@ -20,7 +20,6 @@ export default function HomePage() {
   
   // A/B test headlines based on query parameter
   const [headline, setHeadline] = useState('End-to-End<br />Recruiting System');
-  const [altText, setAltText] = useState('End-to-End Recruiting System');
   
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -29,15 +28,12 @@ export default function HomePage() {
     switch (variant) {
       case 'b':
         setHeadline('We ship hires.<br />Not headaches.');
-        setAltText('We ship hires. Not headaches.');
         break;
       case 'c':
         setHeadline('Real hires, fast.<br />No BS.');
-        setAltText('Real hires, fast. No BS.');
         break;
       default:
         setHeadline('End-to-End<br />Recruiting System');
-        setAltText('End-to-End Recruiting System');
     }
   }, []);
   const testimonials = [
