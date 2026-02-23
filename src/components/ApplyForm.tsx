@@ -25,6 +25,8 @@ const ApplicationSchema = z.object({
 
 type ApplicationValues = z.infer<typeof ApplicationSchema>;
 
+const inputClass = "border border-zinc-700 bg-zinc-900 text-white placeholder-zinc-500 p-2 w-full rounded focus:outline-none focus:ring-1 focus:ring-brand";
+
 export default function ApplyForm() {
   const searchParams = useSearchParams();
   const [roles, setRoles] = useState<Role[]>([]);
@@ -78,7 +80,7 @@ export default function ApplyForm() {
   };
 
   const roleId = watch("roleId");
-  
+
   // Handle URL parameter for pre-selecting role
   useEffect(() => {
     const preselectedRoleId = searchParams.get("role");
@@ -89,7 +91,7 @@ export default function ApplyForm() {
       }
     }
   }, [roles, searchParams, setValue]);
-  
+
   useEffect(() => {
     const role = roles.find((r) => r.id === roleId) || null;
     setSelectedRole(role);
@@ -101,7 +103,7 @@ export default function ApplyForm() {
         <label className="block mb-2 font-medium">Select Role</label>
         <select
           {...register("roleId")}
-          className="border p-2 w-full rounded"
+          className={inputClass}
         >
           <option value="">Choose a role...</option>
           {roles.map((role) => {
@@ -125,20 +127,20 @@ export default function ApplyForm() {
         <input
           type="text"
           {...register("name")}
-          className="border p-2 w-full rounded"
+          className={inputClass}
         />
         {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name.message}</p>}
       </div>
 
       <div>
         <label className="block mb-2 font-medium">Email</label>
-        <input type="email" {...register("email")} className="border p-2 w-full rounded" />
+        <input type="email" {...register("email")} className={inputClass} />
         {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>}
       </div>
 
       <div>
         <label className="block mb-2 font-medium">LinkedIn (optional)</label>
-        <input type="url" {...register("linkedin")} className="border p-2 w-full rounded" />
+        <input type="url" {...register("linkedin")} className={inputClass} />
         {errors.linkedin && (
           <p className="text-red-400 text-sm mt-1">{errors.linkedin.message}</p>
         )}
@@ -146,7 +148,7 @@ export default function ApplyForm() {
 
       <div>
         <label className="block mb-2 font-medium">Why are you interested?</label>
-        <textarea {...register("why")} className="border p-2 w-full rounded" />
+        <textarea {...register("why")} className={inputClass} />
         {errors.why && <p className="text-red-400 text-sm mt-1">{errors.why.message}</p>}
       </div>
 
@@ -168,7 +170,7 @@ export default function ApplyForm() {
       <Button type="submit" disabled={isSubmitting}>
         {isSubmitting ? "Submitting…" : "Submit Application"}
       </Button>
-      
+
       <p className="text-red-500 italic text-sm mt-3">
         *Don&apos;t worry, we won&apos;t ghost you. You&apos;ll hear back from us one way or another.
       </p>
