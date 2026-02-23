@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -40,24 +40,9 @@
   --radius-2xl: 1.25rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
-  /* Default body text on light backgrounds: ink-700 for AA contrast */
-  color: var(--color-ink-700);
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    /* In dark mode, keep high-contrast foreground */
-    color: var(--foreground);
-  }
+  color: var(--foreground);
 }
 
 /* Use Sora for all headings, Plus Jakarta Sans for body by default */
