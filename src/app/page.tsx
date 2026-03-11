@@ -19,23 +19,23 @@ export default function HomePage() {
     Icon ? <Icon className={className} aria-hidden /> : <span className={className} aria-hidden>•</span>;
   
   // A/B test headlines based on query parameter
-  const [headline, setHeadline] = useState('End-to-End<br />Recruiting System');
+  const [headline, setHeadline] = useState('Better Hires, Faster.<br />For Companies That Can\'t Afford to Get It Wrong.');
   
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const variant = params.get('variant');
+  // useEffect(() => {
+  //   const params = new URLSearchParams(window.location.search);
+  //   const variant = params.get('variant');
     
-    switch (variant) {
-      case 'b':
-        setHeadline('We ship hires.<br />Not headaches.');
-        break;
-      case 'c':
-        setHeadline('Real hires, fast.<br />No BS.');
-        break;
-      default:
-        setHeadline('End-to-End<br />Recruiting System');
-    }
-  }, []);
+  //   switch (variant) {
+  //     case 'b':
+  //       setHeadline('We ship hires.<br />Not headaches.');
+  //       break;
+  //     case 'c':
+  //       setHeadline('Real hires, fast.<br />No BS.');
+  //       break;
+  //     default:
+  //       setHeadline('End-to-End<br />Recruiting System');
+  //   }
+  // }, []);
   const testimonials = [
     {
       pull: (
@@ -120,7 +120,7 @@ export default function HomePage() {
             
             <StaggeredReveal delay={300}>
               <p className="mt-3 text-subhero text-neutral-100 max-w-2xl md:max-w-none mx-auto md:mx-0 font-semibold">
-                TRS is a Recruiting OS that blends AI with human expertise to deliver faster cycles, clearer signals, and better hires.
+              TRS is a full-service recruiting partner for lean, revenue-generating companies that need to hire right — and hire fast.
               </p>
             </StaggeredReveal>
             
