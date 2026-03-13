@@ -8,16 +8,13 @@ import LogoMarquee from "@/components/LogoMarquee";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
 
-import { Target, Zap, Search, ListChecks, FileText, Hand, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown } from "lucide-react";
-import TilesGrid from "@/components/TilesGrid";
+import { Target, Zap, Search, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown } from "lucide-react";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { getRecentIssues } from "@/lib/newsletter";
 
 export default function HomePage() {
   const SafeIcon = ({ Icon, className = "" }: { Icon: React.ElementType; className?: string }) =>
     Icon ? <Icon className={className} aria-hidden /> : <span className={className} aria-hidden>•</span>;
-
-  const headline = "Better Hires, Faster.<br />For Companies That Can't Afford to Get It Wrong.";
 
   const testimonials = [
     {
@@ -45,7 +42,7 @@ export default function HomePage() {
     {
       pull: (
         <>
-          The <span className="text-red-500 font-extrabold">best match</span> I've had so far
+          The <span className="text-red-500 font-extrabold">best match</span> I&apos;ve had so far
         </>
       ),
       full: "I am definitely excited to start this venture with them! I too believe this is the best match I've had so far!",
@@ -67,7 +64,7 @@ export default function HomePage() {
     {
       pull: (
         <>
-          The <span className="text-red-500 font-extrabold">best recruiter relationship</span> we've had
+          The <span className="text-red-500 font-extrabold">best recruiter relationship</span> we&apos;ve had
         </>
       ),
       full: "You've been the best recruiter relationship we've had so really appreciate it.",
@@ -95,7 +92,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center md:text-left md:mt-8">
             <StaggeredReveal delay={100}>
-              <h1 className="text-hero font-bold tracking-tight text-white" dangerouslySetInnerHTML={{ __html: headline }}>
+              <h1 className="text-hero font-bold tracking-tight text-white" dangerouslySetInnerHTML={{ __html: "Better Hires, Faster.<br />For Companies That Can't Afford to Get It Wrong." }}>
               </h1>
             </StaggeredReveal>
 
@@ -227,11 +224,11 @@ export default function HomePage() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={BadgeCheck} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span>35+ roles closed across AI, security, and GTM</span>
+                <span>135+ roles closed across sales, engineering, ops, GTM, and C-Suite</span>
               </li>
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={Timer} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span>Avg time to shortlist: &lt;7 days</span>
+                <span>Avg time to shortlist: &lt;9 days</span>
               </li>
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={TrendingUp} className="h-5 w-5 text-red-500 mt-0.5" />
@@ -240,7 +237,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-6 rounded-lg border border-red-500/50 bg-white/5 p-4">
               <p className="text-base md:text-lg font-semibold text-white">
-                Other AI HR stops at names — we deliver decision-ready candidates.
+                Other recruiting firms throw resumes — we deliver precise, decision-ready candidates.
               </p>
             </div>
           </div>
@@ -285,7 +282,7 @@ export default function HomePage() {
                         label: "Learning from outcomes",
                         Icon: TrendingUp,
                         traditional: "Static process, no feedback loop",
-                        trs: "System learns from hires and failures to improve every week",
+                        trs: "System learns from hires and feedback to improve every week",
                       },
                     ].map(({ label, Icon, traditional, trs }, i) => (
                       <tr key={i} className="align-top">
@@ -340,7 +337,7 @@ export default function HomePage() {
                     label: "Learning from outcomes",
                     Icon: TrendingUp,
                     traditional: "Static process, no feedback loop",
-                    trs: "System learns from hires and failures to improve every week",
+                    trs: "System learns from hires and feedback to improve every week",
                   },
                 ].map(({ label, Icon, traditional, trs }, i) => (
                   <div key={i} className="p-4">
@@ -510,24 +507,25 @@ export default function HomePage() {
 
             <div className="rounded-2xl border border-neutral-800 p-6 bg-white/5">
               <h3 className="text-xl font-semibold mb-1 text-white">Contingent Recruiting</h3>
-              <p className="text-sm text-neutral-400 mb-4">Pay on results. Small upfront deposit — so both sides are serious from day one.</p>
+              <p className="text-sm text-neutral-400 mb-4">Pay on results with a small upfront deposit — applied to your success fee at hire. Best for one or two roles where you need quality without a long commitment.</p>
               <ul className="space-y-2 text-neutral-200 text-sm">
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Small deposit required — applied in full toward your success fee at hire.</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Small deposit required — applied in full toward your success fee at hire</span></li>
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Sourcing, screening, and scorecards included</span></li>
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Best for 1-2 defined roles with clear requirements</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Full offer negotiation and candidate management handled by TRS</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Best for 1–2 defined roles with clear requirements</span></li>
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Competitive success fee + 60-day replacement guarantee</span></li>
               </ul>
             </div>
 
             <div className="rounded-2xl border border-neutral-800 p-6 bg-white/5">
               <h3 className="text-xl font-semibold mb-1 text-white">Staffing</h3>
-              <p className="text-sm text-neutral-400 mb-4">Fast placement for contract, temp-to-hire, or backfill needs.</p>
+              <p className="text-sm text-neutral-400 mb-4">Fast placement for contract, temp-to-hire, project-based, or high-volume hiring needs.</p>
               <ul className="space-y-2 text-neutral-200 text-sm">
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Access to 50,000+ pre-vetted candidates</span></li>
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Contract, temp-to-hire, and direct placements</span></li>
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Ideal for temporary projects, backfills, or scaling a team fast</span></li>
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>First candidates within days</span></li>
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Fully managed onboarding, payroll, and compliance</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Fully managed onboarding and compliance</span></li>
               </ul>
             </div>
           </div>
@@ -561,11 +559,7 @@ export default function HomePage() {
               },
               {
                 q: "How fast is \"fast\"?",
-                a: "First shortlist delivered in under 7 days. Each candidate comes with a scorecard, transcript highlights, and a clear recommendation — so you can make a decision, not just a meeting."
-              },
-              {
-                q: "Can we start small with just PSaaS?",
-                a: "Yes. Many do. It's the cleanest way to cut noise before we scale into full recruiting."
+                a: "First shortlist delivered in under 9 days. Each candidate comes with a scorecard, transcript highlights, and a clear recommendation — so you can make a decision, not just a meeting."
               },
               {
                 q: "What if our hiring bar is super specific?",
