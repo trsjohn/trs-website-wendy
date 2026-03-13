@@ -600,21 +600,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TRS is for … tiles */}
-      <section id="how" className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm space-y-8 scroll-mt-24">
-        <h2 className="text-2xl font-semibold">Who we work best with</h2>
-        <TilesGrid
-          items={[
-            { Icon: Search, title: "Find people others miss", description: "AI-boosted Boolean + targeted outreach to find top talent others miss." },
-            { Icon: ListChecks, title: "Score What Matters", description: "10-point custom rubric tailored to your role, not generic checklists." },
-            { Icon: FileText, title: "See the tradeoffs fast", description: "Candidate briefs with scores, transcripts, and context for quick yes/no." },
-            { Icon: Hand, title: "Stay Hands-On", description: "Your preferences guide the search; we adapt in real time." },
-            { Icon: BarChart3, title: "Built for Growth", description: "Systems that scale with your team — from one hire to a full department." },
-            { Icon: Zap, title: "From intake to offer in days", description: "From intake to offer quicker with fewer wasted interviews." },
-          ]}
-        />
-      </section>
-
       {/* Newsletter */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
         <div className="bg-neutral-900/50 rounded-2xl p-8 md:p-12">
