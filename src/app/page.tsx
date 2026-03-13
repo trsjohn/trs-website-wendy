@@ -45,7 +45,7 @@ export default function HomePage() {
     {
       pull: (
         <>
-          The <span className="text-red-500 font-extrabold">best match</span> I've had so far
+          The <span className="text-red-500 font-extrabold">best match</span> I&apos;ve had so far
         </>
       ),
       full: "I am definitely excited to start this venture with them! I too believe this is the best match I've had so far!",
@@ -67,7 +67,7 @@ export default function HomePage() {
     {
       pull: (
         <>
-          The <span className="text-red-500 font-extrabold">best recruiter relationship</span> we've had
+          The <span className="text-red-500 font-extrabold">best recruiter relationship</span> we&apos;ve had
         </>
       ),
       full: "You've been the best recruiter relationship we've had so really appreciate it.",
@@ -107,8 +107,8 @@ export default function HomePage() {
 
             <StaggeredReveal delay={500}>
               <div className="mt-8 flex flex-col sm:flex-row md:justify-start justify-center gap-3">
-                <Link href="/contact" aria-label="See candidates in your inbox">
-                  <Button className="px-6 h-11">See candidates in your inbox</Button>
+                <Link href="/contact" aria-label="Let's talk">
+                  <Button className="px-6 h-11 border border-red-500 shadow-md shadow-red-500/30">Let&apos;s talk</Button>
                 </Link>
                 <Link href="/services" aria-label="See how it works">
                   <Button variant="ghost" className="px-6 h-11">See how it works</Button>
@@ -227,11 +227,11 @@ export default function HomePage() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={BadgeCheck} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span>35+ roles closed across AI, security, and GTM</span>
+                <span>135+ roles closed across sales, engineering, ops, GTM, and C-Suite</span>
               </li>
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={Timer} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span>Avg time to shortlist: &lt;7 days</span>
+                <span>Avg time to shortlist: &lt;9 days</span>
               </li>
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={TrendingUp} className="h-5 w-5 text-red-500 mt-0.5" />
@@ -240,7 +240,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-6 rounded-lg border border-red-500/50 bg-white/5 p-4">
               <p className="text-base md:text-lg font-semibold text-white">
-                Other AI HR stops at names — we deliver decision-ready candidates.
+                Other recruiting firms throw resumes — we deliver precise, decision-ready candidates.
               </p>
             </div>
           </div>
@@ -340,7 +340,7 @@ export default function HomePage() {
                     label: "Learning from outcomes",
                     Icon: TrendingUp,
                     traditional: "Static process, no feedback loop",
-                    trs: "System learns from hires and failures to improve every week",
+                    trs: "System learns from hires and feedback to improve every week",
                   },
                 ].map(({ label, Icon, traditional, trs }, i) => (
                   <div key={i} className="p-4">
