@@ -45,7 +45,7 @@ export default function HomePage() {
     {
       pull: (
         <>
-          The <span className="text-red-500 font-extrabold">best match</span> I&apos;ve had so far
+          The <span className="text-red-500 font-extrabold">best match</span> I've had so far
         </>
       ),
       full: "I am definitely excited to start this venture with them! I too believe this is the best match I've had so far!",
@@ -67,7 +67,7 @@ export default function HomePage() {
     {
       pull: (
         <>
-          The <span className="text-red-500 font-extrabold">best recruiter relationship</span> we&apos;ve had
+          The <span className="text-red-500 font-extrabold">best recruiter relationship</span> we've had
         </>
       ),
       full: "You've been the best recruiter relationship we've had so really appreciate it.",
@@ -227,11 +227,11 @@ export default function HomePage() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={BadgeCheck} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span>135+ roles closed across sales, engineering, ops, GTM, and C-Suite</span>
+                <span>35+ roles closed across AI, security, and GTM</span>
               </li>
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={Timer} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span>Avg time to shortlist: &lt;9 days</span>
+                <span>Avg time to shortlist: &lt;7 days</span>
               </li>
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={TrendingUp} className="h-5 w-5 text-red-500 mt-0.5" />
@@ -240,7 +240,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-6 rounded-lg border border-red-500/50 bg-white/5 p-4">
               <p className="text-base md:text-lg font-semibold text-white">
-                Other recruiting firms throw resumes — we deliver precise, decision-ready candidates.
+                Other AI HR stops at names — we deliver decision-ready candidates.
               </p>
             </div>
           </div>
@@ -340,7 +340,7 @@ export default function HomePage() {
                     label: "Learning from outcomes",
                     Icon: TrendingUp,
                     traditional: "Static process, no feedback loop",
-                    trs: "System learns from hires and feedback to improve every week",
+                    trs: "System learns from hires and failures to improve every week",
                   },
                 ].map(({ label, Icon, traditional, trs }, i) => (
                   <div key={i} className="p-4">
@@ -484,66 +484,58 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* Pricing */}
+      {/* Services */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
         <div className="space-y-8">
-          <h2 className="text-2xl font-semibold text-center">Simple, aligned pricing</h2>
-
-          <div className="bg-red-500/5 border border-red-500/20 rounded-2xl p-6">
-            <h3 className="text-lg font-semibold text-white mb-3 text-center">Simple rules</h3>
-            <div className="flex flex-wrap justify-center gap-6 text-neutral-200">
-              <span className="flex items-center gap-2">
-                <span className="text-red-500">•</span>
-                <span>No setup fees.</span>
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="text-red-500">•</span>
-                <span>Clear exit.</span>
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="text-red-500">•</span>
-                <span>We pause if we cannot add value.</span>
-              </span>
-            </div>
+          <div>
+            <h2 className="text-2xl font-semibold">How we engage</h2>
+            <p className="text-neutral-400 mt-2">Every engagement includes full sourcing, screening, scorecards, and offer management. We tell you which model fits before you commit.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="relative rounded-2xl border-2 border-red-500 p-6 bg-red-500/5 shadow-lg shadow-red-500/20">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full">Most Popular</span>
+                <span className="bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Most Common</span>
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-red-400">Pre-Screening as a Service (PSaaS)</h3>
-              <ul className="space-y-2 text-neutral-200">
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-1">•</span><span>Parse resumes and profiles automatically</span></li>
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-1">•</span><span>Score candidates with AI against your job requirements</span></li>
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-1">•</span><span>Human recruiters validate every score and add context</span></li>
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-1">•</span><span>Deliver shortlists of qualified, decision-ready candidates</span></li>
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-1">•</span><span>Recalibrate weekly based on your feedback</span></li>
+              <h3 className="text-xl font-semibold mb-1 text-white">Retained Search</h3>
+              <p className="text-sm text-neutral-400 mb-4">For companies that need a true recruiting partner — not a vendor.</p>
+              <ul className="space-y-2 text-neutral-200 text-sm">
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Unlimited active roles</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>3–5 vetted candidates per role within 2 weeks</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Full pipeline management and offer negotiation</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Weekly data-driven pipeline reports</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Dedicated 2–3 person TRS team</span></li>
               </ul>
             </div>
 
             <div className="rounded-2xl border border-neutral-800 p-6 bg-white/5">
-              <h3 className="text-xl font-semibold mb-2">Contract Recruiting</h3>
-              <ul className="space-y-2 text-neutral-200">
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-1">•</span><span>A dedicated recruiter embedded with your team</span></li>
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-1">•</span><span>Weekly sprint plans with clear priorities</span></li>
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-1">•</span><span>Candidate shortlist delivered on schedule</span></li>
+              <h3 className="text-xl font-semibold mb-1 text-white">Contingent Recruiting</h3>
+              <p className="text-sm text-neutral-400 mb-4">Pay on results. Small upfront deposit — so both sides are serious from day one.</p>
+              <ul className="space-y-2 text-neutral-200 text-sm">
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Small deposit required — applied in full toward your success fee at hire.</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Sourcing, screening, and scorecards included</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Best for 1-2 defined roles with clear requirements</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Competitive success fee + 60-day replacement guarantee</span></li>
               </ul>
             </div>
 
             <div className="rounded-2xl border border-neutral-800 p-6 bg-white/5">
-              <h3 className="text-xl font-semibold mb-2">Executive Search</h3>
-              <ul className="space-y-2 text-neutral-200">
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-1">•</span><span>Incentives aligned to successful long-term hires</span></li>
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-1">•</span><span>Deep market mapping to surface the right talent</span></li>
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-1">•</span><span>Hands-on management of finalists through the offer stage</span></li>
+              <h3 className="text-xl font-semibold mb-1 text-white">Staffing</h3>
+              <p className="text-sm text-neutral-400 mb-4">Fast placement for contract, temp-to-hire, or backfill needs.</p>
+              <ul className="space-y-2 text-neutral-200 text-sm">
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Access to 50,000+ pre-vetted candidates</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Contract, temp-to-hire, and direct placements</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Ideal for temporary projects, backfills, or scaling a team fast</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>First candidates within days</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Fully managed onboarding, payroll, and compliance</span></li>
               </ul>
             </div>
           </div>
 
-          <div className="text-center">
-            <Link href="/contact" aria-label="Start with the plan that fits">
-              <Button className="px-6 h-11">Start with the plan that fits</Button>
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-neutral-300 text-sm">Not sure which engagement fits? We&apos;ll tell you on the first call — no pressure, no pitch.</p>
+            <Link href="/contact" aria-label="Talk to us">
+              <Button className="px-6 h-10 shrink-0">Talk to us</Button>
             </Link>
           </div>
         </div>
