@@ -26,7 +26,7 @@ export default function HomePage() {
       full: "Best recruiter I have worked with",
       author: "Hector G.",
       role: "People Operations at Buzz Solutions",
-      avatar: "/clients/channels4_profile.jpg",
+      avatar: "/clients/buzzsolutionsinc_logo.jpg",
     },
     {
       pull: (
@@ -59,7 +59,18 @@ export default function HomePage() {
       full: "I am impressed. This is the first time working with a recruiting company that anything actually panned out. Usually I find it's a waste of time.",
       author: "Alex",
       role: "Security Advisor",
-      avatar: "/clients/buzzsolutionsinc_logo.jpg",
+      avatar: "/clients/channels4_profile.jpg",
+    },
+    {
+      pull: (
+        <>
+          The <span className="text-red-500 font-extrabold">most thoughtful questions</span> I&apos;ve ever been asked
+        </>
+      ),
+      full: "This was a really smooth process and I loved the style of your questions. They were really thoughtful and I enjoyed our conversations.",
+      author: "Candidate",
+      role: "Placed via TRS",
+      avatar: "/clients/consilium_labs_logo.jpg",
     },
     {
       pull: (
@@ -73,9 +84,9 @@ export default function HomePage() {
       avatar: "/clients/consilium_labs_logo.jpg",
     },
   ];
-
+ 
   const recentIssues = getRecentIssues(3);
-
+ 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",
@@ -83,7 +94,7 @@ export default function HomePage() {
       day: "numeric",
     });
   };
-
+ 
   return (
     <div className="space-y-12 sm:space-y-16 lg:space-y-24">
 
@@ -118,6 +129,7 @@ export default function HomePage() {
 
       {/* Logos */}
       <section aria-label="Trusted by" className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm scroll-mt-24">
+        <Reveal>
         <h2 className="text-xl font-semibold mb-4">Trusted by:</h2>
         <LogoMarquee
           className="rounded-2xl p-2"
@@ -146,6 +158,7 @@ export default function HomePage() {
           </blockquote>
           <cite className="text-neutral-400 text-sm mt-2 block">— Abby W. HR Executive</cite>
         </div>
+      </Reveal>
       </section>
 
       {/* Use Cases */}
@@ -153,6 +166,7 @@ export default function HomePage() {
         id="use-cases"
         className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm relative scroll-mt-24"
       >
+        <Reveal>
         <div className="mb-10">
           <h2 className="text-3xl font-bold text-white mb-3">Who TRS is built for</h2>
           <p className="text-lg text-neutral-400 max-w-2xl">
@@ -213,10 +227,12 @@ export default function HomePage() {
             <Button className="px-6 h-11">Let&apos;s Talk</Button>
           </Link>
         </div>
+        </Reveal>
       </section>
 
       {/* Differentiators */}
       <section id="differentiators" className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm scroll-mt-24 rounded-2xl border border-white/10">
+        <Reveal>
         <div className="grid md:grid-cols-2 gap-10">
           <div className="space-y-5">
             <h2 className="text-2xl font-semibold">What sets us apart</h2>
@@ -373,11 +389,13 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        </Reveal>
       </section>
 
       {/* Why We Built This */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 md:p-12">
+        <Reveal>
+        <div className="rounded-2xl border border-red-400 p-8 md:p-12 p-6 shadow-red-500/20 shadow-lg translate-y-[-2px]">
           <div className="max-w-3xl mx-auto space-y-6">
             <h2 className="text-2xl md:text-3xl font-bold text-white">We built our own infrastructure. From scratch.</h2>
             <p className="text-neutral-300 text-lg leading-relaxed">
@@ -394,17 +412,19 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        </Reveal>
       </section>
 
       {/* Testimonials */}
       <section id="testimonials" className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm scroll-mt-24">
+        <Reveal>
         <h2 className="text-2xl font-semibold mb-2">Testimonials:</h2>
         <p className="text-neutral-300 mb-6">Trusted by founders, hiring managers, and security leaders.</p>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm transition-all duration-200 ease-out hover:shadow-red-500/20 hover:shadow-lg hover:translate-y-[-2px]"
+              className="rounded-2xl border-white/10 p-6 shadow-red-500/20 shadow-lg translate-y-[-2px]"
             >
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 overflow-hidden rounded-full bg-white/10">
@@ -427,10 +447,12 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+        </Reveal>
       </section>
 
       {/* How It Works */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
+        <Reveal>
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <h2 className="text-2xl font-semibold">How it works</h2>
@@ -491,6 +513,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+        </Reveal>
       </section>
 
       {/* Speed / Value */}
@@ -514,10 +537,10 @@ export default function HomePage() {
               </ul>
             </div>
             <div className="space-y-4">
-              <div className="bg-red-500/30 border border-red-500/50 rounded-2xl p-4">
+              <div className="rounded-2xl p-4 border border-white ">
                 <div className="text-lg font-medium text-white">Recruiting tools are broken. Siloed. Not built by recruiters.</div>
               </div>
-              <div className="bg-green-500/30 border border-green-500/50 rounded-2xl p-4">
+              <div className="rounded-2xl p-4 shadow-red-500/20 shadow-lg translate-y-[-2px]">
                 <div className="text-lg font-medium text-white">We built our own. End-to-end, proprietary, and purpose-built to win.</div>
               </div>
             </div>
@@ -527,6 +550,7 @@ export default function HomePage() {
 
       {/* Services */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
+        <Reveal>
         <div className="space-y-8">
           <div>
             <h2 className="text-2xl font-semibold">How we engage</h2>
@@ -574,17 +598,19 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="rounded-2xl border border-white/10 p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-neutral-300 text-sm">Not sure which engagement fits? We&apos;ll tell you on the first call — no pressure, no pitch.</p>
             <Link href="/contact" aria-label="Talk to us">
               <Button className="px-6 h-10 shrink-0">Talk to us</Button>
             </Link>
           </div>
         </div>
+        </Reveal>
       </section>
 
       {/* FAQ */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
+        <Reveal>
         <div className="max-w-4xl mx-auto space-y-8">
           <h2 className="text-2xl font-semibold text-center">FAQ</h2>
           <div className="space-y-4">
@@ -636,10 +662,12 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+        </Reveal>
       </section>
 
       {/* Newsletter */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
+        <Reveal>
         <div className="bg-neutral-900/50 rounded-2xl p-8 md:p-12">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
@@ -687,11 +715,13 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        </Reveal>
       </section>
 
       {/* CTA */}
       <section id="cta" className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10 text-center">
+        <Reveal>
+        <div className="rounded-2xl border border-red-500 p-8 md:p-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Hire decision-ready candidates in 21 days or less.</h2>
           <p className="mt-2 text-neutral-300">Skip the noise. Get briefed, scored, interview-ready talent only.</p>
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -703,6 +733,7 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+        </Reveal>
       </section>
 
       {/* JSON-LD Organization */}
