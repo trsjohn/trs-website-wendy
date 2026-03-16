@@ -98,7 +98,7 @@ export default function HomePage() {
 
             <StaggeredReveal delay={300}>
               <p className="mt-3 text-subhero text-neutral-100 max-w-2xl md:max-w-none mx-auto md:mx-0 font-semibold">
-                TRS is a full-service recruiting partner for established, revenue-generating companies that need to hire right — and hire fast.
+                TRS is a full-service recruiting partner for established, revenue-generating companies — backed by proprietary infrastructure we built from scratch because the existing tools weren&apos;t good enough.
               </p>
             </StaggeredReveal>
 
@@ -220,7 +220,7 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2 gap-10">
           <div className="space-y-5">
             <h2 className="text-2xl font-semibold">What sets us apart</h2>
-            <p className="font-semibold text-neutral-100">Why companies choose TRS over traditional recruiters and AI sourcing tools:</p>
+            <p className="font-semibold text-neutral-100">We built our own recruiting infrastructure from scratch — because nothing else was good enough.</p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={BadgeCheck} className="h-5 w-5 text-red-500 mt-0.5" />
@@ -232,12 +232,12 @@ export default function HomePage() {
               </li>
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={TrendingUp} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span>Backed by repeat clients and referrals</span>
+                <span>Proprietary sourcing, scoring, and outreach infrastructure — built by recruiters, not borrowed from vendors</span>
               </li>
             </ul>
             <div className="mt-6 rounded-lg border border-red-500/50 bg-white/5 p-4">
               <p className="text-base md:text-lg font-semibold text-white">
-                Other recruiting firms throw resumes — we deliver precise, decision-ready candidates.
+                Other firms patch together outdated tools and hope for the best. We built our own infrastructure from scratch — because better technology means better recruiting. More data, more precision, better hires.
               </p>
             </div>
           </div>
@@ -254,6 +254,12 @@ export default function HomePage() {
                   </thead>
                   <tbody className="divide-y divide-white/10">
                     {[
+                      {
+                        label: "Technology",
+                        Icon: Zap,
+                        traditional: "Patchwork of LinkedIn, job boards, and generic ATS tools",
+                        trs: "Proprietary end-to-end infrastructure — auto-sourcing, scoring, outreach, pipeline, and interview intelligence",
+                      },
                       {
                         label: "Candidate quality",
                         Icon: BadgeCheck,
@@ -310,6 +316,12 @@ export default function HomePage() {
               <div className="md:hidden divide-y divide-white/10">
                 {[
                   {
+                    label: "Technology",
+                    Icon: Zap,
+                    traditional: "Patchwork of LinkedIn, job boards, and generic ATS tools",
+                    trs: "Proprietary end-to-end infrastructure — auto-sourcing, scoring, outreach, pipeline, and interview intelligence",
+                  },
+                  {
                     label: "Candidate quality",
                     Icon: BadgeCheck,
                     traditional: "Unvetted resumes and keyword matches",
@@ -358,6 +370,27 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why We Built This */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 md:p-12">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">We built our own infrastructure. From scratch.</h2>
+            <p className="text-neutral-300 text-lg leading-relaxed">
+              Most recruiting agencies stitch together LinkedIn, a job board, and whatever ATS their ops person set up years ago. We looked at those tools and decided they weren&apos;t good enough — so we built our own.
+            </p>
+            <p className="text-neutral-300 text-lg leading-relaxed">
+              TRS runs on a fully proprietary end-to-end system: intelligent auto-sourcing, candidate scoring, adaptive multichannel outreach, pipeline management, and interview intelligence. We architected the entire workflow from scratch because the existing options weren&apos;t built by recruiters, and it shows.
+            </p>
+            <p className="text-neutral-300 text-lg leading-relaxed">
+              What we also learned: great candidates aren&apos;t enough on their own. Founders and lean teams don&apos;t have the bandwidth to manage a pipeline, coordinate interviews, keep candidates warm, or negotiate offers — and they shouldn&apos;t have to buy more tools or hire internal support before they&apos;re ready. So we do all of it. Fully managed, integrated directly into your Slack or existing platforms. No new software to learn.
+            </p>
+            <div className="pt-2 border-t border-white/10">
+              <p className="text-white font-semibold text-lg">This isn&apos;t the typical agency experience.</p>
             </div>
           </div>
         </div>
@@ -471,10 +504,10 @@ export default function HomePage() {
             </div>
             <div className="space-y-4">
               <div className="bg-red-500/30 border border-red-500/50 rounded-2xl p-4">
-                <div className="text-lg font-medium text-white">Recruiting tools are broken. Siloed. Not intuitive.</div>
+                <div className="text-lg font-medium text-white">Recruiting tools are broken. Siloed. Not built by recruiters.</div>
               </div>
               <div className="bg-green-500/30 border border-green-500/50 rounded-2xl p-4">
-                <div className="text-lg font-medium text-white">Our process works. Smart tools + selective AI = better hires.</div>
+                <div className="text-lg font-medium text-white">We built our own. End-to-end, proprietary, and purpose-built to win.</div>
               </div>
             </div>
           </div>
@@ -486,13 +519,13 @@ export default function HomePage() {
         <div className="space-y-8">
           <div>
             <h2 className="text-2xl font-semibold">How we engage</h2>
-            <p className="text-neutral-400 mt-2">Every engagement includes full sourcing, screening, scorecards, and offer management. We tell you which model fits before you commit.</p>
+            <p className="text-neutral-400 mt-2">Every engagement includes full sourcing, screening, scorecards, and offer management — powered by our proprietary infrastructure and integrated directly into your Slack or existing tools. We tell you which model fits before you commit.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="relative rounded-2xl border-2 border-red-500 p-6 bg-red-500/5 shadow-lg shadow-red-500/20">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Most Common</span>
+                <span className="bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Best Value</span>
               </div>
               <h3 className="text-xl font-semibold mb-1 text-white">Retained Search</h3>
               <p className="text-sm text-neutral-400 mb-4">For companies that need a true recruiting partner — not a vendor.</p>
@@ -555,7 +588,7 @@ export default function HomePage() {
               },
               {
                 q: "Are you a recruiting service or a product?",
-                a: "We are both. Or one or the other. Whatever you need. Some clients use us as their recruiter. Others plug us in like software. The OS works either way."
+                a: "We are both. We currently offer a full service backed by an internal product, so you don't need an ATS, CRM, or any other recruiting softwares. Our proprietary software will be available to our clients in the future, so you can have the full power of TRS at a fraction of the cost."
               },
               {
                 q: "How fast is \"fast\"?",
@@ -567,11 +600,11 @@ export default function HomePage() {
               },
               {
                 q: "Do you replace our ATS?",
-                a: "No. We plug into it or run parallel. Your data stays intact."
+                a: "We can. Or we can plug into it. Your data stays intact, and we find the system that works best for you."
               },
               {
                 q: "Will candidates feel like they talked to a bot?",
-                a: "No. We use AI to prep, not to hide. People talk to people."
+                a: "No. We use AI to prep, not to hide. Our team takes the time to conduct careful and personal interviews - our candidates report some of the most thoughtful and engaging questions they've ever been asked by recruiters."
               },
               {
                 q: "What if this doesn't work?",
