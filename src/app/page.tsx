@@ -275,8 +275,8 @@ export default function HomePage() {
                       {
                         label: "Integration",
                         Icon: Zap,
-                        traditional: "Disconnected from your workflow",
-                        trs: "Plugs directly into your Slack, ATS, or existing tools",
+                        traditional: "Disconnected from your workflow — email threads and manual updates",
+                        trs: "Plugs directly into Slack, your ATS, or existing tools — zero friction",
                       },
                       {
                         label: "Level of vetting",
@@ -432,44 +432,55 @@ export default function HomePage() {
       {/* How It Works */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-semibold mb-8">How it works</h2>
+          <div className="mb-8">
+            <h2 className="text-2xl font-semibold">How it works</h2>
+            <p className="text-neutral-400 mt-2">Most recruiters forget what you told them by the next call. We don&apos;t. Every detail from every conversation — calls, Slack, intake notes — feeds directly into your search so the candidates we deliver reflect exactly what you need, including the things you only mentioned once.</p>
+          </div>
           <div>
             {[
               {
                 step: "1",
                 title: "Intake call",
-                description: "We align on your needs, confirm it's a good fit, and agree on terms. You share your JDs. We get to work."
+                detail: "We learn exactly what you need — and surface what you don't know you need yet.",
+                description: "We go deep on your role, your team, your culture, and your hiring history. Nothing you tell us gets wasted — every detail, side comment, and preference is captured and built into your search. If you don't have a JD, we write one. Most recruiters take notes and move on. We make sure every nuance you share shapes exactly who we go find."
               },
               {
                 step: "2",
                 title: "Sourcing & outreach",
-                description: "We run your JDs through our proprietary system — matching against our 50,000+ candidate network and auto-sourcing new candidates simultaneously."
+                detail: "Hundreds of candidates sourced in days. We keep 5%.",
+                description: "Our proprietary auto-sourcing engine runs your role against our 50,000+ candidate network and sources new candidates simultaneously — comparing each one against your JD and cultural fit criteria side by side. Within the first few days we've typically evaluated hundreds of candidates, filtering out 95%. Only the top fits move forward. No noise, no volume plays."
               },
               {
                 step: "3",
                 title: "Screening & interviews",
-                description: "We interview every candidate ourselves. We verify who they are, identify gaps, and assess strengths — so you don't have to."
+                detail: "Personal calls. Questions built from your data. Nothing generic.",
+                description: "A TRS team member personally calls every shortlisted candidate. The interview questions aren't templated — they're generated from your JD, intake call, and every data point we've collected. We probe strengths, gaps, cultural fit, and motivations. Candidates consistently tell us these are the most engaging, thoughtful recruiter conversations they've ever had. That's not an accident — it's the data doing its job."
               },
               {
                 step: "4",
                 title: "Scoring & delivery",
-                description: "Every candidate is scored against your JD and everything you've told us. You only see the best. First candidates can arrive the same day. Most clients have 3–5 vetted, screened candidates within 2 weeks."
+                detail: "A full picture of every candidate. You make decisions, not just meetings.",
+                description: "Every candidate comes with a detailed scorecard: strengths, weaknesses, role fit, experience, risks, growth areas, salary expectations, and an overall recommendation — built from the interview, the JD, and everything you've shared across every touchpoint. Nothing falls through the cracks. You only see the best. Most clients have 3–5 fully vetted candidates within 2 weeks or less. We schedule interviews and handle all candidate coordination."
               },
               {
                 step: "5",
-                title: "Feedback loop",
-                description: "You tell us what's working. We update our scoring and outreach. Average time from start to hire: 21 days."
+                title: "Feedback & refinement",
+                detail: "Your feedback sharpens the search. The system gets smarter with every hire.",
+                description: "After each round, your feedback — every preference, every pass, every hire — goes back into our system and refines the algorithm. The search gets tighter. The candidates get better. Nothing resets. Average time from start to hire: 21 days."
               },
-            ].map(({ step, title, description }, index, array) => (
+            ].map(({ step, title, detail, description }, index, array) => (
               <div key={step}>
                 <div className="rounded-lg border border-white/10 p-6 bg-red-500/[0.05] border-l-4 border-l-red-500/60">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold shrink-0">
                       {step}
                     </div>
                     <span className="font-semibold text-neutral-100 text-base">{title}</span>
                   </div>
-                  <div className="text-neutral-200 text-base leading-relaxed ml-9">{description}</div>
+                  <div className="ml-9">
+                    <p className="text-red-400 text-sm font-medium mb-2">{detail}</p>
+                    <p className="text-neutral-200 text-base leading-relaxed">{description}</p>
+                  </div>
                 </div>
                 {index < array.length - 1 && (
                   <div className="flex justify-center py-3">
