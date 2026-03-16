@@ -8,7 +8,7 @@ import LogoMarquee from "@/components/LogoMarquee";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
 
-import { Target, Zap, Search, BarChart3, BadgeCheck, Timer, DollarSign, Eye, TrendingUp, ArrowDown } from "lucide-react";
+import { Target, Zap, Search, BarChart3, BadgeCheck, Timer, Eye, TrendingUp, ArrowDown } from "lucide-react";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { getRecentIssues } from "@/lib/newsletter";
 
@@ -237,7 +237,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-6 rounded-lg border border-red-500/50 bg-white/5 p-4">
               <p className="text-base md:text-lg font-semibold text-white">
-                Other firms patch together outdated tools and hope for the best. We built our own infrastructure from scratch — because better technology means better recruiting. More data, more precision, better hires.
+                Other firms patch together outdated tools and hope for the best. We built our own — because better technology means better recruiting. More data, more precision, better hires.
               </p>
             </div>
           </div>
@@ -273,10 +273,10 @@ export default function HomePage() {
                         trs: "2–3x faster cycles with continuous sourcing + automation",
                       },
                       {
-                        label: "Cost",
-                        Icon: DollarSign,
-                        traditional: "High retainers + % fees",
-                        trs: "50% lower than agencies with flexible models",
+                        label: "Integration",
+                        Icon: Zap,
+                        traditional: "Disconnected from your workflow",
+                        trs: "Plugs directly into your Slack, ATS, or existing tools",
                       },
                       {
                         label: "Level of vetting",
@@ -334,10 +334,10 @@ export default function HomePage() {
                     trs: "2–3x faster cycles with continuous sourcing + automation",
                   },
                   {
-                    label: "Cost",
-                    Icon: DollarSign,
-                    traditional: "High retainers + % fees",
-                    trs: "50% lower than agencies with flexible models",
+                    label: "Integration",
+                    Icon: Zap,
+                    traditional: "Disconnected from your workflow — email threads and manual updates",
+                    trs: "Plugs directly into Slack, your ATS, or existing tools — zero friction",
                   },
                   {
                     label: "Level of vetting",
@@ -390,7 +390,7 @@ export default function HomePage() {
               What we also learned: great candidates aren&apos;t enough on their own. Founders and lean teams don&apos;t have the bandwidth to manage a pipeline, coordinate interviews, keep candidates warm, or negotiate offers — and they shouldn&apos;t have to buy more tools or hire internal support before they&apos;re ready. So we do all of it. Fully managed, integrated directly into your Slack or existing platforms. No new software to learn.
             </p>
             <div className="pt-2 border-t border-white/10">
-              <p className="text-white font-semibold text-lg">This isn&apos;t the typical agency experience.</p>
+              <p className="text-white font-semibold text-lg">Other firms patch together outdated tools and hope for the best. We built our own — because better technology means better recruiting. More data, more precision, better hires.</p>
             </div>
           </div>
         </div>
@@ -525,7 +525,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="relative rounded-2xl border-2 border-red-500 p-6 bg-red-500/5 shadow-lg shadow-red-500/20">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Best Value</span>
+                <span className="bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Most Common</span>
               </div>
               <h3 className="text-xl font-semibold mb-1 text-white">Retained Search</h3>
               <p className="text-sm text-neutral-400 mb-4">For companies that need a true recruiting partner — not a vendor.</p>
@@ -588,7 +588,7 @@ export default function HomePage() {
               },
               {
                 q: "Are you a recruiting service or a product?",
-                a: "We are both. We currently offer a full service backed by an internal product, so you don't need an ATS, CRM, or any other recruiting softwares. Our proprietary software will be available to our clients in the future, so you can have the full power of TRS at a fraction of the cost."
+                a: "We are both. Or one or the other. Whatever you need. Some clients use us as their recruiter. Others plug us in like software. The OS works either way."
               },
               {
                 q: "How fast is \"fast\"?",
@@ -600,11 +600,11 @@ export default function HomePage() {
               },
               {
                 q: "Do you replace our ATS?",
-                a: "We can. Or we can plug into it. Your data stays intact, and we find the system that works best for you."
+                a: "No. We plug into it or run parallel. Your data stays intact."
               },
               {
                 q: "Will candidates feel like they talked to a bot?",
-                a: "No. We use AI to prep, not to hide. Our team takes the time to conduct careful and personal interviews - our candidates report some of the most thoughtful and engaging questions they've ever been asked by recruiters."
+                a: "No. We use AI to prep, not to hide. People talk to people."
               },
               {
                 q: "What if this doesn't work?",
