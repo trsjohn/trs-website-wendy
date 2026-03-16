@@ -549,7 +549,7 @@ export default function HomePage() {
       </section>
 
       {/* Services */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
+      <section id="services" className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
         <Reveal>
         <div className="space-y-8">
           <div>
