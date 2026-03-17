@@ -42,7 +42,7 @@ Email: ${values.email}${values.jd ? `\nJD Link: ${values.jd}` : ''}`);
     <div className="max-w-7xl mx-auto px-6 sm:px-8 py-section-y sm:py-section-y-sm">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-white mb-4">Got a role? We&apos;ll get you a slate.</h1>
+          <h1 className="text-3xl font-bold text-white mb-4">Looking to hire? Let&apos;s talk.</h1>
         </div>
         
         <form onSubmit={handleSubmit(onSubmit)} className="rounded-2xl border border-neutral-800 p-6 space-y-6 text-left">
@@ -60,7 +60,7 @@ Email: ${values.email}${values.jd ? `\nJD Link: ${values.jd}` : ''}`);
           </div>
 
           <div>
-            <label className="block text-sm mb-1 font-medium">Role you need</label>
+            <label className="block text-sm mb-1 font-medium">Role(s) you need</label>
             <input {...register("role")} className="w-full rounded border border-neutral-800 bg-transparent px-3 py-2" />
             {errors.role && <p className="text-red-400 text-sm mt-1">{errors.role.message}</p>}
           </div>
