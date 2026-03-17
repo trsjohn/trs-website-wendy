@@ -14,14 +14,6 @@ export default function AboutPage() {
       bio: "Alex brings a background in psychology, cybersecurity sales, and six years in private equity: industries where reading people and making the right call under pressure isn't optional. He leads the firm's growth, client relationships, and vision. Former NCAA D1 golfer at USF."
     },
     {
-      name: "Nicholas Ricciardelli",
-      role: "Head of Recruiting",
-      image: "/team/nicholas-ricciardelli.jpg",
-      email: "nick@trsolutions.io",
-      linkedin: "https://www.linkedin.com/in/nicholas-ricciardelli-3623b118/",
-      bio: "30+ years in technical and executive recruiting and staffing. With a background placing talent at companies including Nvidia, Bank of America, and Intel, he brings a gut instinct that no software can replicate and the track record to back it up."
-    },
-    {
       name: "John Frank",
       role: "Co-Founder & COO",
       image: "/team/john-frank.jpg",
@@ -30,8 +22,16 @@ export default function AboutPage() {
       bio: "The builder behind TRS. When the existing recruiting platforms weren't good enough, John built the proprietary infrastructure that powers everything TRS does. He keeps everything operating behind the scenes, from sourcing and scoring to pipeline management and workflow automation."
     },
     {
+      name: "Nicholas Ricciardelli",
+      role: "Head of Recruiting",
+      image: "/team/nicholas-ricciardelli.jpg",
+      email: "nick@trsolutions.io",
+      linkedin: "https://www.linkedin.com/in/nicholas-ricciardelli-3623b118/",
+      bio: "30+ years in technical and executive recruiting and staffing. With a background placing talent at companies including Nvidia, Bank of America, and Intel, he brings a gut instinct that no software can replicate and the track record to back it up."
+    },
+    {
       name: "Wendy Trattner",
-      role: "CMO & Technical Advisor",
+      role: "CMO",
       image: "/team/wendy-trattner.jpg",
       email: "wendy@trsolutions.io",
       linkedin: "https://www.linkedin.com/in/wtratt/",
