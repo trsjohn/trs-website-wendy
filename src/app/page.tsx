@@ -236,7 +236,7 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2 gap-10">
           <div className="space-y-5">
             <h2 className="text-2xl font-semibold">What sets us apart</h2>
-            <p className="font-semibold text-neutral-100">We built our own recruiting infrastructure from scratch — because nothing else was good enough.</p>
+            <p className="font-semibold text-neutral-100">We built our own recruiting infrastructure from scratch because nothing else was good enough.</p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={BadgeCheck} className="h-5 w-5 text-red-500 mt-0.5" />
@@ -248,12 +248,12 @@ export default function HomePage() {
               </li>
               <li className="flex items-start gap-3 text-neutral-300">
                 <SafeIcon Icon={TrendingUp} className="h-5 w-5 text-red-500 mt-0.5" />
-                <span>Proprietary sourcing, scoring, and outreach infrastructure — built by recruiters, not borrowed from vendors</span>
+                <span>Proprietary sourcing, scoring, and outreach infrastructure. Built by recruiters, not borrowed from vendors</span>
               </li>
             </ul>
             <div className="mt-6 rounded-lg border border-red-500/50 bg-white/5 p-4">
               <p className="text-base md:text-lg font-semibold text-white">
-                Other firms patch together outdated tools and hope for the best. We built our own — because better technology means better recruiting. More data, more precision, better hires.
+                Other firms patch together outdated tools. We built our own so we could offer the highest level of recruiting, with the best data, precision, speed, and ultimately, better hires.
               </p>
             </div>
           </div>
@@ -274,7 +274,7 @@ export default function HomePage() {
                         label: "Technology",
                         Icon: Zap,
                         traditional: "Patchwork of LinkedIn, job boards, and generic ATS tools",
-                        trs: "Proprietary end-to-end infrastructure — auto-sourcing, scoring, outreach, pipeline, and interview intelligence",
+                        trs: "Proprietary end-to-end auto-sourcing, scoring, outreach, pipeline, and interview intelligence",
                       },
                       {
                         label: "Candidate quality",
@@ -291,8 +291,8 @@ export default function HomePage() {
                       {
                         label: "Integration",
                         Icon: Zap,
-                        traditional: "Disconnected from your workflow — email threads and manual updates",
-                        trs: "Plugs directly into Slack, your ATS, or existing tools — zero friction",
+                        traditional: "Disconnected from your workflow",
+                        trs: "Plugs directly into Slack, your ATS, or existing tools",
                       },
                       {
                         label: "Level of vetting",
@@ -399,16 +399,16 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto space-y-6">
             <h2 className="text-2xl md:text-3xl font-bold text-white">We built our own infrastructure. From scratch.</h2>
             <p className="text-neutral-300 text-lg leading-relaxed">
-              Most recruiting agencies stitch together LinkedIn, a job board, and whatever ATS their ops person set up years ago. We looked at those tools and decided they weren&apos;t good enough — so we built our own.
+              Most recruiting agencies stitch together LinkedIn, a job board, and whatever ATS their ops person set up years ago. We tried those tools and they were frustrating to say the least. There were no options built by recruiters. So we built our own.
             </p>
             <p className="text-neutral-300 text-lg leading-relaxed">
-              TRS runs on a fully proprietary end-to-end system: intelligent auto-sourcing, candidate scoring, adaptive multichannel outreach, pipeline management, and interview intelligence. We architected the entire workflow from scratch because the existing options weren&apos;t built by recruiters, and it shows.
+              TRS runs on a fully proprietary end-to-end system: intelligent auto-sourcing, candidate scoring, adaptive multichannel outreach, pipeline management, and interview intelligence. We architected the entire process around our proven recruiting workflow. 
             </p>
             <p className="text-neutral-300 text-lg leading-relaxed">
-              What we also learned: great candidates aren&apos;t enough on their own. Founders and lean teams don&apos;t have the bandwidth to manage a pipeline, coordinate interviews, keep candidates warm, or negotiate offers — and they shouldn&apos;t have to buy more tools or hire internal support before they&apos;re ready. So we do all of it. Fully managed, integrated directly into your Slack or existing platforms. No new software to learn.
+              We also learned sending great candidates isn&apos;t enough. Founders and lean teams don&apos;t have the bandwidth to manage a pipeline, coordinate, keep candidates warm, or negotiate offers. And they shouldn&apos;t have to buy more tools or hire internal support before they&apos;re ready. We do all of it, so you can focus on your business.
             </p>
             <div className="pt-2 border-t border-white/10">
-              <p className="text-white font-semibold text-lg">Other firms patch together outdated tools and hope for the best. We built our own — because better technology means better recruiting. More data, more precision, better hires.</p>
+              <p className="text-white font-semibold text-lg">Other firms patch together outdated tools. We built our own so we could offer the highest level of recruiting, with more data, precision, speed, and better hires.</p>
             </div>
           </div>
         </div>
@@ -463,32 +463,32 @@ export default function HomePage() {
               {
                 step: "1",
                 title: "Intake call",
-                detail: "We learn exactly what you need — and surface what you don't know you need yet.",
-                description: "We go deep on your role, your team, your culture, and your hiring history. Nothing you tell us gets wasted — every detail, side comment, and preference is captured and built into your search. If you don't have a JD, we write one. Most recruiters take notes and move on. We make sure every nuance you share shapes exactly who we go find."
+                detail: "We learn exactly what you need and surface what you don't know you need yet.",
+                description: "We go deep on your role, your team, your culture, and your hiring history. Nothing you tell us gets wasted. Every detail, side comment, and preference is captured and built into your search. If you don't have a JD, we write one. Most recruiters take notes and move on. We make sure every nuance you share shapes exactly who we go find."
               },
               {
                 step: "2",
                 title: "Sourcing & outreach",
                 detail: "Hundreds of candidates sourced in days. We keep 5%.",
-                description: "Our proprietary auto-sourcing engine runs your role against our 50,000+ candidate network and sources new candidates simultaneously — comparing each one against your JD and cultural fit criteria side by side. Within the first few days we've typically evaluated hundreds of candidates, filtering out 95%. Only the top fits move forward. No noise, no volume plays."
+                description: "Our proprietary auto-sourcing engine runs your role against our 50,000+ candidate network and sources new candidates simultaneously. We compare each one against your JD and cultural fit criteria side by side. Within the first few days we've typically evaluated hundreds of candidates, filtering out 95%. Only the top fits move forward."
               },
               {
                 step: "3",
                 title: "Screening & interviews",
-                detail: "Personal calls. Questions built from your data. Nothing generic.",
-                description: "A TRS team member personally calls every shortlisted candidate. The interview questions aren't templated — they're generated from your JD, intake call, and every data point we've collected. We probe strengths, gaps, cultural fit, and motivations. Candidates consistently tell us these are the most engaging, thoughtful recruiter conversations they've ever had. That's not an accident — it's the data doing its job."
+                detail: "Personal calls. Questions designed to fill out the picture, built from thousands of datapoints.",
+                description: "A TRS team member personally calls every shortlisted candidate. The interview questions are generated from your JD, intake call, and every data point we've collected. We probe strengths, gaps, cultural fit, and motivations. Candidates consistently tell us these are the most engaging, thoughtful recruiter conversations they've ever had."
               },
               {
                 step: "4",
                 title: "Scoring & delivery",
-                detail: "A full picture of every candidate. You make decisions, not just meetings.",
-                description: "Every candidate comes with a detailed scorecard: strengths, weaknesses, role fit, experience, risks, growth areas, salary expectations, and an overall recommendation — built from the interview, the JD, and everything you've shared across every touchpoint. Nothing falls through the cracks. You only see the best. Most clients have 3–5 fully vetted candidates within 2 weeks or less. We schedule interviews and handle all candidate coordination."
+                detail: "A clear picture of every candidate. You only see the best ones.",
+                description: "Every candidate comes with a detailed scorecard: strengths, weaknesses, role fit, experience, risks, growth areas, salary expectations, and an overall recommendation. Nothing falls through the cracks. Most clients have 3–5 fully vetted candidates within 2 weeks or less. We schedule interviews and handle all candidate coordination."
               },
               {
                 step: "5",
                 title: "Feedback & refinement",
                 detail: "Your feedback sharpens the search. The system gets smarter with every hire.",
-                description: "After each round, your feedback — every preference, every pass, every hire — goes back into our system and refines the algorithm. The search gets tighter. The candidates get better. Nothing resets. Average time from start to hire: 21 days."
+                description: "After each round, your feedback goes back into our system and refines the algorithm. The search gets tighter and the candidates get better. Average time from start to hire: 21 days."
               },
             ].map(({ step, title, detail, description }, index, array) => (
               <div key={step}>
@@ -554,7 +554,7 @@ export default function HomePage() {
         <div className="space-y-8">
           <div>
             <h2 className="text-2xl font-semibold">How we engage</h2>
-            <p className="text-neutral-400 mt-2">Every engagement includes full sourcing, screening, scorecards, and offer management — powered by our proprietary infrastructure and integrated directly into your Slack or existing tools. We tell you which model fits before you commit.</p>
+            <p className="text-neutral-400 mt-2">Every engagement includes full sourcing, screening, scorecards, and offer management. Powered by our proprietary infrastructure and integrated directly into your Slack or existing tools.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -563,21 +563,22 @@ export default function HomePage() {
                 <span className="bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Most Common</span>
               </div>
               <h3 className="text-xl font-semibold mb-1 text-white">Retained Search</h3>
-              <p className="text-sm text-neutral-400 mb-4">For companies that need a true recruiting partner — not a vendor.</p>
+              <p className="text-sm text-neutral-400 mb-4">For companies that need a true recruiting partner, not just resumes.</p>
               <ul className="space-y-2 text-neutral-200 text-sm">
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Unlimited active roles</span></li>
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>3–5 vetted candidates per role within 2 weeks</span></li>
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Full pipeline management and offer negotiation</span></li>
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Weekly data-driven pipeline reports</span></li>
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Dedicated 2–3 person TRS team</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Generous replacement policies tailored to your contract</span></li>
               </ul>
             </div>
 
             <div className="rounded-2xl border border-neutral-800 p-6 bg-white/5">
               <h3 className="text-xl font-semibold mb-1 text-white">Contingent Recruiting</h3>
-              <p className="text-sm text-neutral-400 mb-4">Pay on results with a small upfront deposit — applied to your success fee at hire. Best for one or two roles where you need quality without a long commitment.</p>
+              <p className="text-sm text-neutral-400 mb-4">Pay on results. Best for one or two roles where you need quality without a long commitment.</p>
               <ul className="space-y-2 text-neutral-200 text-sm">
-                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Small deposit required — applied in full toward your success fee at hire</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Small deposit applied in full toward your success fee at hire</span></li>
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Sourcing, screening, and scorecards included</span></li>
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Full offer negotiation and candidate management handled by TRS</span></li>
                 <li className="flex items-start gap-2"><span className="text-red-500 mt-0.5">✓</span><span>Best for 1–2 defined roles with clear requirements</span></li>
@@ -599,7 +600,7 @@ export default function HomePage() {
           </div>
 
           <div className="rounded-2xl border border-white/10 p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-neutral-300 text-sm">Not sure which engagement fits? We&apos;ll tell you on the first call — no pressure, no pitch.</p>
+            <p className="text-neutral-300 text-sm">Not sure which engagement fits? We&apos;ll tell you on the first call.</p>
             <Link href="/contact" aria-label="Talk to us">
               <Button className="px-6 h-10 shrink-0">Talk to us</Button>
             </Link>

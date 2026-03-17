@@ -11,7 +11,7 @@ export default function AboutPage() {
       image: "/team/alex-ricciardelli.jpeg",
       email: "alex@trsolutions.io",
       linkedin: "https://www.linkedin.com/in/alexricciardelli/",
-      bio: "Alex brings a background in psychology, cybersecurity sales, and six years in private equity — industries where reading people and making the right call under pressure isn't optional. He leads the firm's growth, client relationships, and vision. Former NCAA D1 golfer at USF."
+      bio: "Alex brings a background in psychology, cybersecurity sales, and six years in private equity: industries where reading people and making the right call under pressure isn't optional. He leads the firm's growth, client relationships, and vision. Former NCAA D1 golfer at USF."
     },
     {
       name: "Nicholas Ricciardelli",
@@ -31,7 +31,7 @@ export default function AboutPage() {
     },
     {
       name: "Wendy Trattner",
-      role: "CMO",
+      role: "CMO & Technical Advisor",
       image: "/team/wendy-trattner.jpg",
       email: "wendy@trsolutions.io",
       linkedin: "https://www.linkedin.com/in/wtratt/",
@@ -42,23 +42,27 @@ export default function AboutPage() {
   const values = [
     {
       title: "Outcomes, not activity",
-      description: "We measure success by hires that stick — not resumes sent or calls booked."
+      description: "We measure success by hires that stick, not resumes sent."
     },
     {
-      title: "Nothing gets lost",
-      description: "Every detail you share shapes your search. We build systems so context doesn't fall through the cracks."
+      title: "Technology as a tool",
+      description: "We built our own infrastructure because better tools mean better hiring."
     },
     {
-      title: "Technology in service of recruiting",
-      description: "We built our own infrastructure because better tools mean better hires. The tech exists to serve the outcome."
+      title: "Humans, not just numbers",
+      description: "People talk to people. Intuition, experience, and compassion are invaluable."
     },
     {
       title: "Judgment over volume",
       description: "We'd rather send you three right candidates than thirty wrong ones."
     },
     {
+      title: "Nothing gets lost",
+      description: "Every detail you share shapes your search. We build systems so context doesn't fall through the cracks."
+    },
+    {
       title: "Always building",
-      description: "We keep improving — the system, the process, and ourselves — with every search we run."
+      description: "We keep improving the system, the process, and ourselves with every search we run."
     }
   ];
 
@@ -69,9 +73,9 @@ export default function AboutPage() {
       <section className="max-w-4xl mx-auto">
         <h1 className="text-4xl lg:text-5xl font-bold mb-8">Why TRS exists</h1>
         <div className="space-y-5 text-lg text-neutral-300 leading-relaxed">
-          <p>The right team can move mountains. TRS exists to help companies build the best one possible.</p>
-          <p>Alex Ricciardelli built his career learning to read people under pressure — across psychology, cybersecurity sales, and six years in private equity. He co-founded TRS with his best friend John, and his father Nicholas, whose 30+ year career placing talent at companies like Nvidia and Intel gave the firm an unfair head start.</p>
-          <p>Together they built something different. Not just a recruiting firm — a fully proprietary recruiting infrastructure, architected from scratch because the existing tools weren&apos;t built by recruiters and it showed. Auto-sourcing, candidate scoring, adaptive outreach, pipeline management, interview intelligence — all of it built in-house, all of it purpose-built to win.</p>
+          <p>The right team can move mountains. We've seen it.</p>
+          <p>Alex Ricciardelli built his career learning to read people under pressure across psychology, cybersecurity sales, and six years in private equity. He co-founded TRS with his best friend John, and his father Nicholas, whose 30+ year career placing talent at companies like Nvidia and Intel gave the firm an unfair head start.</p>
+          <p>Together they saw an opportunity to build something different. Not just a recruiting firm. A fully proprietary recruiting infrastructure, architected from scratch. They knew the existing tools weren&apos;t built by recruiters, and weren&apos;t keeping up with the most advanced technologies.</p>
           <p>The result is a process that consistently outpaces every other firm TRS has competed against. A 50,000+ candidate network. An average time to shortlist under 9 days. And a team that takes full ownership from the first intake call to the signed offer.</p>
           <p>Because building the team right isn&apos;t just a hiring decision. It&apos;s the most important decision a business leader can make.</p>
         </div>
@@ -94,7 +98,7 @@ export default function AboutPage() {
       <section>
         <h2 className="text-3xl font-bold mb-4">The team</h2>
         <p className="text-neutral-400 text-lg mb-12 max-w-2xl">
-          A small team with deep experience. We don&apos;t scale by hiring junior recruiters — we scale by building better systems.
+          A small team with deep experience. We don&apos;t scale by hiring junior recruiters. We scale by building better systems.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {team.map((member, index) => (
@@ -143,13 +147,13 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold mb-5">Built differently, by design</h2>
           <div className="space-y-4 text-neutral-300 leading-relaxed">
             <p>
-              We didn&apos;t set out to build a software company. We set out to build a better recruiting firm — and realized the only way to do that was to build the infrastructure ourselves.
+              We didn&apos;t set out to build a software company. We set out to build a better recruiting firm, and realized the only way to do that was to build the infrastructure ourselves.
             </p>
             <p>
-              Our proprietary system covers the entire workflow: intelligent auto-sourcing, candidate scoring, adaptive multichannel outreach, pipeline management, and interview intelligence. It integrates directly into your Slack or existing tools. No new software to learn.
+              Our proprietary system covers the entire workflow: intelligent auto-sourcing, candidate scoring, adaptive multichannel outreach, pipeline management, and interview intelligence. It integrates directly into your Slack or existing tools.
             </p>
             <p>
-              It&apos;s not publicly available yet — but it gives our clients a structural edge that no other agency can match.
+              Our in-house software isn&apos;t publicly available yet, but it gives our clients a structural edge that no other agency can match.
             </p>
           </div>
         </div>
