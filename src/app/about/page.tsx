@@ -35,7 +35,7 @@ export default function AboutPage() {
       image: "/team/wendy-trattner.jpg",
       email: "wendy@trsolutions.io",
       linkedin: "https://www.linkedin.com/in/wtratt/",
-      bio: "MIT mechanical engineer and founder with a background in deeptech startups. Wendy leads marketing and GTM strategy. She also brings her engineering background to technical candidate screening, giving clients a sharper eye on their most complex hires."
+      bio: "MIT mechanical engineer and founder with a background in deeptech startups. Wendy leads marketing and GTM strategy. She also brings her engineering background to technical candidate screening, giving clients a sharper eye on their most complex hires."
     },
   ];
 
@@ -71,9 +71,9 @@ export default function AboutPage() {
         <div className="space-y-5 text-lg text-neutral-300 leading-relaxed">
           <p>The right team can move mountains. TRS exists to help companies build the best one possible.</p>
           <p>Alex Ricciardelli built his career learning to read people under pressure — across psychology, cybersecurity sales, and six years in private equity. He co-founded TRS with his best friend John, and his father Nicholas, whose 30+ year career placing talent at companies like Nvidia and Intel gave the firm an unfair head start.</p>
-          <p>Together they built something different. Not just a recruiting firm — a fully proprietary recruiting infrastructure, architected from scratch because the existing tools weren't built by recruiters and it showed. Auto-sourcing, candidate scoring, adaptive outreach, pipeline management, interview intelligence — all of it built in-house, all of it purpose-built to win.</p>
+          <p>Together they built something different. Not just a recruiting firm — a fully proprietary recruiting infrastructure, architected from scratch because the existing tools weren&apos;t built by recruiters and it showed. Auto-sourcing, candidate scoring, adaptive outreach, pipeline management, interview intelligence — all of it built in-house, all of it purpose-built to win.</p>
           <p>The result is a process that consistently outpaces every other firm TRS has competed against. A 50,000+ candidate network. An average time to shortlist under 9 days. And a team that takes full ownership from the first intake call to the signed offer.</p>
-          <p>Because building the team right isn't just a hiring decision. It's the most important decision a business leader can make.</p>
+          <p>Because building the team right isn&apos;t just a hiring decision. It&apos;s the most important decision a business leader can make.</p>
         </div>
       </section>
 
