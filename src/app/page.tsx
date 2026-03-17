@@ -109,7 +109,7 @@ export default function HomePage() {
 
             <StaggeredReveal delay={300}>
               <p className="mt-3 text-subhero text-neutral-100 max-w-2xl md:max-w-none mx-auto md:mx-0 font-semibold">
-                TRS is a full-service recruiting partner for established, revenue-generating companies — backed by proprietary infrastructure we built from scratch because the existing tools weren&apos;t good enough.
+                TRS is a full-service recruiting, staffing, and executive search partner for revenue-generating companies. Backed by proprietary infrastructure we built from scratch because the existing tools weren&apos;t good enough.
               </p>
             </StaggeredReveal>
 
