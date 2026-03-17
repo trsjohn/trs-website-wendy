@@ -73,7 +73,7 @@ export default function AboutPage() {
       <section className="max-w-4xl mx-auto">
         <h1 className="text-4xl lg:text-5xl font-bold mb-8">Why TRS exists</h1>
         <div className="space-y-5 text-lg text-neutral-300 leading-relaxed">
-          <p>The right team can move mountains. We've seen it.</p>
+          <p>The right team can move mountains. We&apos;ve seen it.</p>
           <p>Alex Ricciardelli built his career learning to read people under pressure across psychology, cybersecurity sales, and six years in private equity. He co-founded TRS with his best friend John, and his father Nicholas, whose 30+ year career placing talent at companies like Nvidia and Intel gave the firm an unfair head start.</p>
           <p>Together they saw an opportunity to build something different. Not just a recruiting firm. A fully proprietary recruiting infrastructure, architected from scratch. They knew the existing tools weren&apos;t built by recruiters, and weren&apos;t keeping up with the most advanced technologies.</p>
           <p>The result is a process that consistently outpaces every other firm TRS has competed against. A 50,000+ candidate network. An average time to shortlist under 9 days. And a team that takes full ownership from the first intake call to the signed offer.</p>
