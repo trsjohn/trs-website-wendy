@@ -6,10 +6,13 @@ import { Sora, Plus_Jakarta_Sans } from "next/font/google";
 import { Toasts } from "@/components/Toasts";
 
 export const metadata: Metadata = {
-  title: "TRS Recruiting Engine",
+  title: {
+    default: "TRS | Recruiting, Staffing & Executive Search",
+    template: "%s | TRS",
+  },
   description:
-    "TRS blends AI, automation, and high-touch recruiting to help startups hire faster and better.",
-  metadataBase: new URL("https://trs.example"), // TODO: update on deploy
+    "Full-service recruiting, staffing, and executive search for high-growth companies in cybersecurity, SaaS, infrastructure, and PE-backed businesses. Average time to shortlist under 9 days.",
+  metadataBase: new URL("https://trsolutions.io"),
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
@@ -20,18 +23,18 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "TRS Recruiting Engine",
+    title: "TRS | Recruiting, Staffing & Executive Search",
     description:
-      "TRS blends AI, automation, and high-touch recruiting to help startups hire faster and better.",
-    url: "https://trs.example", // TODO: update on deploy
+      "Full-service recruiting, staffing, and executive search for high-growth companies in cybersecurity, SaaS, infrastructure, and PE-backed businesses. Average time to shortlist under 9 days.",
+    url: "https://trsolutions.io",
     siteName: "TRS",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "TRS Recruiting Engine",
+    title: "TRS | Recruiting, Staffing & Executive Search",
     description:
-      "TRS blends AI, automation, and high-touch recruiting to help startups hire faster and better.",
+      "Full-service recruiting, staffing, and executive search for high-growth companies in cybersecurity, SaaS, infrastructure, and PE-backed businesses. Average time to shortlist under 9 days.",
   },
 };
 

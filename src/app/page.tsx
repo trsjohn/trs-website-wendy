@@ -747,7 +747,7 @@ export default function HomePage() {
             '@context': 'https://schema.org',
             '@type': 'Organization',
             name: 'TRS',
-            url: 'https://trs.example',
+            url: 'https://trsolutions.io',
           }),
         }}
       />
