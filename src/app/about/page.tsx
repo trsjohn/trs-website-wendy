@@ -31,11 +31,11 @@ export default function AboutPage() {
     },
     {
       name: "Wendy Trattner",
-      role: "CMO",
+      role: "Head of Growth",
       image: "/team/wendy-trattner.jpg",
       email: "wendy@trsolutions.io",
       linkedin: "https://www.linkedin.com/in/wtratt/",
-      bio: "MIT mechanical engineer and founder with a background in deeptech startups. Wendy leads marketing and GTM strategy. She also brings her engineering background to technical candidate screening, giving clients a sharper eye on their most complex hires."
+      bio: "MIT mechanical engineer and founder with a background in deeptech startups. Wendy leads marketing and growth strategy. She also brings her engineering background to technical candidate screening, giving clients a sharper eye on their most complex hires."
     },
   ];
 
