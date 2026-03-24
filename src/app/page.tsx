@@ -118,7 +118,7 @@ export default function HomePage() {
                 <Link href="/contact" aria-label="Let's talk">
                   <Button className="px-6 h-11 border border-red-500 shadow-md shadow-red-500/30">Let&apos;s talk</Button>
                 </Link>
-                <Link href="/services" aria-label="See how it works">
+                <Link href="/#services" aria-label="See how it works">
                   <Button variant="ghost" className="px-6 h-11">See how it works</Button>
                 </Link>
               </div>
