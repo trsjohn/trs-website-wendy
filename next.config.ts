@@ -1,13 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/deck',
+        destination: '/deck.html',
+        permanent: false,
+      },
+    ];
+  },
   webpack: (config, { isServer }) => {
     config.resolve.alias = {
       ...config.resolve.alias,
       canvas: false,
     };
 
-    // Handle @react-pdf/renderer dependencies
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
