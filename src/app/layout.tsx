@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Sora, Plus_Jakarta_Sans } from "next/font/google";
 import { Toasts } from "@/components/Toasts";
+import { Bebas_Neue, DM_Sans } from "next/font/google";
 
 export const metadata: Metadata = {
   title: {
@@ -38,19 +39,35 @@ export const metadata: Metadata = {
   },
 };
 
-// Body: Plus Jakarta Sans (modern, clean). Headings: Sora (bold, futuristic)
-const bodyFont = Plus_Jakarta_Sans({
+
+
+const headingFont = Bebas_Neue({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+  variable: "--font-heading",
+});
+
+const bodyFont = DM_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
 });
 
-const headingFont = Sora({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["600", "700", "800"],
-  variable: "--font-heading",
-});
+
+// Body: Plus Jakarta Sans (modern, clean). Headings: Sora (bold, futuristic)
+// const bodyFont = Plus_Jakarta_Sans({
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-body",
+// });
+
+// const headingFont = Sora({
+//   subsets: ["latin"],
+//   display: "swap",
+//   weight: ["600", "700", "800"],
+//   variable: "--font-heading",
+// });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
