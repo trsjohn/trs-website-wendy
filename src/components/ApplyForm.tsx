@@ -139,7 +139,7 @@ export default function ApplyForm() {
       </div>
 
       <div>
-        <label className="block mb-2 font-medium">LinkedIn (optional)</label>
+        <label className="block mb-2 font-medium">LinkedIn</label>
         <input type="url" {...register("linkedin")} className={inputClass} />
         {errors.linkedin && (
           <p className="text-red-400 text-sm mt-1">{errors.linkedin.message}</p>
