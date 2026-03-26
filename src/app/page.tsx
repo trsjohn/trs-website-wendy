@@ -204,8 +204,12 @@ export default function HomePage() {
                 <div className="text-sm text-neutral-300">Head of Engineering placed for a cybersecurity company</div>
               </div>
               <div className="border-t border-white/10 pt-6 space-y-1">
-                  <div className="text-3xl font-black text-white">1 Month</div>
-                <div className="text-sm text-neutral-300">3 SDRs and 2 CSMs hired for a software company scaling their GTM team</div>
+                <div className="text-3xl font-black text-white">1 Month</div>
+                <div className="text-sm text-neutral-300">3 AEs, 2 CSMs, and 1 SDR hired for a software company. Every candidate sourced outbound by TRS.</div>
+              </div>
+              <div className="border-t border-white/10 pt-6 space-y-1">
+                <div className="text-3xl font-black text-white">Best Taste</div>
+                <div className="text-sm text-neutral-300">Clients consistently tell us TRS has better candidate intuition than any recruiting firm they&apos;ve worked with. We take that seriously.</div>
               </div>
               <div className="border-t border-white/10 pt-6">
                 <p className="text-white font-bold leading-relaxed">Other firms patch together outdated tools. We built our own so we could offer more data, precision, speed, and better hires.</p>
@@ -319,6 +323,7 @@ export default function HomePage() {
                     { label: "Candidate Scoring", contingency: "Subjective gut feel", rpo: "Basic screening", internalTA: "Varies by team", trs: "Multi-stage AI + human scoring" },
                     { label: "Integration", contingency: "Disconnected", rpo: "Custom setup", internalTA: "ATS only", trs: "Plugs into Slack, your ATS, or existing tools" },
                     { label: "Level of Vetting", contingency: "Resume screen", rpo: "Basic screen", internalTA: "Varies by team", trs: "AI + human review of 100% of candidates" },
+                    { label: "Candidate Volume", contingency: "High volume, low quality", rpo: "High volume, low quality", internalTA: "Varies", trs: "Smaller shortlists. Every candidate worth your time." },
                     { label: "Learning from Outcomes", contingency: "None", rpo: "Periodic reviews", internalTA: "Inconsistent", trs: "System improves with every hire and feedback loop" },
                   ].map(({ label, contingency, rpo, internalTA, trs }, i) => (
                     <tr key={i} className="align-top text-sm">
@@ -343,6 +348,7 @@ export default function HomePage() {
                 { label: "Candidate Scoring", traditional: "Subjective gut feel", trs: "Multi-stage AI + human scoring" },
                 { label: "Integration", traditional: "Disconnected from your workflow", trs: "Plugs into Slack, ATS, or existing tools" },
                 { label: "Level of Vetting", traditional: "Resume screen at best", trs: "AI + human review of 100% of candidates" },
+                { label: "Candidate Volume", traditional: "High volume, low quality", trs: "Smaller shortlists. Every candidate worth your time." },
                 { label: "Learning from Outcomes", traditional: "None", trs: "System improves with every hire" },
               ].map(({ label, traditional, trs }, i) => (
                 <div key={i} className="p-4">
@@ -613,7 +619,7 @@ export default function HomePage() {
               {[
                 {
                   q: "We already tried a recruiter and it didn't work.",
-                  a: "That's the most common thing we hear. Most recruiters send a pile of resumes and disappear. We own the entire process: sourcing, screening, scorecards, offer negotiation. If you've been burned before, you'll recognize the difference immediately."
+                  a: "That's the most common thing we hear. Most recruiters send a pile of resumes and disappear. We own the entire process: sourcing, screening, scorecards, offer negotiation. We'd rather send you three people worth interviewing than fifteen you have to wade through. If you've been burned before, you'll recognize the difference immediately."
                 },
                 {
                   q: "We don't have a job description ready.",
@@ -625,7 +631,7 @@ export default function HomePage() {
                 },
                 {
                   q: "How fast is fast, really?",
-                  a: "First shortlist in under 9 days. Average time to hire is 21 days. We placed a Head of Engineering for a cybersecurity company in 15 days and hired 5 GTM roles for a software company in one month. Those aren't outliers. That's the system working."
+                  a: "First shortlist in under 9 days. Average time to hire is 21 days. We placed a Head of Engineering for a cybersecurity company in 15 days and hired 6 GTM roles for a software company in one month. Those aren't outliers. That's the system working."
                 },
                 {
                   q: "Our budget is tight right now.",

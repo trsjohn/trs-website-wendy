@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Sora, Plus_Jakarta_Sans } from "next/font/google";
+// import { Sora, Plus_Jakarta_Sans } from "next/font/google";
 import { Toasts } from "@/components/Toasts";
 import { Bebas_Neue, DM_Sans } from "next/font/google";
 
