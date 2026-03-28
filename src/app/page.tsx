@@ -297,9 +297,9 @@ export default function HomePage() {
             <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-black uppercase text-white leading-none">
               The Numbers Don&apos;t Lie
             </h2>
-            <p className="text-neutral-400 mt-4 max-w-2xl">
+            {/* <p className="text-neutral-400 mt-4 max-w-2xl">
               See exactly where traditional models fall short and where TRS delivers.
-            </p>
+            </p> */}
           </div>
 
           <div className="border-t border-b border-white/10">
@@ -322,7 +322,7 @@ export default function HomePage() {
                     { label: "Sourcing",              contingency: "Manual, recruiter-dependent", rpo: "Manual + tools",     internalTA: "Job boards + inbound", trs: "AI-scored, automated" },
                     { label: "Candidate Scoring",     contingency: "Subjective gut feel",         rpo: "Basic screening",    internalTA: "Varies by team",     trs: "Multi-stage AI + human" },
                     { label: "Cost Per Hire",         contingency: "$15K–$25K+",                  rpo: "$6.7K–$10K",         internalTA: "Internal overhead",  trs: "$5K–$8K" },
-                    { label: "Volume Minimum",        contingency: "None",                        rpo: "15–25 hires/yr",     internalTA: "N/A",                trs: "No minimum" },
+                    { label: "Volume",                contingency: "1-6 roles",                   rpo: "15+ hires/yr",       internalTA: "Limited by headcount",trs: "Any volume, any stage" },
                     { label: "Process Control",       contingency: "Outsourced entirely",         rpo: "Shared",             internalTA: "Full control",       trs: "Full transparency + AI" },
                   ].map(({ label, contingency, rpo, internalTA, trs }, i) => (
                     <tr key={i} className="align-top text-sm">
