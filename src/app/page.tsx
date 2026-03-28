@@ -316,15 +316,14 @@ export default function HomePage() {
                 </thead>
                 <tbody className="divide-y divide-white/10">
                   {[
-                    { label: "Setup Time", contingency: "Hours", rpo: "4–8 weeks", internalTA: "Days to weeks", trs: "Hours, not weeks" },
-                    { label: "Speed & Scale", contingency: "1 req at a time", rpo: "Slow ramp", internalTA: "Bandwidth-limited", trs: "Hundreds evaluated in days. Only the top 5% move forward." },
-                    { label: "Pipeline Visibility", contingency: "None", rpo: "Weekly reports", internalTA: "ATS dependent", trs: "Real-time, full funnel" },
-                    { label: "Sourcing", contingency: "Manual, recruiter-dependent", rpo: "Manual + tools", internalTA: "Job boards + inbound", trs: "AI-scored, automated at volume" },
-                    { label: "Candidate Scoring", contingency: "Subjective gut feel", rpo: "Basic screening", internalTA: "Varies by team", trs: "Multi-stage AI + human scoring" },
-                    { label: "Integration", contingency: "Disconnected", rpo: "Custom setup", internalTA: "ATS only", trs: "Plugs into Slack, your ATS, or existing tools" },
-                    { label: "Level of Vetting", contingency: "Resume screen", rpo: "Basic screen", internalTA: "Varies by team", trs: "AI + human review of 100% of candidates" },
-                    { label: "Candidate Volume", contingency: "High volume, low quality", rpo: "High volume, low quality", internalTA: "Varies", trs: "Smaller shortlists. Every candidate worth your time." },
-                    { label: "Learning from Outcomes", contingency: "None", rpo: "Periodic reviews", internalTA: "Inconsistent", trs: "System improves with every hire and feedback loop" },
+                    { label: "Setup Time",            contingency: "None",                        rpo: "2–6 weeks",          internalTA: "2–4 weeks",          trs: "Hours" },
+                    { label: "Avg. Time-to-Hire",     contingency: "30–45 days",                  rpo: "35–50 days",         internalTA: "40–60 days",         trs: "21 days" },
+                    { label: "Pipeline Visibility",   contingency: "None",                        rpo: "Weekly reports",     internalTA: "ATS dependent",      trs: "Real-time, full funnel" },
+                    { label: "Sourcing",              contingency: "Manual, recruiter-dependent", rpo: "Manual + tools",     internalTA: "Job boards + inbound", trs: "AI-scored, automated" },
+                    { label: "Candidate Scoring",     contingency: "Subjective gut feel",         rpo: "Basic screening",    internalTA: "Varies by team",     trs: "Multi-stage AI + human" },
+                    { label: "Cost Per Hire",         contingency: "$15K–$25K+",                  rpo: "$6.7K–$10K",         internalTA: "Internal overhead",  trs: "$5K–$8K" },
+                    { label: "Volume Minimum",        contingency: "None",                        rpo: "15–25 hires/yr",     internalTA: "N/A",                trs: "No minimum" },
+                    { label: "Process Control",       contingency: "Outsourced entirely",         rpo: "Shared",             internalTA: "Full control",       trs: "Full transparency + AI" },
                   ].map(({ label, contingency, rpo, internalTA, trs }, i) => (
                     <tr key={i} className="align-top text-sm">
                       <td className="px-6 py-4 font-bold uppercase tracking-wide text-white text-xs">{label}</td>
@@ -341,15 +340,14 @@ export default function HomePage() {
             {/* Mobile stacked */}
             <div className="md:hidden divide-y divide-white/10">
               {[
-                { label: "Setup Time", traditional: "4–8 weeks (RPO)", trs: "Hours, not weeks" },
-                { label: "Speed & Scale", traditional: "Slow, bandwidth-limited", trs: "Hundreds evaluated in days. Only the top 5% move forward." },
-                { label: "Pipeline Visibility", traditional: "None / weekly", trs: "Real-time, full funnel" },
-                { label: "Sourcing", traditional: "Manual, recruiter-dependent", trs: "AI-scored, automated at volume" },
-                { label: "Candidate Scoring", traditional: "Subjective gut feel", trs: "Multi-stage AI + human scoring" },
-                { label: "Integration", traditional: "Disconnected from your workflow", trs: "Plugs into Slack, ATS, or existing tools" },
-                { label: "Level of Vetting", traditional: "Resume screen at best", trs: "AI + human review of 100% of candidates" },
-                { label: "Candidate Volume", traditional: "High volume, low quality", trs: "Smaller shortlists. Every candidate worth your time." },
-                { label: "Learning from Outcomes", traditional: "None", trs: "System improves with every hire" },
+                { label: "Setup Time",          traditional: "2–6 weeks (RPO)",              trs: "Hours" },
+                { label: "Avg. Time-to-Hire",   traditional: "35–60 days",                   trs: "21 days" },
+                { label: "Pipeline Visibility", traditional: "None / weekly reports",         trs: "Real-time, full funnel" },
+                { label: "Sourcing",            traditional: "Manual, recruiter-dependent",   trs: "AI-scored, automated" },
+                { label: "Candidate Scoring",   traditional: "Subjective gut feel",           trs: "Multi-stage AI + human" },
+                { label: "Cost Per Hire",       traditional: "$6.7K–$25K+",                  trs: "$5K–$8K" },
+                { label: "Volume Minimum",      traditional: "15–25 hires/yr (RPO)",          trs: "No minimum" },
+                { label: "Process Control",     traditional: "Outsourced or ATS-dependent",   trs: "Full transparency + AI" },
               ].map(({ label, traditional, trs }, i) => (
                 <div key={i} className="p-4">
                   <div className="text-xs font-bold uppercase tracking-wider text-white mb-2">{label}</div>
