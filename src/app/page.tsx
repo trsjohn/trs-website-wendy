@@ -106,7 +106,7 @@ export default function HomePage() {
               The
               <span className="text-red-500"> hiring partner</span> 
               <br />
-              You've been missing.
+              You&apos;ve been missing.
             </h1>
           </StaggeredReveal>
 
