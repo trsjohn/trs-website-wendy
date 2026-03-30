@@ -102,17 +102,17 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-6 sm:px-8 pt-20 pb-16 sm:pt-28 sm:pb-20">
         <div className="max-w-5xl">
           <StaggeredReveal delay={100}>
-             <h1 className="text-[clamp(3.4rem,9vw,7rem)] font-black leading-[0.9] uppercase text-white">
-              Your Lean Recruiting Team.
-              <span className="text-red-500"> Run by Experts,</span>
+              <h1 className="text-[clamp(3.4rem,9vw,7rem)] font-black leading-[0.9] uppercase text-white">
+              The
+              <span className="text-red-500"> hiring partner</span> 
               <br />
-              {" "}Powered by AI.
+              You've been missing.
             </h1>
           </StaggeredReveal>
 
           <StaggeredReveal delay={300}>
             <p className="mt-8 text-lg text-neutral-300 max-w-2xl leading-relaxed">
-              Full service recruiting partner powered by AI, with the speed, accuracy, and cultural intuition traditional agencies can&apos;t match.
+              Full service recruiting partner for lean teams. Built on AI infrastructure, with the speed, accuracy, and cultural intuition traditional agencies can&apos;t match.
             </p>
           </StaggeredReveal>
 
