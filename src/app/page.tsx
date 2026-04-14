@@ -195,7 +195,7 @@ export default function HomePage() {
               </div>
               <div className="border-t border-white/10 pt-6 space-y-1">
                 <div className="text-3xl font-black text-white">7 Roles, 1 Client</div>
-                <div className="text-sm text-neutral-300">Security and GTM roles across a single retained engagement. TRS acted as the company's full talent function for the duration.</div>
+                <div className="text-sm text-neutral-300">Security and GTM roles across a single retained engagement. TRS acted as the company&apos;s full talent function for the duration.</div>
               </div>
               <div className="border-t border-white/10 pt-6">
                 <p className="text-white font-bold leading-relaxed">The software handles volume. The humans handle judgment. Every submission reflects both.</p>
@@ -701,7 +701,7 @@ export default function HomePage() {
                 {
                   name: "Managed Service",
                   tag: 'Coming Soon',
-                  desc: "TRS deploys its platform as your company's own recruiting infrastructure, then operates it on your behalf on an ongoing basis. Your own portal, your own pipeline, managed by us. For companies ready to build a real talent function without building a team.",
+                  desc: "TRS deploys its platform as your company\u2019s own recruiting infrastructure, then operates it on your behalf on an ongoing basis. Your own portal, your own pipeline, managed by us. For companies ready to build a real talent function without building a team.",
                   highlight: false,
                 },
               ].map(({ name, tag, desc, highlight }) => (
@@ -794,7 +794,7 @@ export default function HomePage() {
                   a: "A contingency recruiter sends you profiles and collects a fee if you hire one. TRS runs the entire process — intake, sourcing, scoring, screening, coordination, offer management — on proprietary infrastructure. You get a partner with full accountability for outcomes, not a sourcing vendor hoping to get lucky.",
                 },
                 {
-                  q: "We already tried a recruiter and it didn't work.",
+                  q: "We already tried a recruiter and it didn\u2019t work.",
                   a: "That is the most common thing we hear. Most firms send a stack of resumes and disappear. We own the process start to finish. Every submission comes with a scorecard and a screening report. If you have been burned before, you will recognize the difference immediately.",
                 },
                 {
@@ -802,7 +802,7 @@ export default function HomePage() {
                   a: "A full-time recruiter runs $90–115k all-in before you factor in ATS tools, ramp time, and the risk of a bad hire. TRS starts at $5k/month with no ramp, no overhead, and no commitment if hiring slows. If you are at consistent high volume and need a cultural steward long-term, an internal hire can make sense. Before that point, the math usually favors a retained partner.",
                 },
                 {
-                  q: "We don't have a job description ready.",
+                  q: "We don\u2019t have a job description ready.",
                   a: "Most JDs are wrong anyway. We extract the real job from a 30-minute intake call — must-haves, soft signals, red flags, culture context. We write the JD. You approve it. Then we build the search.",
                 },
                 {
@@ -818,7 +818,7 @@ export default function HomePage() {
                   a: "Yes, depending on the situation. If your internal team is stretched and needs a specialist for technical or executive roles, TRS can run specific searches alongside them. We are not a good fit if an internal recruiter is managing us as a vendor.",
                 },
                 {
-                  q: "What if it doesn't work out?",
+                  q: "What if it doesn\u2019t work out?",
                   a: "60-day replacement guarantee on most engagements. No long-term contracts. If we are not adding value, we will say so.",
                 },
               ].map((faq, index) => (
