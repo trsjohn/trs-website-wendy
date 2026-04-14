@@ -8,11 +8,11 @@ import { Bebas_Neue, DM_Sans } from "next/font/google";
 
 export const metadata: Metadata = {
   title: {
-    default: "TRS | Recruiting, Staffing & Executive Search",
+    default: "TRS | Recruiting",
     template: "%s | TRS",
   },
   description:
-    "Full-service recruiting, staffing, and executive search for high-growth companies in cybersecurity, SaaS, infrastructure, and PE-backed businesses. Average time to shortlist under 9 days.",
+    "Full-service recruiting and executive search partner for technical companies in cybersecurity, defense, infrastructure, and deep tech. GTM, engineering, and specialized, hard to fill roles.",
   metadataBase: new URL("https://trsolutions.io"),
   icons: {
     icon: [
@@ -24,18 +24,18 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "TRS | Recruiting, Staffing & Executive Search",
+    title: "TRS | Recruiting",
     description:
-      "Full-service recruiting, staffing, and executive search for high-growth companies in cybersecurity, SaaS, infrastructure, and PE-backed businesses. Average time to shortlist under 9 days.",
+      "Full-service recruiting and executive search partner for technical companies in cybersecurity, defense, infrastructure, and deep tech. GTM, engineering, and specialized, hard to fill roles.",
     url: "https://trsolutions.io",
     siteName: "TRS",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "TRS | Recruiting, Staffing & Executive Search",
+    title: "TRS | Recruiting",
     description:
-      "Full-service recruiting, staffing, and executive search for high-growth companies in cybersecurity, SaaS, infrastructure, and PE-backed businesses. Average time to shortlist under 9 days.",
+      "Full-service recruiting and executive search partner for technical companies in cybersecurity, defense, infrastructure, and deep tech. GTM, engineering, and specialized, hard to fill roles.",
   },
 };
 
