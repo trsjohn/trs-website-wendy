@@ -5,12 +5,16 @@ import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { getRoles, submitApplication, type Role as ApiRole } from "@/lib/api";
+import { getRoles, type Role as ApiRole } from "@/lib/api";
 import JDPanel from "./JDPanel";
 import { Button } from "@/components/ui/Button";
 import { toast } from "sonner";
 
 type Role = ApiRole;
+
+const SUPABASE_URL = "https://tkxavfnnphflkzqcjxdd.supabase.co/functions/v1/submit-application";
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRreGF2Zm5ucGhmbGt6cWNqeGRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4OTc4MjIsImV4cCI6MjA2MzQ3MzgyMn0.CWzE4q6e4mBnmhk5bkkZ7pkQRZcm53ZnvgQ8P6MB2SY";
 
 const ApplicationSchema = z.object({
   roleId: z.string().min(1, "Please choose a role"),
@@ -25,7 +29,21 @@ const ApplicationSchema = z.object({
 
 type ApplicationValues = z.infer<typeof ApplicationSchema>;
 
-const inputClass = "border border-zinc-700 bg-zinc-900 text-white placeholder-zinc-500 p-2 w-full rounded focus:outline-none focus:ring-1 focus:ring-brand";
+const inputClass =
+  "border border-zinc-700 bg-zinc-900 text-white placeholder-zinc-500 p-2 w-full rounded focus:outline-none focus:ring-1 focus:ring-brand";
+
+async function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result as string;
+      // Strip the data URL prefix (e.g. "data:application/pdf;base64,")
+      resolve(result.split(",")[1]);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
 
 export default function ApplyForm() {
   const searchParams = useSearchParams();
@@ -55,21 +73,33 @@ export default function ApplyForm() {
   } = useForm<ApplicationValues>({ resolver });
 
   const onSubmit = async (values: ApplicationValues) => {
-    const role = roles.find((r) => r.id === values.roleId);
-    if (!role) {
-      return;
-    }
     try {
-      await submitApplication({
-        role_id: role.id,
-        role_title: role.title,
-        client_name: "",
-        name: values.name,
-        email: values.email,
-        linkedin: values.linkedin || undefined,
-        why: values.why,
-        resume: values.resume,
+      const file_data = await fileToBase64(values.resume);
+
+      const res = await fetch(SUPABASE_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          apikey: SUPABASE_ANON_KEY,
+        },
+        body: JSON.stringify({
+          req_id: values.roleId,
+          full_name: values.name,
+          email: values.email,
+          linkedin_url: values.linkedin || undefined,
+          interest_reason: values.why,
+          file_data,
+          file_name: values.resume.name,
+        }),
       });
+
+      if (!res.ok) {
+        const error = await res.text();
+        console.error("Submission error:", error);
+        throw new Error("Submission failed");
+      }
+
       toast.success("Application submitted!");
       reset();
       setSelectedRole(null);
@@ -81,7 +111,6 @@ export default function ApplyForm() {
 
   const roleId = watch("roleId");
 
-  // Handle URL parameter for pre-selecting role
   useEffect(() => {
     const preselectedRoleId = searchParams.get("role");
     if (preselectedRoleId && roles.length > 0) {
@@ -101,10 +130,7 @@ export default function ApplyForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div>
         <label className="block mb-2 font-medium">Select Role</label>
-        <select
-          {...register("roleId")}
-          className={inputClass}
-        >
+        <select {...register("roleId")} className={inputClass}>
           <option value="">Choose a role...</option>
           {roles.map((role) => {
             const displayTitle = role.title.split("—")[0]?.trim() || role.title;
@@ -124,11 +150,7 @@ export default function ApplyForm() {
 
       <div>
         <label className="block mb-2 font-medium">Full Name</label>
-        <input
-          type="text"
-          {...register("name")}
-          className={inputClass}
-        />
+        <input type="text" {...register("name")} className={inputClass} />
         {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name.message}</p>}
       </div>
 
