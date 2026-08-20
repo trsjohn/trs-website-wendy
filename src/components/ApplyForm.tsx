@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -49,6 +49,7 @@ export default function ApplyForm() {
   const searchParams = useSearchParams();
   const [roles, setRoles] = useState<Role[]>([]);
   const [selectedRole, setSelectedRole] = useState<Role | null>(null);
+  const resumeInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     async function loadRoles() {
@@ -103,6 +104,8 @@ export default function ApplyForm() {
       toast.success("Application submitted!");
       reset();
       setSelectedRole(null);
+      // reset() clears form state but not the uncontrolled file input's DOM value
+      if (resumeInputRef.current) resumeInputRef.current.value = "";
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong. Please try again.");
@@ -110,6 +113,7 @@ export default function ApplyForm() {
   };
 
   const roleId = watch("roleId");
+  const resumeFile = watch("resume");
 
   useEffect(() => {
     const preselectedRoleId = searchParams.get("role");
@@ -175,15 +179,35 @@ export default function ApplyForm() {
       </div>
 
       <div>
-        <label className="block mb-2 font-medium">Upload Resume (PDF)</label>
-        <input
-          type="file"
-          accept="application/pdf,.pdf"
-          onChange={(e) => {
-            const file = e.target.files?.[0];
-            if (file) setValue("resume", file, { shouldValidate: true });
-          }}
-        />
+        <label htmlFor="resume" className="block mb-2 font-medium">
+          Upload Resume (PDF)
+        </label>
+        <div className="flex flex-wrap items-center gap-3">
+          <label
+            htmlFor="resume"
+            className="inline-flex h-10 cursor-pointer items-center justify-center rounded-md border border-white/20 px-4 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-within:ring-2 focus-within:ring-white/20"
+          >
+            {resumeFile ? "Change file" : "Choose PDF"}
+            <input
+              id="resume"
+              ref={resumeInputRef}
+              type="file"
+              accept="application/pdf,.pdf"
+              className="sr-only"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) setValue("resume", file, { shouldValidate: true });
+              }}
+            />
+          </label>
+          <span
+            className={`min-w-0 flex-1 truncate text-sm ${
+              resumeFile ? "text-zinc-300" : "text-zinc-500"
+            }`}
+          >
+            {resumeFile ? resumeFile.name : "No file selected"}
+          </span>
+        </div>
         {errors.resume && (
           <p className="text-red-400 text-sm mt-1">{errors.resume.message}</p>
         )}
