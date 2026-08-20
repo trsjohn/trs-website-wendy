@@ -8,7 +8,11 @@ if (!OPENAI_API_KEY) {
   console.error("[templatize-jd] OPENAI_API_KEY is missing");
 }
 
-const client = new OpenAI({ apiKey: OPENAI_API_KEY });
+// Built on first request rather than at module load. The SDK constructor throws
+// when the key is undefined, which killed `next build` during page-data
+// collection before the missing-key check in the handler could return its 500.
+let client: OpenAI | null = null;
+const getClient = () => (client ??= new OpenAI({ apiKey: OPENAI_API_KEY }));
 
 type Output = {
   trs_jd_about_company: string;
@@ -152,7 +156,7 @@ export async function POST(req: Request) {
     ].filter(Boolean).join("\n\n");
 
     const resp = await withRetries(() =>
-      client.responses.create({
+      getClient().responses.create({
         model: "gpt-4o-mini",
         temperature: 0.2,
         input: [
