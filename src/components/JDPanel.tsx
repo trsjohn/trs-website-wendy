@@ -1,27 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { PublicJd } from "@/lib/publicJds";
 
 interface JDPanelProps {
-  role: {
-    id: string;
-    title: string;
-    client?: string;
-    location?: string | null;
-    comp?: string | null;
-    jd_text?: string;
-  };
+  role: PublicJd;
 }
-
-// Anonymized JD PDFs are published to a public bucket keyed on the req id, so
-// the URL is derivable from data we already have — no auth, no lookup call.
-const jdPdfUrl = (reqId: string) =>
-  `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/public-jds/${reqId}.pdf`;
 
 type PdfState = "checking" | "ready" | "missing";
 
 export default function JDPanel({ role }: JDPanelProps) {
-  const pdfUrl = jdPdfUrl(role.id);
+  const pdfUrl = role.pdf_url;
   const [pdfState, setPdfState] = useState<PdfState>("checking");
 
   useEffect(() => {
@@ -43,21 +32,14 @@ export default function JDPanel({ role }: JDPanelProps) {
     };
   }, [pdfUrl]);
 
+  const meta = [role.location, role.work_arrangement, role.contract_type].filter(Boolean);
+
   return (
     <div className="rounded-2xl border border-neutral-800 p-4 bg-black/60 text-white shadow-sm">
-      <h2 className="font-semibold text-lg mb-1">
-        {role.title}
-        {role.client ? <> — {role.client}</> : null}
-      </h2>
-      {role.location && <p className="text-sm text-gray-300 mb-1">📍 {role.location}</p>}
-      {role.comp && <p className="text-sm text-gray-300 mb-3">💰 {role.comp}</p>}
-
-      {role.jd_text ? (
-        <section className="text-sm">
-          <h3 className="font-semibold mb-1">Job Description</h3>
-          <pre className="whitespace-pre-wrap opacity-90">{role.jd_text}</pre>
-        </section>
-      ) : null}
+      <h2 className="font-semibold text-lg mb-1">{role.job_title}</h2>
+      {meta.length > 0 && (
+        <p className="text-sm text-gray-300 mb-3">{meta.join(" · ")}</p>
+      )}
 
       <section className="mt-4">
         <h3 className="font-semibold mb-3 text-white">Job Description</h3>
@@ -75,9 +57,9 @@ export default function JDPanel({ role }: JDPanelProps) {
                 The fallback link below deliberately omits these so the full
                 viewer is available in a real tab. */}
             <iframe
-              key={role.id}
+              key={role.req_id}
               src={`${pdfUrl}#navpanes=0&view=FitH`}
-              title={`${role.title} job description`}
+              title={`${role.job_title} job description`}
               className="h-[600px] w-full rounded-xl border border-neutral-700 bg-neutral-900"
             />
             {/* iOS Safari frequently refuses to render a PDF in an iframe, so

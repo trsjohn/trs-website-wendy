@@ -1,16 +1,14 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { getRoles, type Role as ApiRole } from "@/lib/api";
+import { getPublicJds, type PublicJd } from "@/lib/publicJds";
 import JDPanel from "./JDPanel";
 import { Button } from "@/components/ui/Button";
 import { toast } from "sonner";
-
-type Role = ApiRole;
 
 const SUPABASE_URL = "https://tkxavfnnphflkzqcjxdd.supabase.co/functions/v1/submit-application";
 const SUPABASE_ANON_KEY =
@@ -47,14 +45,15 @@ async function fileToBase64(file: File): Promise<string> {
 
 export default function ApplyForm() {
   const searchParams = useSearchParams();
-  const [roles, setRoles] = useState<Role[]>([]);
-  const [selectedRole, setSelectedRole] = useState<Role | null>(null);
+  const router = useRouter();
+  const [roles, setRoles] = useState<PublicJd[]>([]);
+  const [selectedRole, setSelectedRole] = useState<PublicJd | null>(null);
   const resumeInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     async function loadRoles() {
       try {
-        const data = await getRoles();
+        const data = await getPublicJds();
         setRoles(data);
       } catch (err) {
         console.error("Error fetching roles:", err);
@@ -118,7 +117,7 @@ export default function ApplyForm() {
   useEffect(() => {
     const preselectedRoleId = searchParams.get("role");
     if (preselectedRoleId && roles.length > 0) {
-      const role = roles.find((r) => r.id === preselectedRoleId);
+      const role = roles.find((r) => r.req_id === preselectedRoleId);
       if (role) {
         setValue("roleId", preselectedRoleId, { shouldValidate: true });
       }
@@ -126,9 +125,20 @@ export default function ApplyForm() {
   }, [roles, searchParams, setValue]);
 
   useEffect(() => {
-    const role = roles.find((r) => r.id === roleId) || null;
+    const role = roles.find((r) => r.req_id === roleId) || null;
     setSelectedRole(role);
   }, [roleId, roles]);
+
+  // Mirror the chosen role back into the URL so the address bar is always a
+  // shareable link to that specific posting. replace() rather than push() so
+  // browsing the dropdown doesn't stack history entries the user has to click
+  // back through to leave the page.
+  useEffect(() => {
+    if (!roleId || searchParams.get("role") === roleId) return;
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("role", roleId);
+    router.replace(`?${params.toString()}`, { scroll: false });
+  }, [roleId, router, searchParams]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -137,9 +147,9 @@ export default function ApplyForm() {
         <select {...register("roleId")} className={inputClass}>
           <option value="">Choose a role...</option>
           {roles.map((role) => {
-            const displayTitle = role.title.split("—")[0]?.trim() || role.title;
+            const displayTitle = role.job_title.split("—")[0]?.trim() || role.job_title;
             return (
-              <option key={role.id} value={role.id}>
+              <option key={role.req_id} value={role.req_id}>
                 {displayTitle}
               </option>
             );
