@@ -36,14 +36,12 @@ export default function JDPanel({ role }: JDPanelProps) {
 
   return (
     <div className="rounded-2xl border border-neutral-800 p-4 bg-black/60 text-white shadow-sm">
-      <h2 className="font-semibold text-lg mb-1">{role.job_title}</h2>
+      <h2 className="font-job-title text-lg mb-1">{role.job_title}</h2>
       {meta.length > 0 && (
         <p className="text-sm text-gray-300 mb-3">{meta.join(" · ")}</p>
       )}
 
       <section className="mt-4">
-        <h3 className="font-semibold mb-3 text-white">Job Description</h3>
-
         {pdfState === "checking" && (
           <div className="flex h-24 items-center justify-center rounded-xl border border-neutral-700 bg-neutral-900 text-sm text-neutral-400">
             Loading job description…

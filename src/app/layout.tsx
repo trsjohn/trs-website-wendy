@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 // import { Sora, Plus_Jakarta_Sans } from "next/font/google";
 import { Toasts } from "@/components/Toasts";
-import { Bebas_Neue, DM_Sans } from "next/font/google";
+import { Bebas_Neue, DM_Sans, Sora } from "next/font/google";
 
 export const metadata: Metadata = {
   title: {
@@ -54,6 +54,15 @@ const bodyFont = DM_Sans({
   variable: "--font-body",
 });
 
+// Job posting titles only. Bebas Neue ships a single 400 weight, so asking it
+// for a heavy weight made the browser fake one, which is what read as chunky.
+const jobTitleFont = Sora({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "700",
+  variable: "--font-job-title",
+});
+
 
 // Body: Plus Jakarta Sans (modern, clean). Headings: Sora (bold, futuristic)
 // const bodyFont = Plus_Jakarta_Sans({
@@ -73,7 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${bodyFont.variable} ${headingFont.variable} ${bodyFont.className}`}
+      className={`${bodyFont.variable} ${headingFont.variable} ${jobTitleFont.variable} ${bodyFont.className}`}
     >
       <body className="min-h-screen bg-neutral-950 text-neutral-100">
         <Toasts />

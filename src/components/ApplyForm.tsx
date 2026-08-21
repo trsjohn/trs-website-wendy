@@ -5,8 +5,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { getPublicJds, type PublicJd } from "@/lib/publicJds";
+import { getPublicJds, groupByDepartment, type PublicJd } from "@/lib/publicJds";
 import JDPanel from "./JDPanel";
+import RoleSelect from "./RoleSelect";
 import { Button } from "@/components/ui/Button";
 import { toast } from "sonner";
 
@@ -113,6 +114,7 @@ export default function ApplyForm() {
 
   const roleId = watch("roleId");
   const resumeFile = watch("resume");
+  const roleGroups = useMemo(() => groupByDepartment(roles), [roles]);
 
   useEffect(() => {
     const preselectedRoleId = searchParams.get("role");
@@ -144,17 +146,16 @@ export default function ApplyForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div>
         <label className="block mb-2 font-medium">Select Role</label>
-        <select {...register("roleId")} className={inputClass}>
-          <option value="">Choose a role...</option>
-          {roles.map((role) => {
-            const displayTitle = role.job_title.split("—")[0]?.trim() || role.job_title;
-            return (
-              <option key={role.req_id} value={role.req_id}>
-                {displayTitle}
-              </option>
-            );
-          })}
-        </select>
+        {/* RoleSelect is a custom listbox rather than a <select>, so the value
+            lives in a registered hidden input to keep react-hook-form's
+            validation and reset() behaviour wired up unchanged. */}
+        <input type="hidden" {...register("roleId")} />
+        <RoleSelect
+          groups={roleGroups}
+          value={roleId ?? ""}
+          onChange={(reqId) => setValue("roleId", reqId, { shouldValidate: true })}
+          invalid={!!errors.roleId}
+        />
         {errors.roleId && (
           <p className="text-red-400 text-sm mt-1">{errors.roleId.message}</p>
         )}

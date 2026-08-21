@@ -1,63 +1,55 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { getRoles, type Role } from "@/lib/api";
+import {
+  formatExperience,
+  formatSalary,
+  getPublicJds,
+  groupByDepartment,
+  type PublicJd,
+} from "@/lib/publicJds";
 import { Button } from "@/components/ui/Button";
-import { normalizeJD } from "@/lib/types";
 import TagBubbles from "@/components/TagBubbles";
 
-interface JobData {
-  client?: string;
-  location?: string;
-  compensation?: string;
-  contract_type?: string;
-}
+function JobDetails({ role }: { role: PublicJd }) {
+  const details: [string, string][] = [];
 
-function JobDetails({ sourceJdJson }: { sourceJdJson: unknown }) {
-  if (!sourceJdJson || typeof sourceJdJson !== 'object' || sourceJdJson === null) {
-    return null;
-  }
+  const place = [role.location, role.work_arrangement].filter(Boolean).join(" · ");
+  if (place) details.push(["Location", place]);
+  if (role.contract_type) details.push(["Type", role.contract_type]);
 
-  const jobData = sourceJdJson as Record<string, unknown>;
-  const details: JobData = {
-    client: typeof jobData.client === 'string' ? jobData.client : undefined,
-    location: typeof jobData.location === 'string' ? jobData.location : undefined,
-    compensation: typeof jobData.compensation === 'string' ? jobData.compensation : undefined,
-    contract_type: typeof jobData.contract_type === 'string' ? jobData.contract_type : undefined,
-  };
+  const compensation = formatSalary(role.salary);
+  if (compensation) details.push(["Compensation", compensation]);
 
-  const hasAnyDetails = Object.values(details).some(value => value !== undefined);
-  if (!hasAnyDetails) return null;
+  const experience = formatExperience(role.years_experience);
+  if (experience) details.push(["Experience", experience]);
+
+  if (details.length === 0) return null;
 
   return (
     <div className="space-y-1 text-sm text-neutral-400 mt-3">
-      {details.client && (
-        <p><span className="text-neutral-500 uppercase tracking-widest text-xs">Client </span>{details.client}</p>
-      )}
-      {details.location && (
-        <p><span className="text-neutral-500 uppercase tracking-widest text-xs">Location </span>{details.location}</p>
-      )}
-      {details.compensation && (
-        <p><span className="text-neutral-500 uppercase tracking-widest text-xs">Compensation </span>{details.compensation}</p>
-      )}
-      {details.contract_type && (
-        <p><span className="text-neutral-500 uppercase tracking-widest text-xs">Type </span>{details.contract_type}</p>
-      )}
+      {details.map(([label, value]) => (
+        <p key={label}>
+          <span className="text-neutral-500 uppercase tracking-widest text-xs">{label} </span>
+          {value}
+        </p>
+      ))}
     </div>
   );
 }
 
 export default function RolesPage() {
-  const [roles, setRoles] = useState<Role[]>([]);
+  const [roles, setRoles] = useState<PublicJd[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const groups = useMemo(() => groupByDepartment(roles), [roles]);
 
   useEffect(() => {
     async function loadRoles() {
       try {
         setLoading(true);
-        const data = await getRoles();
+        const data = await getPublicJds();
         setRoles(data);
       } catch (err) {
         console.error("Error fetching roles:", err);
@@ -138,42 +130,48 @@ export default function RolesPage() {
             </p>
           </div>
         ) : (
-          <div className="divide-y divide-white/10 border-t border-b border-white/10">
-            {roles.map((role) => {
-              const displayTitle = role.title.split("—")[0]?.trim() || role.title;
-
-              let tags: string[] = [];
-              if (role.sourceJdJson) {
-                try {
-                  const normalizedJD = normalizeJD(role.sourceJdJson);
-                  tags = normalizedJD.tags || [];
-                } catch (error) {
-                  console.error("Error normalizing JD for tags:", error);
-                }
-              }
-
-              return (
-                <div
-                  key={role.id}
-                  className="py-8 flex flex-col sm:flex-row sm:items-center gap-6 hover:bg-white/[0.02] transition-colors px-2 -mx-2"
-                >
-                  <div className="flex-1 min-w-0">
-                    <h2 className="text-lg font-black uppercase tracking-wide text-white mb-2">
-                      {displayTitle}
-                    </h2>
-                    <TagBubbles tags={tags} className="mb-1" />
-                    <JobDetails sourceJdJson={role.sourceJdJson} />
-                  </div>
-                  <div className="shrink-0">
-                    <Link href={`/apply?role=${role.id}`}>
-                      <Button className="h-10 px-6 font-bold uppercase tracking-wider text-sm">
-                        Apply Now
-                      </Button>
-                    </Link>
-                  </div>
+          <div className="space-y-16">
+            {groups.map((group) => (
+              <div key={group.department}>
+                <div className="flex items-baseline gap-3 mb-3">
+                  <h2 className="font-job-title text-sm uppercase tracking-widest text-red-500">
+                    {group.department}
+                  </h2>
+                  <span className="text-xs text-neutral-600">
+                    {group.roles.length} {group.roles.length === 1 ? "role" : "roles"}
+                  </span>
                 </div>
-              );
-            })}
+
+                <div className="divide-y divide-white/10 border-t border-b border-white/10">
+                  {group.roles.map((role) => {
+                    const displayTitle =
+                      role.job_title.split("—")[0]?.trim() || role.job_title;
+
+                    return (
+                      <div
+                        key={role.req_id}
+                        className="py-8 flex flex-col sm:flex-row sm:items-center gap-6 hover:bg-white/[0.02] transition-colors px-2 -mx-2"
+                      >
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-job-title text-lg uppercase tracking-wide text-white mb-2">
+                            {displayTitle}
+                          </h3>
+                          <TagBubbles tags={role.tags} className="mb-1" />
+                          <JobDetails role={role} />
+                        </div>
+                        <div className="shrink-0">
+                          <Link href={`/apply?role=${role.req_id}`}>
+                            <Button className="h-10 px-6 font-bold uppercase tracking-wider text-sm">
+                              Apply Now
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </section>

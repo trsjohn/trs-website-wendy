@@ -56,6 +56,15 @@ h6 {
     Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
+/* Job posting titles. Overrides the h1-h6 rule above, which points at Bebas
+   Neue — that face has only a 400 weight, so any bold request against it gets
+   synthesized by the browser and reads as smeared. Sora ships a real 700. */
+.font-job-title {
+  font-family: var(--font-job-title), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
 /* Smooth scroll for in-page anchors */
 html:focus-within {
   scroll-behavior: smooth;
